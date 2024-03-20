@@ -1,4 +1,4 @@
-import { cn } from '@/app/lib/utils';
+import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Front-end developer with strong UI/UX skills. Proficient in building beautiful, user-friendly interfaces using React.js, Next.js, and Tailwind CSS.',
   authors: [{ name: 'CarboxyDev', url: 'https://carboxy.tech' }],
   category: 'personal',
-  colorScheme: 'light',
+  colorScheme: 'dark',
   keywords: ['portfolio', 'personal', 'projects'],
   metadataBase: new URL('https://carboxy.tech'),
   openGraph: {
@@ -43,7 +43,7 @@ export default function RootLayout({
         className={cn(
           textFont.className,
           process.env.NODE_ENV == 'development' && 'debug-screens',
-          'bg-zinc-950 text-white antialiased'
+          'bg-zinc-950 text-sm text-white antialiased'
         )}
       >
         {children}
