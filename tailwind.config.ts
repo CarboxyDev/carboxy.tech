@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         base: colors.zinc,
-        primary: { ...colors.indigo, default: colors.indigo[500] },
+        primary: { ...colors.violet, DEFAULT: colors.violet[500] },
       },
       spacing: {
         15: '60px',

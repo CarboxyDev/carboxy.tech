@@ -31,7 +31,7 @@ const projects = [
   },
 ];
 
-export const config = {
+export const CONFIG = {
   links,
   projects,
 };

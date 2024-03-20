@@ -1,8 +1,14 @@
+import { HeroSection } from '@/app/(home)/hero';
+import { cn } from '@/lib/utils';
+
 export default function HomePage() {
   return (
-    <main className="mx-6">
-      <div className="mt-44"></div>
-      <div className="mb-40 mt-80 flex flex-col gap-y-28 md:mt-120 md:gap-y-36"></div>
+    <main
+      className={cn(
+        'mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col px-6 py-36 sm:px-24 sm:py-40 md:px-32 md:py-48 lg:px-64 xl:px-96'
+      )}
+    >
+      <HeroSection />
     </main>
   );
 }
