@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { Open_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
-const textFont = Open_Sans({ subsets: ['latin'] });
+const textFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'CarboxyDev',
@@ -43,7 +43,7 @@ export default function RootLayout({
         className={cn(
           textFont.className,
           process.env.NODE_ENV == 'development' && 'debug-screens',
-          'bg-zinc-950 text-sm text-white antialiased'
+          'bg-[#101012] text-sm text-white antialiased'
         )}
       >
         {children}

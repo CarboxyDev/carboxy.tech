@@ -1,17 +1,31 @@
-import type { Config } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors');
 
-const config: Config = {
+module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        base: colors.zinc,
-        primary: { ...colors.violet, DEFAULT: colors.violet[500] },
+        zinc: {
+          ...colors.zinc,
+          550: '#5F5F65',
+        },
+        primary: { ...colors.emerald, DEFAULT: colors.emerald[500] },
+        success: colors.emerald,
+        danger: colors.red,
+        warning: colors.amber,
+        meta: '#0081FB',
+        muted: '#F5F5F5',
+        accent: {
+          ...colors.zinc,
+          DEFAULT: colors.zinc[100],
+        },
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
       },
       spacing: {
         15: '60px',
@@ -40,9 +54,11 @@ const config: Config = {
         190: '760px',
         200: '800px',
       },
+      keyframes: {},
+      animation: {
+        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
   },
   plugins: [require('tailwindcss-debug-screens')],
 };
-
-export default config;

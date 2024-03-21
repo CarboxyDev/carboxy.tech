@@ -1,4 +1,5 @@
 import { HeroSection } from '@/app/(home)/hero';
+import { ProjectSection } from '@/app/(home)/projects';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -9,6 +10,9 @@ export default function HomePage() {
       )}
     >
       <HeroSection />
+      <div className="mt-36">
+        <ProjectSection />
+      </div>
     </main>
   );
 }
