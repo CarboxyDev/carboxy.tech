@@ -44,63 +44,47 @@ export const SkillsSection = () => {
     <div>
       <SectionHeading title="Technical Skills" />
       <div className="mt-40">
-        <h3 className="text-4xl font-semibold text-primary-500">Frontend</h3>
+        <h3 className="text-2xl font-semibold text-primary-500 lg:text-4xl">
+          Frontend
+        </h3>
       </div>
-      <div className="mt-9">
-        <div className="flex gap-x-2">
-          <TechBadge
-            label="React.js"
-            icon={<ReactLogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="Next.js"
-            icon={<NextjsLogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="Typescript"
-            icon={<TypescriptLogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="Javascript"
-            icon={<JavascriptLogo className="h-6 w-6" />}
-          />
-        </div>
-        <div className="mt-2 flex gap-x-2">
-          <TechBadge
-            label="TailwindCSS"
-            icon={<TailwindLogo className="h-6 w-6" />}
-          />
-          <TechBadge label="HTML" icon={<HTMLLogo className="h-6 w-6" />} />
-          <TechBadge label="CSS" icon={<CSSLogo className="h-6 w-6" />} />
-          <MoreBadge />
-        </div>
+      <div className="mt-9 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
+        <TechBadge label="React.js" icon={<ReactLogo className="h-6 w-6" />} />
+        <TechBadge label="Next.js" icon={<NextjsLogo className="h-6 w-6" />} />
+        <TechBadge
+          label="Typescript"
+          icon={<TypescriptLogo className="h-6 w-6" />}
+        />
+        <TechBadge
+          label="Javascript"
+          icon={<JavascriptLogo className="h-6 w-6" />}
+        />
+        <TechBadge
+          label="TailwindCSS"
+          icon={<TailwindLogo className="h-6 w-6" />}
+        />
+        <TechBadge label="HTML" icon={<HTMLLogo className="h-6 w-6" />} />
+        <TechBadge label="CSS" icon={<CSSLogo className="h-6 w-6" />} />
+        <MoreBadge />
       </div>
       <div className="mt-30">
-        <h3 className="text-4xl font-semibold text-primary-500">Backend</h3>
+        <h3 className="text-2xl font-semibold text-primary-500 lg:text-4xl">
+          Backend
+        </h3>
       </div>
-      <div className="mt-9">
-        <div className="flex gap-x-2">
-          <TechBadge
-            label="Node.js"
-            icon={<NodejsLogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="Express.js"
-            icon={<ExpressjsLogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="REST API"
-            icon={<RestAPILogo className="h-6 w-6" />}
-          />
-          <TechBadge
-            label="GraphQL"
-            icon={<GraphQLLogo className="h-6 w-6" />}
-          />
-        </div>
-        <div className="mt-2 flex gap-x-2">
-          <TechBadge label="SQL" icon={<SQLLogo className="h-6 w-6" />} />
-          <MoreBadge />
-        </div>
+      <div className="mt-9 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
+        <TechBadge label="Node.js" icon={<NodejsLogo className="h-6 w-6" />} />
+        <TechBadge
+          label="Express.js"
+          icon={<ExpressjsLogo className="h-6 w-6" />}
+        />
+        <TechBadge
+          label="REST API"
+          icon={<RestAPILogo className="h-6 w-6" />}
+        />
+        <TechBadge label="GraphQL" icon={<GraphQLLogo className="h-6 w-6" />} />
+        <TechBadge label="SQL" icon={<SQLLogo className="h-6 w-6" />} />
+        <MoreBadge />
       </div>
     </div>
   );
