@@ -6,7 +6,7 @@ interface Props {
 
 export const SocialButton = (props: Props) => {
   return (
-    <a href={props.url} about={props.site + ' social link'}>
+    <a href={props.url} target="_blank" about={props.site + ' social link'}>
       <button
         title={props.site}
         className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 hover:cursor-pointer"

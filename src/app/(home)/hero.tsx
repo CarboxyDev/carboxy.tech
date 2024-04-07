@@ -1,6 +1,7 @@
 import { HighlightText } from '@/components/Atoms';
 import { GithubIcon } from '@/components/Icons';
 import { Button } from '@/components/vendor/button';
+import { CONFIG } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { Outfit } from 'next/font/google';
 
@@ -27,10 +28,12 @@ export const HeroSection = () => {
         technologies like React.js, Next.js.
       </div>
       <div className="mt-6">
-        <Button className="h-15 select-none gap-x-3 bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15 ">
-          <GithubIcon className="h-7 w-7" />
-          <span className="text-xl font-medium">Github</span>
-        </Button>
+        <a href={CONFIG.links.github} target="_blank">
+          <Button className="h-15 select-none gap-x-3 bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15 ">
+            <GithubIcon className="h-7 w-7" />
+            <span className="text-xl font-medium">Github</span>
+          </Button>
+        </a>
       </div>
     </section>
   );
