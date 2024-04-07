@@ -18,11 +18,14 @@ export const Project = (props: Props) => {
 
   return (
     <section
-      className={cn('flex', align === 'left' ? 'flex-row' : 'flex-row-reverse')}
+      className={cn(
+        'flex flex-col gap-x-6',
+        align === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse' // For desktop
+      )}
     >
-      <div className={align === 'left' ? 'mr-auto' : 'ml-auto'}>
+      <div className={cn('', align === 'left' ? 'lg:mr-auto' : 'lg:ml-auto')}>
         <h3 className="text-3xl font-semibold">{title}</h3>
-        <p className="mt-7 w-100 text-base leading-7 text-zinc-300">
+        <p className="mt-7 w-80 text-base leading-7 text-zinc-300 xl:w-100">
           {description}
         </p>
         <div className="mt-9 flex gap-x-[6px]">
@@ -39,7 +42,12 @@ export const Project = (props: Props) => {
           </a>
         </div>
       </div>
-      <div className={align === 'left' ? 'ml-auto' : 'mr-auto'}>
+      <div
+        className={cn(
+          'mt-12 lg:mt-0',
+          align === 'left' ? 'lg:ml-auto' : 'lg:mr-auto'
+        )}
+      >
         <Image
           src={'/' + images[0]}
           alt={images[0]}

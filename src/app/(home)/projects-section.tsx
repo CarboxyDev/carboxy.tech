@@ -7,7 +7,7 @@ export const ProjectSection = () => {
     <section className="flex flex-col sm:mb-44">
       <SectionHeading title="Featured Projects" />
       <div className="mt-50">
-        <div className="flex flex-col gap-y-20 sm:gap-y-40">
+        <div className="flex flex-col gap-y-32 lg:gap-y-40">
           {PROJECTS.map((project, index) => {
             const align = index % 2 == 0 ? 'left' : 'right';
             return (
