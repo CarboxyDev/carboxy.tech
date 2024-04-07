@@ -1,4 +1,4 @@
-import { MailIcon, TwitterIcon } from '@/components/Icons';
+import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
 import { SocialButton } from '@/components/SocialButton';
 import { CONFIG } from '@/lib/config';
 import Image from 'next/image';
@@ -29,8 +29,11 @@ const Socials = () => {
       <SocialButton site="Email" url={CONFIG.links.email}>
         <MailIcon className="h-[18px] w-[18px] text-zinc-500" />
       </SocialButton>
-      <SocialButton site="Twitter/X" url={CONFIG.links.email}>
+      <SocialButton site="Twitter/X" url={CONFIG.links.twitter}>
         <TwitterIcon className="h-4 w-4 text-zinc-500" />
+      </SocialButton>
+      <SocialButton site="Github" url={CONFIG.links.github}>
+        <GithubIcon className="h-5 w-5 text-zinc-500" />
       </SocialButton>
     </div>
   );
