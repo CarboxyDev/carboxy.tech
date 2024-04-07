@@ -12,11 +12,11 @@ interface Props {
 
 export const SectionHeading = (props: Props) => {
   return (
-    <div className="-mx-6 flex flex-row sm:-mx-24 md:-mx-32 lg:-mx-50 2xl:-mx-64">
+    <div className="-mx-6 flex flex-row sm:-mx-24 md:-mx-32 lg:-mx-52 2xl:-mx-64">
       <div
         className={cn(
           'h-1 self-center bg-primary-500/10',
-          'w-6 sm:w-24 md:w-32 lg:w-50 2xl:w-64'
+          'w-6 sm:w-24 md:w-32 lg:w-52 2xl:w-64'
         )}
       ></div>
       <div className={cn('relative w-fit', headingFont.className)}>
