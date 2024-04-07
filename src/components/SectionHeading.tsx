@@ -20,8 +20,8 @@ export const SectionHeading = (props: Props) => {
         )}
       ></div>
       <div className={cn('relative w-fit', headingFont.className)}>
-        <div className="rounded-lg bg-primary-500/10 px-25 py-12">
-          <h2 className="text-4xl font-semibold text-primary-500">
+        <div className="rounded-lg bg-primary-500/10 px-12 py-6 md:px-25 md:py-12">
+          <h2 className="text-2xl font-semibold text-primary-500 md:text-4xl">
             {props.title}
           </h2>
         </div>
