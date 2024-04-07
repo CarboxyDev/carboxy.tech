@@ -12,7 +12,7 @@ export const ProjectSection = () => {
             const align = index % 2 == 0 ? 'left' : 'right';
             return (
               <Project
-                key={project.title}
+                key={index}
                 title={project.title}
                 description={project.description}
                 href={project.href}

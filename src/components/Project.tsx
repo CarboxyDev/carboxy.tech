@@ -29,8 +29,8 @@ export const Project = (props: Props) => {
           {description}
         </p>
         <div className="mt-9 flex gap-x-[6px]">
-          {tags.map((tag) => {
-            return <ProjectTag label={tag} />;
+          {tags.map((tag, index) => {
+            return <ProjectTag key={index} label={tag} />;
           })}
         </div>
         <div className="mt-8">
