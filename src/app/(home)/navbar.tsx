@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Details = () => {
   return (
-    <div className="mr-auto flex flex-row gap-x-6">
+    <div className="mr-auto flex flex-row gap-x-3 sm:gap-x-6">
       <div className="mr-auto">
         <Image
           src={'/logo.png'}
@@ -15,7 +15,7 @@ const Details = () => {
           className="rounded-full"
         />
       </div>
-      <div className="ml-auto flex flex-col">
+      <div className="ml-auto flex flex-col text-sm sm:text-base">
         <div className="font-medium">CarboxyDev</div>
         <div className="text-zinc-500">Full-stack Developer</div>
       </div>

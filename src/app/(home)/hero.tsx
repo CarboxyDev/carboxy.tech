@@ -12,11 +12,16 @@ const headingFont = Outfit({
 export const HeroSection = () => {
   return (
     <section className="flex flex-col">
-      <div className={cn('text-4xl font-semibold', headingFont.className)}>
+      <div
+        className={cn(
+          'text-3xl font-semibold md:text-4xl',
+          headingFont.className
+        )}
+      >
         <h1 className="text-zinc-50">Turning Visions into Reality.</h1>
         <h1 className="text-stone-500">Building Extraordinary Websites.</h1>
       </div>
-      <div className="mt-7 w-[640px] text-lg text-zinc-200">
+      <div className="mt-7 text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[640px]">
         Full-stack developer with powerful UI/UX skills. Proficient in creating{' '}
         <HighlightText>beautiful, responsive</HighlightText> interfaces using
         technologies like React.js, Next.js.
