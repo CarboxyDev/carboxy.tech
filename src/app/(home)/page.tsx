@@ -1,6 +1,6 @@
 import { HeroSection } from '@/app/(home)/hero';
 import { Navbar } from '@/app/(home)/navbar';
-import { ProjectSection } from '@/app/(home)/projects';
+import { ProjectSection } from '@/app/(home)/projects-section';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {

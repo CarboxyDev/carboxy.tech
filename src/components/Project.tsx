@@ -1,60 +1,72 @@
-import { Badge } from '@/components/Atoms';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/vendor/carousel';
+import { Button } from '@/components/vendor/button';
+import { cn } from '@/lib/utils';
+import { GlobeIcon } from '@radix-ui/react-icons';
+import { DM_Mono } from 'next/font/google';
 import Image from 'next/image';
 
-type ProjectProps = {
+interface Props {
   title: string;
   description: string;
   href: string;
   tags: string[];
   images: string[];
-};
+  align: 'left' | 'right';
+}
 
-const Project = (props: ProjectProps) => {
-  const { href, title, description, tags, images } = props;
+export const Project = (props: Props) => {
+  const { href, title, description, tags, images, align } = props;
 
   return (
-    <section className="flex flex-col">
-      <a target="_blank" href={href} className="group mb-5 flex w-fit">
-        <h2 className="text-3xl font-semibold text-zinc-50 underline-offset-4 group-hover:underline">
-          {title}
-        </h2>
-        <span className="ml-2 -rotate-45">-{'>'}</span>
-      </a>
-      <p className="mb-6 text-lg leading-8 text-zinc-400">{description}</p>
-      <div className="mb-9 flex flex-wrap gap-2.5">
-        {tags.map((tag) => (
-          <Badge key={tag} text={tag} />
-        ))}
-      </div>
-      <Carousel>
-        <CarouselContent>
-          {images.map((image, i) => (
-            <CarouselItem key={i}>
-              <Image
-                className="select-none rounded-xl border border-zinc-800"
-                src={`/${image}.png`}
-                alt={image}
-                width={800}
-                height={400}
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <p className="mt-2 animate-pulse text-right text-zinc-500 sm:hidden">
-          Swipe
+    <section
+      className={cn('flex', align === 'left' ? 'flex-row' : 'flex-row-reverse')}
+    >
+      <div className={align === 'left' ? 'mr-auto' : 'ml-auto'}>
+        <h3 className="text-3xl font-semibold">{title}</h3>
+        <p className="mt-7 w-100 text-base leading-7 text-zinc-300">
+          {description}
         </p>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+        <div className="mt-9 flex gap-x-[6px]">
+          {tags.map((tag) => {
+            return <ProjectTag label={tag} />;
+          })}
+        </div>
+        <div className="mt-8">
+          <a href={href} target="_blank">
+            <Button className="h-12 gap-x-2 rounded">
+              <GlobeIcon className="h-6 w-6" />
+              <span className="font-medium">Visit Project</span>
+            </Button>
+          </a>
+        </div>
+      </div>
+      <div className={align === 'left' ? 'ml-auto' : 'mr-auto'}>
+        <Image
+          src={'/' + images[0]}
+          alt={images[0]}
+          height={305}
+          width={540}
+          className="rounded-lg border border-zinc-800"
+        />
+      </div>
     </section>
   );
 };
 
-export default Project;
+const badgeFont = DM_Mono({
+  weight: ['500'],
+  subsets: ['latin'],
+});
+
+const ProjectTag = (props: { label: string }) => {
+  const { label } = props;
+  return (
+    <span
+      className={cn(
+        'rounded bg-primary-500/10 px-3 py-2 text-sm font-medium text-primary-500',
+        badgeFont.className
+      )}
+    >
+      {label}
+    </span>
+  );
+};
