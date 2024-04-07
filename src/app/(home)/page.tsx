@@ -2,6 +2,7 @@ import { HeroSection } from '@/app/(home)/hero';
 import { Navbar } from '@/app/(home)/navbar';
 import { ProjectSection } from '@/app/(home)/projects-section';
 import { SkillsSection } from '@/app/(home)/skills';
+import { Footer } from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -20,6 +21,9 @@ export default function HomePage() {
       </div>
       <div className="mt-56">
         <SkillsSection />
+      </div>
+      <div className="mt-48">
+        <Footer />
       </div>
     </main>
   );

@@ -1,4 +1,4 @@
-import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
+import { MailIcon, TwitterIcon } from '@/components/Icons';
 import { SocialButton } from '@/components/SocialButton';
 import { LINKS } from '@/lib/config/links';
 import Image from 'next/image';
@@ -31,9 +31,6 @@ const Socials = () => {
       </SocialButton>
       <SocialButton site="Twitter/X" url={LINKS.twitter}>
         <TwitterIcon className="h-4 w-4 text-zinc-500" />
-      </SocialButton>
-      <SocialButton site="Github" url={LINKS.github}>
-        <GithubIcon className="h-5 w-5 text-zinc-500" />
       </SocialButton>
     </div>
   );
