@@ -14,7 +14,7 @@ export default function HomePage() {
       <div className="mt-36">
         <HeroSection />
       </div>
-      <div className="mt-36">
+      <div className="mt-64">
         <ProjectSection />
       </div>
     </main>
