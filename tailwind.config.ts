@@ -13,10 +13,7 @@ module.exports = {
           ...colors.zinc,
           550: '#5F5F65',
         },
-        primary: { ...colors.emerald, DEFAULT: colors.emerald[500] },
-        success: colors.emerald,
-        danger: colors.red,
-        warning: colors.amber,
+        primary: { ...colors.cyan, DEFAULT: colors.cyan[500] },
         meta: '#0081FB',
         muted: '#F5F5F5',
         accent: {
