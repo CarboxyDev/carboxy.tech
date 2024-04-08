@@ -24,7 +24,7 @@ const TechBadge = (props: TechBadgeProps) => {
   const { label, icon } = props;
 
   return (
-    <span className="flex w-fit items-center gap-x-3 rounded-md bg-zinc-800 px-5 py-[14px]">
+    <span className="flex w-fit items-center gap-x-3 rounded-md bg-zinc-800 px-5 py-[14px] shadow-md">
       {icon} <span className="text-sm font-medium">{label}</span>
     </span>
   );

@@ -27,10 +27,10 @@ const Socials = () => {
   return (
     <div className="ml-auto flex gap-x-3">
       <SocialButton site="Email" url={LINKS.email}>
-        <MailIcon className="h-[18px] w-[18px] text-zinc-500" />
+        <MailIcon className="h-[18px] w-[18px] text-zinc-400" />
       </SocialButton>
       <SocialButton site="Twitter/X" url={LINKS.twitter}>
-        <TwitterIcon className="h-4 w-4 text-zinc-500" />
+        <TwitterIcon className="h-4 w-4 text-zinc-400" />
       </SocialButton>
     </div>
   );

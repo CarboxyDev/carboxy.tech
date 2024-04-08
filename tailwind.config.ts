@@ -54,9 +54,24 @@ module.exports = {
         190: '760px',
         200: '800px',
       },
-      keyframes: {},
+      keyframes: {
+        shimmer: {
+          from: { backgroundPosition: '200% 0' },
+          to: { backgroundPosition: '-200% 0' },
+        },
+        ['shine-infinite']: {
+          '0%': {
+            transform: 'skew(-12deg) translateX(-100%)',
+          },
+          '100%': {
+            transform: 'skew(-12deg) translateX(100%)',
+          },
+        },
+      },
       animation: {
         'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        shimmer: 'shimmer 8s ease-in-out infinite',
+        ['shine-infinite']: 'shine-infinite 2s ease-in-out infinite',
       },
     },
   },

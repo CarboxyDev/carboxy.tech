@@ -29,9 +29,12 @@ export const HeroSection = () => {
       </div>
       <div className="mt-6">
         <a href={LINKS.github} target="_blank">
-          <Button className="h-15 select-none gap-x-3 bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15 ">
+          <Button className="group relative h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15 ">
             <GithubIcon className="h-7 w-7" />
             <span className="text-xl font-medium">Github</span>
+            <div className="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+              <div className="relative h-full w-8 bg-primary-500/5"></div>
+            </div>
           </Button>
         </a>
       </div>
