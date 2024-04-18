@@ -24,7 +24,11 @@ export const Project = (props: Props) => {
       )}
     >
       <div className={cn('', align === 'left' ? 'lg:mr-auto' : 'lg:ml-auto')}>
-        <h3 className="text-3xl font-semibold">{title}</h3>
+        <h3 className="link link-underline link-underline-primary inline text-3xl font-semibold  hover:text-primary-400">
+          <a href={href} target="_blank">
+            {title}
+          </a>
+        </h3>
         <p className="mt-7 w-80 text-base leading-7 text-zinc-300 xl:w-100">
           {description}
         </p>
