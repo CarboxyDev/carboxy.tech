@@ -27,7 +27,7 @@ export const PROJECTS = [
     title: 'AddenAI',
     description:
       'A codeless AI solution platform for optimizing ad campaigns and boosting your growth marketing performance.',
-    href: 'https://www.adden.ai',
+    href: 'https://adden.ai/sign-in',
     images: ['adden1.png'],
     tags: ['Frontend'],
   },
