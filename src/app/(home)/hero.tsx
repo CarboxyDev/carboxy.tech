@@ -22,10 +22,10 @@ export const HeroSection = () => {
         <h1 className="text-zinc-50">Turning Visions into Reality.</h1>
         <h1 className="text-stone-500">Building Extraordinary Websites.</h1>
       </div>
-      <div className="mt-7 text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[640px]">
+      <div className="mt-7 text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[720px]">
         Full-stack developer with powerful UI/UX skills. Proficient in creating{' '}
         <HighlightText>beautiful, responsive</HighlightText> interfaces using
-        technologies like React.js, Next.js.
+        technologies like React.js, Next.js and Node.js
       </div>
       <div className="mt-6">
         <a href={LINKS.github} target="_blank">

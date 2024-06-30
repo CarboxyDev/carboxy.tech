@@ -1,5 +1,13 @@
 export const PROJECTS = [
   {
+    title: 'AddenAI',
+    description:
+      'A codeless AI solution platform for optimizing ad campaigns and boosting your growth marketing performance.',
+    href: 'https://adden.ai/sign-in',
+    images: ['adden1.png'],
+    tags: ['Frontend Lead', 'Work'],
+  },
+  {
     title: 'Effichron',
     description:
       'A minimalist time tracking tool with features like cloud sync, always-on timer, sessions history meant for seamlessly tracking your productivity.',
@@ -21,14 +29,6 @@ export const PROJECTS = [
       'An online platform for buying and selling new, used or third-party car parts in the United Arab Emirates.',
     href: 'https://scrapp.ae/',
     images: ['scrapp1.png'],
-    tags: ['Frontend'],
-  },
-  {
-    title: 'AddenAI',
-    description:
-      'A codeless AI solution platform for optimizing ad campaigns and boosting your growth marketing performance.',
-    href: 'https://adden.ai/sign-in',
-    images: ['adden1.png'],
     tags: ['Frontend'],
   },
 ];
