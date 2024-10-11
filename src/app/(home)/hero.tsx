@@ -1,8 +1,9 @@
-import { GithubIcon } from '@/components/Icons';
+'use client';
+
 import { HighlightText } from '@/components/Text';
 import { Button } from '@/components/vendor/button';
-import { LINKS } from '@/lib/config/links';
 import { cn } from '@/lib/utils';
+import { ArrowBigDownDash } from 'lucide-react';
 import { Outfit } from 'next/font/google';
 
 const headingFont = Outfit({
@@ -28,12 +29,16 @@ export const HeroSection = () => {
         technologies like React.js, Next.js and Node.js
       </div>
       <div className="mt-6">
-        <a href={LINKS.github} target="_blank">
-          <Button className="group h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15">
-            <GithubIcon className="h-7 w-7" />
-            <span className="text-xl font-medium">Github</span>
-          </Button>
-        </a>
+        <Button
+          onClick={() => {
+            const elem = document.getElementById('projects');
+            if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="group h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15"
+        >
+          <ArrowBigDownDash className="h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45" />
+          <span className="text-[16px] font-medium">Learn more</span>
+        </Button>
       </div>
     </section>
   );

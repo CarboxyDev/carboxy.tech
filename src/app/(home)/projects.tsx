@@ -4,7 +4,7 @@ import { PROJECTS } from '@/lib/config/projects';
 
 export const ProjectSection = () => {
   return (
-    <section className="flex flex-col sm:mb-44">
+    <section id="projects" className="flex flex-col sm:mb-44">
       <SectionHeading title="Featured Projects" />
       <div className="mt-50">
         <div className="flex flex-col gap-y-32 lg:gap-y-40">

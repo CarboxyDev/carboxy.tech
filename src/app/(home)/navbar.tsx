@@ -1,4 +1,4 @@
-import { MailIcon, TwitterIcon } from '@/components/Icons';
+import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
 import { SocialButton } from '@/components/SocialButton';
 import { LINKS } from '@/lib/config/links';
 import Image from 'next/image';
@@ -27,10 +27,13 @@ const Socials = () => {
   return (
     <div className="ml-auto flex gap-x-3">
       <SocialButton site="Email" url={LINKS.email}>
-        <MailIcon className="h-[18px] w-[18px] text-zinc-400" />
+        <MailIcon className="size-[18px] text-zinc-400" />
       </SocialButton>
       <SocialButton site="Twitter/X" url={LINKS.twitter}>
-        <TwitterIcon className="h-4 w-4 text-zinc-400" />
+        <TwitterIcon className="size-4 text-zinc-400" />
+      </SocialButton>
+      <SocialButton site="Github" url={LINKS.github}>
+        <GithubIcon className="size-[18px] text-zinc-400" />
       </SocialButton>
     </div>
   );
