@@ -13,6 +13,11 @@ import {
   TypescriptLogo,
 } from '@/components/Icons';
 import { SectionHeading } from '@/components/Text';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/vendor/tooltip';
 import React from 'react';
 
 interface SkillItem {
@@ -42,9 +47,19 @@ const SkillBlock = (props: SkillItem) => {
   const { label, icon } = props;
 
   return (
-    <div className="flex size-16 cursor-pointer items-center justify-center rounded-md border border-zinc-800 bg-zinc-900">
-      {React.cloneElement(icon, { className: 'size-7' })}
-    </div>
+    <Tooltip delayDuration={300}>
+      <TooltipTrigger>
+        <div className="group flex size-16 cursor-pointer items-center justify-center rounded-md border border-zinc-800 bg-zinc-900">
+          {React.cloneElement(icon, {
+            className:
+              'size-7 group-hover:size-9 transition-all duration-300 ease-in-out',
+          })}
+        </div>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p className="text-xs">{label}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
@@ -55,24 +70,22 @@ export const SkillsSection = () => {
       <div className="mt-28">
         <h3 className="font-medium text-stone-600">FRONTEND</h3>
       </div>
-      <div className="mt-6 flex w-80 flex-wrap gap-3 sm:w-140 md:w-160">
-        <SkillBlock label="React.js" icon={<ReactLogo />} />
-        <SkillBlock label="Next.js" icon={<NextjsLogo />} />
-        <SkillBlock label="Typescript" icon={<TypescriptLogo />} />
-        <SkillBlock label="Javascript" icon={<JavascriptLogo />} />
-        <SkillBlock label="TailwindCSS" icon={<TailwindLogo />} />
-        <SkillBlock label="HTML" icon={<HTMLLogo />} />
-        <SkillBlock label="CSS" icon={<CSSLogo />} />
+      <div className="mt-10 flex w-80 flex-wrap gap-3 sm:w-140 md:w-160">
+        {SKILLS_FRONTEND.map((skill, index) => {
+          return (
+            <SkillBlock key={index} label={skill.label} icon={skill.icon} />
+          );
+        })}
       </div>
       <div className="mt-16">
         <h3 className="font-medium text-stone-600">BACKEND</h3>
       </div>
-      <div className="mt-6 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
-        <SkillBlock label="Node.js" icon={<NodejsLogo />} />
-        <SkillBlock label="Express.js" icon={<ExpressjsLogo />} />
-        <SkillBlock label="REST API" icon={<RestAPILogo />} />
-        <SkillBlock label="GraphQL" icon={<GraphQLLogo />} />
-        <SkillBlock label="SQL" icon={<SQLLogo />} />
+      <div className="mt-10 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
+        {SKILLS_BACKEND.map((skill, index) => {
+          return (
+            <SkillBlock key={index} label={skill.label} icon={skill.icon} />
+          );
+        })}
       </div>
     </div>
   );

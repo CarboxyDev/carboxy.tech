@@ -1,3 +1,4 @@
+import { TooltipProvider } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
@@ -45,7 +46,7 @@ export default function RootLayout({
           'bg-[#141416] text-white antialiased'
         )}
       >
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
         <Analytics />
       </body>
     </html>
