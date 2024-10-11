@@ -1,5 +1,5 @@
 import { Project } from '@/components/Project';
-import { SectionHeading } from '@/components/SectionHeading';
+import { SectionHeading } from '@/components/Text';
 import { PROJECTS } from '@/lib/config/projects';
 
 export const ProjectSection = () => {

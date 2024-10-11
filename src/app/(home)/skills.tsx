@@ -4,7 +4,6 @@ import {
   GraphQLLogo,
   HTMLLogo,
   JavascriptLogo,
-  MoreIcon,
   NextjsLogo,
   NodejsLogo,
   ReactLogo,
@@ -13,29 +12,39 @@ import {
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/Icons';
-import { SectionHeading } from '@/components/SectionHeading';
+import { SectionHeading } from '@/components/Text';
+import React from 'react';
 
-interface TechBadgeProps {
+interface SkillItem {
   label: string;
-  icon: React.ReactElement; // Technology stack icon
+  icon: React.ReactElement;
 }
 
-const TechBadge = (props: TechBadgeProps) => {
+const SKILLS_FRONTEND: SkillItem[] = [
+  { label: 'React.js', icon: <ReactLogo /> },
+  { label: 'Next.js', icon: <NextjsLogo /> },
+  { label: 'Typescript', icon: <TypescriptLogo /> },
+  { label: 'Javascript', icon: <JavascriptLogo /> },
+  { label: 'TailwindCSS', icon: <TailwindLogo /> },
+  { label: 'HTML', icon: <HTMLLogo /> },
+  { label: 'CSS', icon: <CSSLogo /> },
+];
+
+const SKILLS_BACKEND: SkillItem[] = [
+  { label: 'Node.js', icon: <NodejsLogo /> },
+  { label: 'Express.js', icon: <ExpressjsLogo /> },
+  { label: 'REST API', icon: <RestAPILogo /> },
+  { label: 'GraphQL', icon: <GraphQLLogo /> },
+  { label: 'SQL', icon: <SQLLogo /> },
+];
+
+const SkillBlock = (props: SkillItem) => {
   const { label, icon } = props;
 
   return (
-    <span className="flex w-fit items-center gap-x-3 rounded-md bg-zinc-800 px-5 py-[14px] shadow-md">
-      {icon} <span className="text-sm font-medium">{label}</span>
-    </span>
-  );
-};
-
-const MoreBadge = () => {
-  return (
-    <span className="flex w-fit items-center gap-x-3 rounded-md bg-primary-500/10 px-5 py-[14px] text-primary-500">
-      <MoreIcon className="" />{' '}
-      <span className="text-sm font-medium">More</span>
-    </span>
+    <div className="flex size-16 cursor-pointer items-center justify-center rounded-md border border-zinc-800 bg-zinc-900">
+      {React.cloneElement(icon, { className: 'size-7' })}
+    </div>
   );
 };
 
@@ -43,48 +52,27 @@ export const SkillsSection = () => {
   return (
     <div>
       <SectionHeading title="Technical Skills" />
-      <div className="mt-40">
-        <h3 className="text-2xl font-semibold text-primary-500 lg:text-4xl">
-          Frontend
-        </h3>
+      <div className="mt-28">
+        <h3 className="font-medium text-stone-600">FRONTEND</h3>
       </div>
-      <div className="mt-9 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
-        <TechBadge label="React.js" icon={<ReactLogo className="h-6 w-6" />} />
-        <TechBadge label="Next.js" icon={<NextjsLogo className="h-6 w-6" />} />
-        <TechBadge
-          label="Typescript"
-          icon={<TypescriptLogo className="h-6 w-6" />}
-        />
-        <TechBadge
-          label="Javascript"
-          icon={<JavascriptLogo className="h-6 w-6" />}
-        />
-        <TechBadge
-          label="TailwindCSS"
-          icon={<TailwindLogo className="h-6 w-6" />}
-        />
-        <TechBadge label="HTML" icon={<HTMLLogo className="h-6 w-6" />} />
-        <TechBadge label="CSS" icon={<CSSLogo className="h-6 w-6" />} />
-        <MoreBadge />
+      <div className="mt-6 flex w-80 flex-wrap gap-3 sm:w-140 md:w-160">
+        <SkillBlock label="React.js" icon={<ReactLogo />} />
+        <SkillBlock label="Next.js" icon={<NextjsLogo />} />
+        <SkillBlock label="Typescript" icon={<TypescriptLogo />} />
+        <SkillBlock label="Javascript" icon={<JavascriptLogo />} />
+        <SkillBlock label="TailwindCSS" icon={<TailwindLogo />} />
+        <SkillBlock label="HTML" icon={<HTMLLogo />} />
+        <SkillBlock label="CSS" icon={<CSSLogo />} />
       </div>
-      <div className="mt-30">
-        <h3 className="text-2xl font-semibold text-primary-500 lg:text-4xl">
-          Backend
-        </h3>
+      <div className="mt-16">
+        <h3 className="font-medium text-stone-600">BACKEND</h3>
       </div>
-      <div className="mt-9 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
-        <TechBadge label="Node.js" icon={<NodejsLogo className="h-6 w-6" />} />
-        <TechBadge
-          label="Express.js"
-          icon={<ExpressjsLogo className="h-6 w-6" />}
-        />
-        <TechBadge
-          label="REST API"
-          icon={<RestAPILogo className="h-6 w-6" />}
-        />
-        <TechBadge label="GraphQL" icon={<GraphQLLogo className="h-6 w-6" />} />
-        <TechBadge label="SQL" icon={<SQLLogo className="h-6 w-6" />} />
-        <MoreBadge />
+      <div className="mt-6 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
+        <SkillBlock label="Node.js" icon={<NodejsLogo />} />
+        <SkillBlock label="Express.js" icon={<ExpressjsLogo />} />
+        <SkillBlock label="REST API" icon={<RestAPILogo />} />
+        <SkillBlock label="GraphQL" icon={<GraphQLLogo />} />
+        <SkillBlock label="SQL" icon={<SQLLogo />} />
       </div>
     </div>
   );

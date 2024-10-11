@@ -33,3 +33,7 @@ export const SectionHeading = (props: Props) => {
     </div>
   );
 };
+
+export const HighlightText = ({ children }: { children: React.ReactNode }) => {
+  return <span className="text-primary-400">{children}</span>;
+};

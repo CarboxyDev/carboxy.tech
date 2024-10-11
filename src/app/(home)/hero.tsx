@@ -1,5 +1,5 @@
-import { HighlightText } from '@/components/Atoms';
 import { GithubIcon } from '@/components/Icons';
+import { HighlightText } from '@/components/Text';
 import { Button } from '@/components/vendor/button';
 import { LINKS } from '@/lib/config/links';
 import { cn } from '@/lib/utils';

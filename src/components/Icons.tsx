@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 type IconProps = {
-  className: string;
+  className?: string;
 };
 
 export const CheckIcon = (props: IconProps) => {

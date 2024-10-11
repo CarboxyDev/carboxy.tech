@@ -1,6 +1,6 @@
 import { HeroSection } from '@/app/(home)/hero';
 import { Navbar } from '@/app/(home)/navbar';
-import { ProjectSection } from '@/app/(home)/projects-section';
+import { ProjectSection } from '@/app/(home)/projects';
 import { SkillsSection } from '@/app/(home)/skills';
 import { Footer } from '@/components/Footer';
 import { cn } from '@/lib/utils';
