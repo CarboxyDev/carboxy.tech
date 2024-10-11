@@ -23,12 +23,4 @@ export const PROJECTS = [
     href: 'https://courseinsider.carboxy.tech',
     tags: ['Frontend', 'Backend', 'UI/UX'],
   },
-  {
-    title: 'Scrapp',
-    description:
-      'An online platform for buying and selling new, used or third-party car parts in the United Arab Emirates.',
-    href: 'https://scrapp.ae/',
-    images: ['scrapp1.png'],
-    tags: ['Frontend'],
-  },
 ];

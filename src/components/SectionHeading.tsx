@@ -21,10 +21,10 @@ export const SectionHeading = (props: Props) => {
       ></div>
       <div className={cn('relative w-fit', headingFont.className)}>
         <div className="group relative overflow-hidden rounded-lg bg-primary-500/10 px-12 py-6 md:px-25 md:py-12">
-          <h2 className="text-2xl font-semibold text-primary-500 md:text-4xl">
+          <h2 className="text-2xl font-semibold text-primary-500 md:text-[40px]">
             {props.title}
           </h2>
-          <div className="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+          <div className="absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full animate-shine-infinite justify-center blur-[12px]">
             <div className="relative h-full w-8 bg-primary-500/5"></div>
           </div>
         </div>

@@ -10,6 +10,7 @@ export const ProjectSection = () => {
         <div className="flex flex-col gap-y-32 lg:gap-y-40">
           {PROJECTS.map((project, index) => {
             const align = index % 2 == 0 ? 'left' : 'right';
+
             return (
               <Project
                 key={index}
