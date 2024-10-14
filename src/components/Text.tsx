@@ -1,5 +1,9 @@
+'use client';
+
 import { cn } from '@/lib/utils';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 import { Outfit } from 'next/font/google';
+import * as React from 'react';
 
 const headingFont = Outfit({
   weight: ['600'],
@@ -36,4 +40,33 @@ export const SectionHeading = (props: Props) => {
 
 export const HighlightText = ({ children }: { children: React.ReactNode }) => {
   return <span className="text-primary-400">{children}</span>;
+};
+
+export const SpacedAnimationText = ({
+  text = 'Gradual Spacing',
+}: {
+  text: string;
+}) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div className="-mt-1 flex space-x-0.5 md:-mt-2">
+      <AnimatePresence>
+        {text.split('').map((char, i) => (
+          <motion.p
+            ref={ref}
+            key={i}
+            initial={{ opacity: 0, x: -18 }}
+            animate={isInView ? { opacity: 0.9, x: 0 } : {}}
+            exit="hidden"
+            transition={{ duration: 0.3, delay: i * 0.06 }}
+            className="tracking-tighter text-stone-600 md:leading-[4rem]"
+          >
+            {char === ' ' ? <span>&nbsp;</span> : char}
+          </motion.p>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
 };
