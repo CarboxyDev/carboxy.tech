@@ -30,17 +30,23 @@ export const HeroSection = () => {
         technologies like React.js, Next.js and Node.js
       </div>
       <div className="mt-6">
-        <Button
-          onClick={() => {
-            const elem = document.getElementById('projects');
-            if (elem) elem.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="group h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15"
-        >
-          <ArrowBigDownDash className="h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45" />
-          <span className="text-[16px] font-medium">Learn more</span>
-        </Button>
+        <LearnMoreButton />
       </div>
     </section>
+  );
+};
+
+const LearnMoreButton = () => {
+  return (
+    <Button
+      onClick={() => {
+        const elem = document.getElementById('projects');
+        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+      }}
+      className="group h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15"
+    >
+      <ArrowBigDownDash className="h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45" />
+      <span className="text-[16px] font-medium">Learn more</span>
+    </Button>
   );
 };

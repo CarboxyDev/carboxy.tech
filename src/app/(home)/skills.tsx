@@ -1,3 +1,5 @@
+'use client';
+
 import {
   CSSLogo,
   ExpressjsLogo,
@@ -18,6 +20,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/vendor/tooltip';
+import { motion, useInView } from 'framer-motion';
 import React from 'react';
 
 interface SkillItem {
@@ -64,29 +67,59 @@ const SkillBlock = (props: SkillItem) => {
 };
 
 export const SkillsSection = () => {
+  const frontendRef = React.useRef(null);
+  const backendRef = React.useRef(null);
+
+  const frontendIsInView = useInView(frontendRef, { once: true });
+  const backendIsInView = useInView(backendRef, { once: true });
+
   return (
     <div>
       <SectionHeading title="Technical Skills" />
       <div className="mt-28">
         <h3 className="font-medium text-stone-600">FRONTEND</h3>
       </div>
-      <div className="mt-10 flex w-80 flex-wrap gap-3 sm:w-140 md:w-160">
+      <motion.div
+        ref={frontendRef}
+        initial={{
+          x: -100,
+          opacity: 0.75,
+        }}
+        animate={frontendIsInView ? { x: 0, opacity: 1.0 } : {}}
+        transition={{
+          bounce: 0.5,
+          duration: 0.75,
+        }}
+        className="mt-10 flex w-80 flex-wrap gap-3 sm:w-140 md:w-160"
+      >
         {SKILLS_FRONTEND.map((skill, index) => {
           return (
             <SkillBlock key={index} label={skill.label} icon={skill.icon} />
           );
         })}
-      </div>
+      </motion.div>
       <div className="mt-16">
         <h3 className="font-medium text-stone-600">BACKEND</h3>
       </div>
-      <div className="mt-10 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160">
+      <motion.div
+        ref={backendRef}
+        initial={{
+          x: 100,
+          opacity: 0.75,
+        }}
+        animate={backendIsInView ? { x: 0, opacity: 1.0 } : {}}
+        transition={{
+          bounce: 0.5,
+          duration: 0.75,
+        }}
+        className="mt-10 flex w-80 flex-wrap gap-2 sm:w-140 md:w-160"
+      >
         {SKILLS_BACKEND.map((skill, index) => {
           return (
             <SkillBlock key={index} label={skill.label} icon={skill.icon} />
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

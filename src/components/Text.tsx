@@ -34,7 +34,7 @@ export const SectionHeading = (props: Props) => {
             initial={{ filter: 'blur(20px)', opacity: 0 }}
             animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
             transition={{ duration: 1.2 }}
-            className="text-2xl font-semibold text-primary-500 md:text-[40px]"
+            className="text-2xl font-semibold tracking-wide text-primary-500 md:text-[40px]"
           >
             {props.title}
           </motion.h2>
