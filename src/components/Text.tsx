@@ -15,6 +15,9 @@ interface Props {
 }
 
 export const SectionHeading = (props: Props) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="-mx-6 flex flex-row sm:-mx-24 md:-mx-32 lg:-mx-52 2xl:-mx-64">
       <div
@@ -25,9 +28,16 @@ export const SectionHeading = (props: Props) => {
       ></div>
       <div className={cn('relative w-fit', headingFont.className)}>
         <div className="group relative overflow-hidden rounded-lg bg-primary-500/10 px-12 py-6 md:px-25 md:py-12">
-          <h2 className="text-2xl font-semibold text-primary-500 md:text-[40px]">
+          {/* Blur in effect for the heading text */}
+          <motion.h2
+            ref={ref}
+            initial={{ filter: 'blur(20px)', opacity: 0 }}
+            animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
+            transition={{ duration: 1.2 }}
+            className="text-2xl font-semibold text-primary-500 md:text-[40px]"
+          >
             {props.title}
-          </h2>
+          </motion.h2>
           <div className="absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full animate-shine-infinite justify-center blur-[12px]">
             <div className="relative h-full w-8 bg-primary-500/5"></div>
           </div>
@@ -42,11 +52,7 @@ export const HighlightText = ({ children }: { children: React.ReactNode }) => {
   return <span className="text-primary-400">{children}</span>;
 };
 
-export const SpacedAnimationText = ({
-  text = 'Gradual Spacing',
-}: {
-  text: string;
-}) => {
+export const SpacedAnimationText = ({ text }: { text: string }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
