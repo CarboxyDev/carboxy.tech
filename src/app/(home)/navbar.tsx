@@ -1,6 +1,7 @@
 import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
 import { SocialButton } from '@/components/SocialButton';
 import { LINKS } from '@/lib/config/links';
+import { BookOpen } from 'lucide-react';
 import Image from 'next/image';
 
 const Details = () => {
@@ -26,6 +27,9 @@ const Details = () => {
 const Socials = () => {
   return (
     <div className="ml-auto flex gap-x-3">
+      <SocialButton site="Blog" url={LINKS.blog}>
+        <BookOpen className="size-[18px] text-zinc-400" />
+      </SocialButton>
       <SocialButton site="Email" url={LINKS.email}>
         <MailIcon className="size-[18px] text-zinc-400" />
       </SocialButton>
