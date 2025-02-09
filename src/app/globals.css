@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.prose {
+  max-width: 100%;
+  font-size: 1rem;
+}
+
+.prose h1 {
+  color: #ffffff;
+}
+
+.prose p {
+  color: #d1d5db;
+}
+
+.prose code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),

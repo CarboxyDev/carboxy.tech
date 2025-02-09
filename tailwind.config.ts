@@ -5,6 +5,7 @@ module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './content/blogs/**/*.mdx',
   ],
   theme: {
     extend: {
@@ -75,5 +76,6 @@ module.exports = {
   plugins: [
     require('tailwindcss-debug-screens'),
     require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
   ],
 };
