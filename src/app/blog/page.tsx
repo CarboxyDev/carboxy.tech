@@ -38,7 +38,6 @@ export default function BlogList() {
             href={`/blog/${slug}`}
             className="relative block overflow-hidden rounded-xl bg-gradient-to-br from-[#1e1e2e] to-[#181825] p-6 shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl"
           >
-            {/* Decorative Border Glow */}
             <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-purple-600/30 to-blue-500/30 opacity-0 transition-opacity hover:opacity-100"></div>
 
             <div className="relative z-10">
