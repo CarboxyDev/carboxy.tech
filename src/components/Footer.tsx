@@ -17,7 +17,7 @@ export const Footer = () => {
         </SocialButton>
       </div>
       <div className="mt-8 font-light text-zinc-300">
-        © 2024 CarboxyDev. All rights reserved.
+        © 2025 CarboxyDev. All rights reserved.
       </div>
     </footer>
   );

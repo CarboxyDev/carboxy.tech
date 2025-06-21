@@ -24,7 +24,7 @@ export const Project = (props: Props) => {
       )}
     >
       <div className={cn('', align === 'left' ? 'lg:mr-auto' : 'lg:ml-auto')}>
-        <h3 className="link link-underline link-underline-primary inline text-3xl font-semibold  hover:text-primary-400">
+        <h3 className="link link-underline link-underline-primary inline text-3xl font-semibold hover:text-primary-400">
           <a href={href} target="_blank">
             {title}
           </a>

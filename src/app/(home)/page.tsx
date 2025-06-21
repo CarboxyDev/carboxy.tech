@@ -12,17 +12,31 @@ export default function HomePage() {
         'mx-auto flex flex-col px-6 py-16 sm:px-24 md:px-32 lg:px-52 2xl:px-64'
       )}
     >
-      <Navbar />
-      <div className="mt-36">
+      <div className="animate-fade-in-up">
+        <Navbar />
+      </div>
+      <div
+        className="animate-fade-in-up mt-36"
+        style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+      >
         <HeroSection />
       </div>
-      <div className="mt-64">
+      <div
+        className="animate-fade-in-up mt-64"
+        style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+      >
         <ProjectSection />
       </div>
-      <div className="mt-56">
+      <div
+        className="animate-fade-in-up mt-56"
+        style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
+      >
         <SkillsSection />
       </div>
-      <div className="mt-48">
+      <div
+        className="animate-fade-in-up mt-48"
+        style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
+      >
         <Footer />
       </div>
     </main>
