@@ -322,29 +322,6 @@ export const QuizSection = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        {/* Progress Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 w-full max-w-md"
-        >
-          <div className="mb-2 flex justify-between text-sm text-zinc-400">
-            <span>Question {currentQuestionIndex + 1}</span>
-            <span>{QUIZ_QUESTIONS.length} total</span>
-          </div>
-          <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{
-                width: `${((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100}%`,
-              }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="h-full bg-gradient-to-r from-violet-500 to-purple-500"
-            />
-          </div>
-        </motion.div>
-
         {/* Question Card */}
         <motion.div
           key={currentQuestion.id}
@@ -427,44 +404,165 @@ export const QuizSection = () => {
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
-                className="glass mt-8 rounded-xl border border-zinc-700/30 p-6"
+                className={cn(
+                  'glass relative mt-8 overflow-hidden rounded-2xl border p-8 shadow-lg',
+                  selectedAnswer === currentQuestion.correctAnswer
+                    ? 'border-emerald-400/20 bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-teal-500/10'
+                    : 'border-blue-400/20 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-sky-500/10'
+                )}
               >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/5 to-cyan-500/5" />
-                <div className="relative flex items-start space-x-4">
+                {/* Animated background sparkles */}
+                <div className="absolute inset-0">
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.2, type: 'spring' }}
-                    className="flex-shrink-0 rounded-full bg-blue-500/20 p-2"
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                    className={cn(
+                      'absolute right-8 top-4 h-2 w-2 rounded-full',
+                      selectedAnswer === currentQuestion.correctAnswer
+                        ? 'bg-emerald-400/40'
+                        : 'bg-blue-400/40'
+                    )}
+                  />
+                  <motion.div
+                    animate={{
+                      opacity: [0.2, 0.5, 0.2],
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: 1,
+                    }}
+                    className={cn(
+                      'absolute bottom-6 left-6 h-1.5 w-1.5 rounded-full',
+                      selectedAnswer === currentQuestion.correctAnswer
+                        ? 'bg-teal-400/50'
+                        : 'bg-cyan-400/50'
+                    )}
+                  />
+                  <motion.div
+                    animate={{
+                      opacity: [0.4, 0.7, 0.4],
+                      scale: [1, 1.15, 1],
+                    }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: 2,
+                    }}
+                    className={cn(
+                      'absolute right-4 top-1/2 h-1 w-1 rounded-full',
+                      selectedAnswer === currentQuestion.correctAnswer
+                        ? 'bg-green-400/60'
+                        : 'bg-sky-400/60'
+                    )}
+                  />
+                </div>
+
+                <div className="relative flex items-start space-x-6">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.2,
+                      type: 'spring',
+                      stiffness: 100,
+                    }}
+                    className={cn(
+                      'flex-shrink-0 rounded-2xl p-4 ring-2',
+                      selectedAnswer === currentQuestion.correctAnswer
+                        ? 'bg-gradient-to-br from-emerald-400/20 to-green-500/20 ring-emerald-400/30'
+                        : 'bg-gradient-to-br from-blue-400/20 to-cyan-500/20 ring-blue-400/30'
+                    )}
                   >
-                    <svg
-                      className="h-5 w-5 text-blue-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
+                    {selectedAnswer === currentQuestion.correctAnswer ? (
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                      >
+                        <CheckCircle className="h-7 w-7 text-emerald-300" />
+                      </motion.div>
+                    ) : (
+                      <motion.svg
+                        animate={{
+                          rotate: [0, 5, -5, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                        className="h-7 w-7 text-blue-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </motion.svg>
+                    )}
                   </motion.div>
                   <div className="flex-1">
-                    <motion.h4
-                      initial={{ opacity: 0, x: -10 }}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.3 }}
-                      className="mb-2 text-sm font-semibold text-blue-300"
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="mb-3 flex items-center space-x-2"
                     >
-                      Fun Fact
-                    </motion.h4>
+                      <h4
+                        className={cn(
+                          'bg-clip-text text-lg font-bold text-transparent',
+                          selectedAnswer === currentQuestion.correctAnswer
+                            ? 'bg-gradient-to-r from-emerald-300 to-green-300'
+                            : 'bg-gradient-to-r from-blue-300 to-cyan-300'
+                        )}
+                      >
+                        {selectedAnswer === currentQuestion.correctAnswer
+                          ? "You're Correct!"
+                          : 'Not Quite Right'}
+                      </h4>
+                      <motion.div
+                        animate={{
+                          opacity: [0.5, 1, 0.5],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                        className={cn(
+                          'h-1.5 w-1.5 rounded-full',
+                          selectedAnswer === currentQuestion.correctAnswer
+                            ? 'bg-emerald-400'
+                            : 'bg-blue-400'
+                        )}
+                      />
+                    </motion.div>
                     <motion.p
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.4 }}
-                      className="leading-relaxed text-zinc-300"
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="text-base leading-relaxed text-zinc-200"
                     >
                       {currentQuestion.explanation}
                     </motion.p>
