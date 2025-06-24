@@ -107,7 +107,6 @@ export const QuizSection = () => {
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    // Check if quiz was already completed
     const completed = localStorage.getItem(STORAGE_KEY);
     if (completed) {
       setIsQuizCompleted(true);
@@ -185,7 +184,6 @@ export const QuizSection = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10" />
 
-            {/* Decorative background elements */}
             <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-green-500/5 blur-xl" />
             <div className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-emerald-500/5 blur-xl" />
 
@@ -322,7 +320,6 @@ export const QuizSection = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        {/* Question Card */}
         <motion.div
           key={currentQuestion.id}
           initial={{ opacity: 0, x: 50 }}

@@ -19,9 +19,13 @@ export const SocialButton = (props: Props) => {
           target="_blank"
           about={props.site + ' social link'}
           title={props.site}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-700 hover:cursor-pointer"
+          className="group relative flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-700/50 bg-zinc-800/30 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:border-zinc-600/50 hover:bg-zinc-700/40 hover:shadow-lg hover:shadow-zinc-900/20"
         >
-          {props.children}
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-violet-500/10 to-cyan-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+          {/* Icon content */}
+          <div className="relative z-10">{props.children}</div>
         </a>
       </TooltipTrigger>
       <TooltipContent>
