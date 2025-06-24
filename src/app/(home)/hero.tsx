@@ -13,13 +13,9 @@ const headingFont = Outfit({
 });
 
 const dynamicHeadings = [
-  'Building Extraordinary Webapps.',
-  'Crafting Digital Experiences.',
-  'Creating Stunning Web Solutions.',
-  'Crafting Beautiful Interfaces.',
-  'Engineering Modern Applications.',
-  'Developing Cutting-Edge Products.',
-  'Creating Seamless Products.',
+  'Converting Coffee into Code.',
+  'Turning Bugs into Features.',
+  'Making Pixels Look Cool on Screens.',
 ];
 
 export const HeroSection = () => {
@@ -87,10 +83,18 @@ const LearnMoreButton = () => {
         const elem = document.getElementById('projects');
         if (elem) elem.scrollIntoView({ behavior: 'smooth' });
       }}
-      className="group h-15 select-none gap-x-3 overflow-hidden bg-primary-500/10 px-7 py-4 text-primary-500 hover:bg-primary-500/15"
+      className="group relative h-15 select-none gap-x-3 overflow-hidden border border-primary-500/20 bg-primary-500/10 px-7 py-4 text-primary-500 backdrop-blur-sm transition-all duration-300 ease-out hover:border-primary-400/30 hover:bg-primary-500/20 hover:shadow-lg hover:shadow-primary-500/25"
     >
-      <ArrowBigDownDash className="h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45" />
-      <span className="text-[16px] font-medium">Explore my work</span>
+      {/* Subtle gradient overlay for extra depth */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+      <ArrowBigDownDash className="relative z-10 h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-110" />
+      <span className="relative z-10 text-[16px] font-medium transition-all duration-300 group-hover:text-primary-400">
+        Explore my work
+      </span>
+
+      {/* Subtle shine effect */}
+      <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-transparent via-primary-400/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
     </Button>
   );
 };
