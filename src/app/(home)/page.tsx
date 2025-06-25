@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <main
       className={cn(
-        'mx-auto flex max-w-screen-2xl flex-col px-6 py-16 sm:px-24 md:px-32 lg:px-52'
+        'mx-auto flex max-w-screen-2xl flex-col px-6 py-16 sm:px-24 md:px-32 lg:px-52 xl:px-36'
       )}
     >
       <div className="animate-fade-in-up">
