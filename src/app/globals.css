@@ -122,3 +122,44 @@ html {
   background-size: 100% 3px;
   background-position: 0 100%;
 }
+
+/* Magical effects for hero section */
+@keyframes drawArrow {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -60;
+  }
+}
+
+@keyframes float-magical {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-5px) translateX(-3px) scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-15px) translateX(8px) scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+.animate-draw-arrow {
+  animation: drawArrow 6s ease-in-out infinite;
+}
+
+.animate-float-magical {
+  animation: float-magical 4s ease-in-out infinite;
+}

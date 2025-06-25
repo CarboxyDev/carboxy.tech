@@ -1,6 +1,5 @@
 'use client';
 
-import { HighlightText } from '@/components/Text';
 import { Button } from '@/components/vendor/button';
 import { cn } from '@/lib/utils';
 import { ArrowBigDownDash } from 'lucide-react';
@@ -12,31 +11,123 @@ const headingFont = Outfit({
   subsets: ['latin'],
 });
 
-const dynamicHeadings = [
-  'Converting Coffee into Code.',
-  'Turning Bugs into Features.',
-  'Making Pixels Look Cool on Screens.',
-];
+const MagicalArrow = () => {
+  return (
+    <span
+      className="relative ml-2 mr-1 inline-block"
+      style={{ verticalAlign: 'baseline' }}
+    >
+      <svg
+        width="56"
+        height="20"
+        viewBox="0 0 56 16"
+        className="inline-block"
+        style={{ verticalAlign: 'baseline', transform: 'translateY(0px)' }}
+      >
+        <defs>
+          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#a855f7" />
+            <stop offset="25%" stopColor="#8b5cf6" />
+            <stop offset="75%" stopColor="#22d3ee" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+        </defs>
+
+        {/* Base arrow (static, gray) */}
+        <path
+          d="M4 8 L44 8 M36 4 L44 8 L36 12"
+          stroke="#4a5568"
+          strokeWidth="3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Animated arrow that draws itself */}
+        <path
+          d="M4 8 L44 8 M36 4 L44 8 L36 12"
+          stroke="url(#arrowGradient)"
+          strokeWidth="4"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray="60"
+          strokeDashoffset="60"
+          className="animate-draw-arrow"
+        />
+      </svg>
+
+      {/* Sparkle effects around arrow */}
+      <div
+        className="absolute -left-2 -top-1 h-1.5 w-1.5 animate-ping rounded-full bg-violet-400"
+        style={{ animationDelay: '0.5s', animationDuration: '2s' }}
+      />
+      <div
+        className="absolute -bottom-1 right-2 h-1 w-1 animate-ping rounded-full bg-purple-400"
+        style={{ animationDelay: '1.2s', animationDuration: '2s' }}
+      />
+      <div
+        className="absolute -right-3 top-0 h-1.5 w-1.5 animate-ping rounded-full bg-cyan-400"
+        style={{ animationDelay: '0.8s', animationDuration: '2s' }}
+      />
+      <div
+        className="absolute -top-0.5 left-8 h-1 w-1 animate-ping rounded-full bg-pink-400"
+        style={{ animationDelay: '1.8s', animationDuration: '2s' }}
+      />
+      <div
+        className="absolute bottom-1 left-3 h-1 w-1 animate-ping rounded-full bg-indigo-400"
+        style={{ animationDelay: '0.3s', animationDuration: '2.5s' }}
+      />
+    </span>
+  );
+};
+
+const FloatingParticles = () => {
+  const particles = Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 2,
+  }));
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="animate-float-magical absolute rounded-full bg-gradient-to-r from-violet-400/20 to-purple-400/20 blur-sm"
+          style={{
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            animationDuration: `${particle.duration}s`,
+            animationDelay: `${particle.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentHeading, setCurrentHeading] = useState(dynamicHeadings[0]);
 
   useEffect(() => {
-    // Choose a random heading when mounting
-    const randomHeading =
-      dynamicHeadings[Math.floor(Math.random() * dynamicHeadings.length)];
-    setCurrentHeading(randomHeading);
-
     const timer = setTimeout(() => setIsVisible(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section className="relative flex flex-col">
+      {/* Floating magical particles */}
+      <FloatingParticles />
+
       <div
         className={cn(
-          'text-3xl font-semibold md:text-4xl',
+          'relative z-10 text-3xl font-semibold md:text-4xl',
           headingFont.className
         )}
       >
@@ -53,22 +144,24 @@ export const HeroSection = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           )}
         >
-          {currentHeading}
+          Converting Coffee
+          <MagicalArrow />
+          Code
         </div>
       </div>
 
-      <div className="mt-8 leading-relaxed text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[680px] xl:w-[620px]">
-        Full-stack developer with powerful UI/UX skills. Proficient in creating{' '}
-        <HighlightText>beautiful, cohesive</HighlightText> interfaces using
-        technologies like React.js, Next.js and Node.js
+      <div className="relative z-10 mt-8 leading-relaxed text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[680px] xl:w-[620px]">
+        Full-stack developer with powerful UI/UX skills. Proficient in creating
+        beautiful, cohesive interfaces using technologies like React.js, Next.js
+        and Node.js
       </div>
 
-      <div className="mt-8">
+      <div className="relative z-10 mt-8">
         <LearnMoreButton />
       </div>
 
       {/* Animated Terminal - Hidden on mobile, visible on xl+ screens */}
-      <div className="absolute right-0 top-0 hidden xl:block">
+      <div className="absolute right-0 top-0 z-10 hidden xl:block">
         <AnimatedTerminal />
       </div>
 
