@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer>
       <div className="ml-auto flex gap-x-3">
-        <SocialButton site="Twitter/X" url={LINKS.twitter}>
+        <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
           <TwitterIcon className="size-4 text-zinc-400" />
         </SocialButton>
         <SocialButton site="Github" url={LINKS.github}>

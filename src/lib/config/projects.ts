@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'Effichron is a beautifully designed productivity tool that helps you track time effortlessly. With real-time sync across devices and intuitive session management, it makes time tracking feel natural and unobtrusive.',
     images: ['effichron1.png', 'effichron2.png', 'effichron3.png'],
-    href: 'https://effichron.carboxy.tech',
+    href: 'https://effichron.carboxy.xyz',
     tags: ['Frontend', 'Backend', 'UI/UX', 'Productivity'],
     techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
     status: 'Live',
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'CourseInsider bridges the gap between students and educators by providing a comprehensive platform for course discovery and feedback. Students can make informed decisions while teachers gain valuable insights.',
     images: ['courseinsider1.png'],
-    href: 'https://courseinsider.carboxy.tech',
+    href: 'https://courseinsider.carboxy.xyz',
     tags: ['Frontend', 'Backend', 'UI/UX', 'Education'],
     techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
     status: 'Live',

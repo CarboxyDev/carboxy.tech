@@ -1,5 +1,5 @@
+import { Header } from '@/app/(home)/header';
 import { HeroSection } from '@/app/(home)/hero';
-import { Navbar } from '@/app/(home)/navbar';
 import { ProjectSection } from '@/app/(home)/projects';
 import { QuizSection } from '@/app/(home)/quiz';
 import { SkillsSection } from '@/app/(home)/skills';
@@ -14,7 +14,7 @@ export default function HomePage() {
       )}
     >
       <div className="animate-fade-in-up">
-        <Navbar />
+        <Header />
       </div>
       <div
         className="animate-fade-in-up mt-36"

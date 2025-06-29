@@ -11,28 +11,52 @@ import './globals.css';
 const textFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'CarboxyDev',
+  title: 'CarboxyDev | Full-Stack Developer Available for Freelance',
   description:
-    'Front-end developer with strong UI/UX skills. Proficient in building beautiful, user-friendly interfaces using React.js, Next.js, and Tailwind CSS.',
-  authors: [{ name: 'CarboxyDev', url: 'https://carboxy.tech' }],
-  category: 'personal',
-  keywords: ['portfolio', 'personal', 'projects'],
-  metadataBase: new URL('https://carboxy.tech'),
+    'Full-stack developer with strong UI/UX skills. Currently available for freelance and contract work. Experienced in React.js, Next.js, Node.js, and Tailwind CSS.',
+  authors: [{ name: 'CarboxyDev', url: 'https://carboxy.xyz' }],
+  category: 'Personal Portfolio',
+  keywords: [
+    'CarboxyDev',
+    'full-stack developer',
+    'freelance web developer',
+    'React developer',
+    'Next.js developer',
+    'UI/UX developer',
+    'available for work',
+    'open for freelance',
+    'available developer',
+  ],
+  metadataBase: new URL('https://carboxy.xyz'),
   openGraph: {
-    title: 'CarboxyDev',
+    title: 'CarboxyDev | Full-Stack Developer',
     description:
-      'Front-end developer with strong UI/UX skills. Proficient in building beautiful, user-friendly interfaces using React.js, Next.js, and Tailwind CSS.',
-    url: 'https://carboxy.tech',
+      'Currently open for work and contract projects. I build stunning full-stack web applications using React, Next.js, and Node.js.',
+    url: 'https://carboxy.xyz',
     siteName: 'CarboxyDev',
     images: [
       {
-        url: 'https://carboxy.tech/logo.png',
+        url: 'https://carboxy.xyz/logo.png',
         width: 1032,
         height: 1032,
+        alt: 'CarboxyDev Logo',
       },
     ],
     locale: 'en-US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CarboxyDev | Full-Stack Developer',
+    description:
+      'Full-stack developer with a passion for clean UI and scalable backend. Currently open to work and remote opportunities.',
+    images: ['https://carboxy.xyz/logo.png'],
+    creator: '@carboxydev',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
   },
 };
 

@@ -212,6 +212,7 @@ const AnimatedTerminal = () => {
     '};',
     '',
     '',
+    '',
     'while (developer.isAvailable) {',
     '  build();',
     '  consumeCoffee();',
@@ -253,7 +254,12 @@ const AnimatedTerminal = () => {
   }, [currentLineIndex]);
 
   const highlightSyntax = (line: string) => {
-    if (line.includes('const') || line.includes('while')) {
+    if (
+      line.includes('const') ||
+      line.includes('while') ||
+      line.trim() === '}' ||
+      line.trim() === '};'
+    ) {
       return <span className="text-purple-400">{line}</span>;
     } else if (line.includes('"')) {
       // Handle strings with proper highlighting
