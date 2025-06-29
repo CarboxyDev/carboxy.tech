@@ -2,6 +2,7 @@ import {
   BackgroundEffects,
   ParticleEffect,
 } from '@/components/BackgroundEffects';
+import { StructuredSEOData } from '@/components/StructuredSEOData';
 import { TooltipProvider } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
@@ -74,6 +75,7 @@ export default function RootLayout({
           'bg-[#141416] text-white antialiased'
         )}
       >
+        <StructuredSEOData />
         <BackgroundEffects />
         <ParticleEffect />
         <TooltipProvider>{children}</TooltipProvider>
