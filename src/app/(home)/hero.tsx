@@ -11,76 +11,6 @@ const headingFont = Outfit({
   subsets: ['latin'],
 });
 
-const MagicalArrow = () => {
-  return (
-    <span
-      className="relative ml-2 mr-1 inline-block"
-      style={{ verticalAlign: 'baseline' }}
-    >
-      <svg
-        width="56"
-        height="20"
-        viewBox="0 0 56 16"
-        className="inline-block"
-        style={{ verticalAlign: 'baseline', transform: 'translateY(0px)' }}
-      >
-        <defs>
-          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#a855f7" />
-            <stop offset="25%" stopColor="#8b5cf6" />
-            <stop offset="75%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-        </defs>
-
-        {/* Base arrow (static, gray) */}
-        <path
-          d="M4 8 L44 8 M36 4 L44 8 L36 12"
-          stroke="#4a5568"
-          strokeWidth="3"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Animated arrow that draws itself */}
-        <path
-          d="M4 8 L44 8 M36 4 L44 8 L36 12"
-          stroke="url(#arrowGradient)"
-          strokeWidth="4"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray="60"
-          strokeDashoffset="60"
-          className="animate-draw-arrow"
-        />
-      </svg>
-
-      {/* Sparkle effects around arrow */}
-      <div
-        className="absolute -left-2 -top-1 h-1.5 w-1.5 animate-ping rounded-full bg-violet-400"
-        style={{ animationDelay: '0.5s', animationDuration: '2s' }}
-      />
-      <div
-        className="absolute -bottom-1 right-2 h-1 w-1 animate-ping rounded-full bg-purple-400"
-        style={{ animationDelay: '1.2s', animationDuration: '2s' }}
-      />
-      <div
-        className="absolute -right-3 top-0 h-1.5 w-1.5 animate-ping rounded-full bg-cyan-400"
-        style={{ animationDelay: '0.8s', animationDuration: '2s' }}
-      />
-      <div
-        className="absolute -top-0.5 left-8 h-1 w-1 animate-ping rounded-full bg-pink-400"
-        style={{ animationDelay: '1.8s', animationDuration: '2s' }}
-      />
-      <div
-        className="absolute bottom-1 left-3 h-1 w-1 animate-ping rounded-full bg-indigo-400"
-        style={{ animationDelay: '0.3s', animationDuration: '2.5s' }}
-      />
-    </span>
-  );
-};
 
 const FloatingParticles = () => {
   const particles = Array.from({ length: 12 }, (_, i) => ({
@@ -122,7 +52,6 @@ export const HeroSection = () => {
 
   return (
     <section className="relative flex flex-col">
-      {/* Floating magical particles */}
       <FloatingParticles />
 
       <div
@@ -144,9 +73,7 @@ export const HeroSection = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           )}
         >
-          Converting Coffee
-          <MagicalArrow />
-          Code
+          Converting Coffee into Code
         </div>
       </div>
 
@@ -160,7 +87,6 @@ export const HeroSection = () => {
         <LearnMoreButton />
       </div>
 
-      {/* Animated Terminal - Hidden on mobile, visible on xl+ screens */}
       <div className="absolute right-0 top-0 z-10 hidden xl:block">
         <AnimatedTerminal />
       </div>

@@ -12,7 +12,7 @@ import './globals.css';
 const textFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'CarboxyDev | Full-Stack Developer Available for Freelance',
+  title: 'CarboxyDev',
   description:
     'Full-stack developer with strong UI/UX skills. Currently available for freelance and contract work. Experienced in React.js, Next.js, Node.js, and Tailwind CSS.',
   authors: [{ name: 'CarboxyDev', url: 'https://carboxy.xyz' }],
