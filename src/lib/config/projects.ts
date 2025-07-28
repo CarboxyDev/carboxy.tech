@@ -28,6 +28,21 @@ export const PROJECTS: Project[] = [
     year: '2024',
     featured: true,
   },
+    {
+    id: 'quizfoundry',
+    title: 'QuizFoundry',
+    description:
+      'A platform for quickly creating and sharing quizzes with the power of AI.',
+    longDescription:
+      'QuizFoundry is a platform for quickly creating and sharing quizzes with the power of AI.',
+    href: 'https://quizfoundry.carboxy.xyz',
+    images: ['quizfoundry1.png'],
+    tags: ['Frontend', 'AI SDK', 'Education'],
+    techStack: ['React', 'TypeScript', 'Next.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
+    status: 'In Development',
+    year: '2025',
+    featured: true,
+  },
   {
     id: 'effichron',
     title: 'Effichron',
@@ -42,20 +57,6 @@ export const PROJECTS: Project[] = [
     status: 'Live',
     year: '2023',
     featured: true,
-  },
-  {
-    id: 'course-insider',
-    title: 'CourseInsider',
-    description:
-      'A platform for students to find and review courses in their college, and for teachers to list their courses and get feedback.',
-    longDescription:
-      'CourseInsider bridges the gap between students and educators by providing a comprehensive platform for course discovery and feedback. Students can make informed decisions while teachers gain valuable insights.',
-    images: ['courseinsider1.png'],
-    href: 'https://courseinsider.carboxy.xyz',
-    tags: ['Frontend', 'Backend', 'UI/UX', 'Education'],
-    techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
-    status: 'Live',
-    year: '2023',
   },
 ];
 
