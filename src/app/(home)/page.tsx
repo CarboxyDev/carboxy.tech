@@ -16,13 +16,13 @@ export default function HomePage() {
         <Header />
       </div>
       <div
-        className="animate-fade-in-up mt-16"
+        className="animate-fade-in-up mt-16 lg:mt-36 min-h-[80vh]"
         style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
       >
         <HeroSection />
       </div>
       <div
-        className="animate-fade-in-up mt-40"
+        className="animate-fade-in-up mt-8 xl:mt-0"
         style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
       >
         <ProjectSection />
