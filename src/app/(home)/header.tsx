@@ -19,10 +19,7 @@ export const Header = () => {
         <div className="flex flex-col text-sm sm:text-base">
           <div className="flex items-center gap-x-2">
             <div className="text-lg font-medium text-zinc-100">CarboxyDev</div>
-            <div className="flex items-center gap-x-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-1.5 text-[11px] font-medium text-emerald-300">
-              <div className="size-1.5 animate-pulse rounded-full bg-emerald-400"></div>
-              Available for work
-            </div>
+            
           </div>
           <div className="text-sm text-zinc-400">Full-stack Developer</div>
         </div>
