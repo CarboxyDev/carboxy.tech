@@ -76,9 +76,8 @@ export const HeroSection = () => {
       </div>
 
       <div className="relative z-10 mt-8 leading-relaxed text-zinc-200 sm:w-[540px] sm:text-lg md:w-[580px] lg:w-[680px] xl:w-[620px]">
-        Full-stack developer with powerful UI/UX skills. Proficient in creating
-        beautiful, cohesive interfaces using technologies like React.js, Next.js
-        and Node.js
+        Full-stack developer with powerful design skills. Proficient in creating
+        beautiful, cohesive interfaces that work end-to-end.
       </div>
 
       <div className="relative z-10 mt-8">
@@ -101,16 +100,16 @@ const LearnMoreButton = () => {
         const elem = document.getElementById('projects');
         if (elem) elem.scrollIntoView({ behavior: 'smooth' });
       }}
-      className="group relative h-15 select-none gap-x-3 overflow-hidden border border-primary-500/20 bg-primary-500/10 px-7 py-4 text-primary-500 backdrop-blur-sm transition-all duration-300 ease-out hover:border-primary-400/30 hover:bg-primary-500/20 hover:shadow-lg hover:shadow-primary-500/25"
+      className="group relative h-15 select-none gap-x-3 overflow-hidden border border-primary-500/20 bg-primary-500/10 px-7 py-4 text-primary-500 backdrop-blur-sm transition-all duration-300 ease-out hover:border-primary-400/40 hover:bg-primary-500/15 hover:shadow-xl hover:shadow-primary-500/20 hover:scale-[1.02] active:scale-[0.98]"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/8 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-      <ArrowBigDownDash className="relative z-10 h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-110" />
+      <ArrowBigDownDash className="relative z-10 h-5 w-5 transition-all duration-300 ease-in-out group-hover:translate-y-0.5 group-hover:text-primary-400" />
       <span className="relative z-10 text-[16px] font-medium transition-all duration-300 group-hover:text-primary-400">
         Explore my work
       </span>
 
-      <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-transparent via-primary-400/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-transparent via-primary-400/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </Button>
   );
 };
