@@ -62,9 +62,7 @@ export const HeroSection = () => {
       >
         <h1 className="mb-3 text-zinc-100">
           Transforming{' '}
-          <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
             Ideas
-          </span>{' '}
           into Digital Reality.
         </h1>
         <div
@@ -87,10 +85,6 @@ export const HeroSection = () => {
         <LearnMoreButton />
       </div>
 
-      <div className="absolute right-0 top-0 z-10 hidden xl:block">
-        <AnimatedTerminal />
-      </div>
-
       <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-violet-500/20 blur-sm" />
       <div
         className="absolute -right-4 top-8 h-2 w-2 animate-pulse-slow rounded-full bg-cyan-500/20 blur-sm"
@@ -109,7 +103,6 @@ const LearnMoreButton = () => {
       }}
       className="group relative h-15 select-none gap-x-3 overflow-hidden border border-primary-500/20 bg-primary-500/10 px-7 py-4 text-primary-500 backdrop-blur-sm transition-all duration-300 ease-out hover:border-primary-400/30 hover:bg-primary-500/20 hover:shadow-lg hover:shadow-primary-500/25"
     >
-      {/* Subtle gradient overlay for extra depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <ArrowBigDownDash className="relative z-10 h-5 w-5 transition-all duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-110" />
@@ -117,159 +110,8 @@ const LearnMoreButton = () => {
         Explore my work
       </span>
 
-      {/* Subtle shine effect */}
       <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-transparent via-primary-400/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
     </Button>
   );
 };
 
-const AnimatedTerminal = () => {
-  const [displayedCode, setDisplayedCode] = useState('');
-  const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-  const [showOutput, setShowOutput] = useState(false);
-
-  const codeLines = [
-    'const developer = {',
-    '  name: "CarboxyDev",',
-    '  passion: "building",',
-    '  coffeeLeft: 87.0,',
-    '  isAvailable: true',
-    '};',
-    '',
-    '',
-    '',
-    'while (developer.isAvailable) {',
-    '  build();',
-    '  consumeCoffee();',
-    '}',
-  ];
-
-  const outputLines = [
-    '> Building amazing projects...',
-    '> Ready for new challenges! 🚀',
-  ];
-
-  useEffect(() => {
-    if (currentLineIndex >= codeLines.length) {
-      setIsTyping(false);
-      setTimeout(() => {
-        setShowOutput(true);
-      }, 1000);
-      return;
-    }
-
-    const currentLine = codeLines[currentLineIndex];
-    let charIndex = 0;
-
-    const typeInterval = setInterval(() => {
-      if (charIndex <= currentLine.length) {
-        const lines = codeLines.slice(0, currentLineIndex);
-        const currentPartialLine = currentLine.slice(0, charIndex);
-        setDisplayedCode([...lines, currentPartialLine].join('\n'));
-        charIndex++;
-      } else {
-        clearInterval(typeInterval);
-        setTimeout(() => {
-          setCurrentLineIndex((prev) => prev + 1);
-        }, 150);
-      }
-    }, 40);
-
-    return () => clearInterval(typeInterval);
-  }, [currentLineIndex]);
-
-  const highlightSyntax = (line: string) => {
-    if (
-      line.includes('const') ||
-      line.includes('while') ||
-      line.trim() === '}' ||
-      line.trim() === '};'
-    ) {
-      return <span className="text-purple-400">{line}</span>;
-    } else if (line.includes('"')) {
-      // Handle strings with proper highlighting
-      const parts = line.split('"');
-      return (
-        <span>
-          {parts.map((part, i) =>
-            i % 2 === 1 ? (
-              <span key={i} className="text-green-400">
-                "{part}"
-              </span>
-            ) : (
-              <span
-                key={i}
-                className={
-                  part.includes(':') ? 'text-blue-300' : 'text-zinc-300'
-                }
-              >
-                {part}
-              </span>
-            )
-          )}
-        </span>
-      );
-    } else if (line.includes('coffeeLeft:') || line.includes('isAvailable:')) {
-      if (line.includes('87.0')) {
-        return (
-          <span className="text-blue-300">
-            {'  '}
-            coffeeLeft: <span className="text-orange-400">87.0</span>,
-          </span>
-        );
-      } else if (line.includes('true')) {
-        return (
-          <span className="text-blue-300">
-            {'  '}
-            isAvailable: <span className="text-orange-400">true</span>
-          </span>
-        );
-      }
-      return <span className="text-blue-300">{line}</span>;
-    } else if (line.includes(':')) {
-      return <span className="text-blue-300">{line}</span>;
-    } else if (line.includes('build()') || line.includes('consumeCoffee()')) {
-      return <span className="text-cyan-400">{line}</span>;
-    }
-    return <span className="text-zinc-300">{line}</span>;
-  };
-
-  return (
-    <div className="w-84 rounded-lg border border-zinc-700/50 bg-zinc-900/90 p-4 shadow-2xl backdrop-blur-sm">
-      <div className="mb-3 flex items-center gap-2">
-        <div className="h-3 w-3 rounded-full bg-red-500/90"></div>
-        <div className="h-3 w-3 rounded-full bg-yellow-500/90"></div>
-        <div className="h-3 w-3 rounded-full bg-green-500/90"></div>
-        <span className="ml-2 text-xs text-zinc-400">iTerm</span>
-      </div>
-
-      <div className="font-mono text-sm">
-        <pre className="whitespace-pre-wrap">
-          {displayedCode.split('\n').map((line, i) => (
-            <div key={i} className="leading-relaxed">
-              {highlightSyntax(line)}
-            </div>
-          ))}
-          {isTyping && displayedCode && (
-            <span className="animate-pulse text-purple-400">|</span>
-          )}
-        </pre>
-
-        {showOutput && (
-          <div className="mt-4 space-y-1">
-            {outputLines.map((line, i) => (
-              <div key={i} className="text-green-400 opacity-90">
-                {line}
-              </div>
-            ))}
-            <div className="mt-2 flex items-center text-zinc-400">
-              <span className="text-green-400">$</span>
-              <span className="ml-1 animate-pulse">_</span>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
