@@ -7,8 +7,8 @@ import {
   JavascriptLogo,
   NextjsLogo,
   NodejsLogo,
-  PostgreSQLLogo,
   ReactLogo,
+  SQLLogo,
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/Icons';
@@ -89,9 +89,9 @@ const SKILL_CONSTELLATION: SkillConstellation[] = [
     scale: 1.0,
   },
   {
-    label: 'PostgreSQL',
-    icon: <PostgreSQLLogo />,
-    gradient: 'from-blue-700/20 to-blue-500/20',
+    label: 'SQL',
+    icon: <SQLLogo />,
+    gradient: 'from-yellow-700/20 to-yellow-500/20',
     x: 50,
     y: 65,
     scale: 1.0,
