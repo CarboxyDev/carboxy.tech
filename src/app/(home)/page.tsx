@@ -1,5 +1,6 @@
 import { Header } from '@/app/(home)/header';
 import { HeroSection } from '@/app/(home)/hero';
+import { AboutSection } from '@/app/(home)/about';
 import { ProjectSection } from '@/app/(home)/projects';
 import { SkillsSection } from '@/app/(home)/skills';
 import { Footer } from '@/components/Footer';
@@ -22,20 +23,26 @@ export default function HomePage() {
         <HeroSection />
       </div>
       <div
-        className="animate-fade-in-up mt-8 xl:mt-0"
+        className="animate-fade-in-up"
         style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+      >
+        <AboutSection />
+      </div>
+      <div
+        className="animate-fade-in-up"
+        style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
       >
         <ProjectSection />
       </div>
       <div
         className="animate-fade-in-up mt-20"
-        style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
+        style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
       >
         <SkillsSection />
       </div>
       <div
         className="animate-fade-in-up mt-20 lg:mt-40"
-        style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
+        style={{ animationDelay: '1.0s', animationFillMode: 'both' }}
       >
         <Footer />
       </div>
