@@ -34,7 +34,7 @@ export default function HomePage() {
         <SkillsSection />
       </div>
       <div
-        className="animate-fade-in-up mt-20"
+        className="animate-fade-in-up mt-20 lg:mt-40"
         style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
       >
         <Footer />
