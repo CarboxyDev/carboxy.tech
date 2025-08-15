@@ -72,6 +72,9 @@ npm run build  # production build
 npm run lint   # ESLint check
 ```
 
+
+- Do not run or build unless explicitly asked by the user
+
 ## Critical File Locations
 
 ### Core Architecture Files

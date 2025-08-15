@@ -1,16 +1,14 @@
 'use client';
 
 import {
-  CSSLogo,
   ExpressjsLogo,
-  GraphQLLogo,
-  HTMLLogo,
+  FigmaLogo,
+  GitLogo,
   JavascriptLogo,
   NextjsLogo,
   NodejsLogo,
+  PostgreSQLLogo,
   ReactLogo,
-  RestAPILogo,
-  SQLLogo,
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/Icons';
@@ -20,105 +18,169 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/vendor/tooltip';
+import { cn } from '@/lib/utils';
 import { motion, useInView } from 'framer-motion';
 import React from 'react';
 
-interface SkillItem {
+interface SkillConstellation {
   label: string;
   icon: React.ReactElement;
-  color: string;
+  gradient: string;
+  x: number;
+  y: number;
+  scale: number;
 }
 
-const SKILLS_FRONTEND: SkillItem[] = [
+const SKILL_CONSTELLATION: SkillConstellation[] = [
   {
     label: 'React.js',
     icon: <ReactLogo />,
-    color: 'from-blue-400 to-cyan-400',
+    gradient: 'from-blue-400/20 to-cyan-400/20',
+    x: 15,
+    y: 20,
+    scale: 1.0,
   },
   {
     label: 'Next.js',
     icon: <NextjsLogo />,
-    color: 'from-gray-800 to-gray-600',
+    gradient: 'from-gray-600/20 to-gray-400/20',
+    x: 75,
+    y: 15,
+    scale: 1.0,
   },
   {
-    label: 'Typescript',
+    label: 'TypeScript',
     icon: <TypescriptLogo />,
-    color: 'from-blue-600 to-blue-400',
+    gradient: 'from-blue-600/20 to-blue-400/20',
+    x: 45,
+    y: 25,
+    scale: 1.0,
   },
   {
-    label: 'Javascript',
-    icon: <JavascriptLogo />,
-    color: 'from-yellow-400 to-yellow-600',
+    label: 'Node.js',
+    icon: <NodejsLogo />,
+    gradient: 'from-green-500/20 to-green-400/20',
+    x: 20,
+    y: 55,
+    scale: 1.0,
   },
   {
     label: 'TailwindCSS',
     icon: <TailwindLogo />,
-    color: 'from-cyan-400 to-teal-400',
-  },
-  { label: 'HTML', icon: <HTMLLogo />, color: 'from-orange-500 to-red-500' },
-  { label: 'CSS', icon: <CSSLogo />, color: 'from-blue-500 to-cyan-500' },
-];
-
-const SKILLS_BACKEND: SkillItem[] = [
-  {
-    label: 'Node.js',
-    icon: <NodejsLogo />,
-    color: 'from-green-500 to-green-600',
+    gradient: 'from-cyan-400/20 to-teal-400/20',
+    x: 85,
+    y: 45,
+    scale: 1.0,
   },
   {
     label: 'Express.js',
     icon: <ExpressjsLogo />,
-    color: 'from-gray-700 to-gray-500',
+    gradient: 'from-gray-700/20 to-gray-500/20',
+    x: 10,
+    y: 80,
+    scale: 1.0,
   },
   {
-    label: 'REST API',
-    icon: <RestAPILogo />,
-    color: 'from-blue-500 to-sky-600',
+    label: 'JavaScript',
+    icon: <JavascriptLogo />,
+    gradient: 'from-yellow-400/20 to-yellow-600/20',
+    x: 80,
+    y: 75,
+    scale: 1.0,
   },
   {
-    label: 'GraphQL',
-    icon: <GraphQLLogo />,
-    color: 'from-pink-500 to-purple-600',
+    label: 'PostgreSQL',
+    icon: <PostgreSQLLogo />,
+    gradient: 'from-blue-700/20 to-blue-500/20',
+    x: 50,
+    y: 65,
+    scale: 1.0,
   },
-  { label: 'SQL', icon: <SQLLogo />, color: 'from-amber-500 to-yellow-600' },
+  {
+    label: 'Git',
+    icon: <GitLogo />,
+    gradient: 'from-orange-500/20 to-red-500/20',
+    x: 25,
+    y: 85,
+    scale: 1.0,
+  },
+  {
+    label: 'Figma',
+    icon: <FigmaLogo />,
+    gradient: 'from-purple-500/20 to-pink-500/20',
+    x: 65,
+    y: 85,
+    scale: 1.0,
+  },
 ];
 
-const SkillBlock = (props: SkillItem & { index: number }) => {
-  const { label, icon, color, index } = props;
+const FloatingSkillCard = (props: SkillConstellation & { mousePosition: { x: number; y: number } }) => {
+  const { label, icon, gradient, mousePosition } = props;
+  
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const [cardPosition, setCardPosition] = React.useState({ x: 0, y: 0 });
+  
+  React.useEffect(() => {
+    if (!cardRef.current) return;
+    
+    const rect = cardRef.current.getBoundingClientRect();
+    const cardCenterX = rect.left + rect.width / 2;
+    const cardCenterY = rect.top + rect.height / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(mousePosition.x - cardCenterX, 2) + 
+      Math.pow(mousePosition.y - cardCenterY, 2)
+    );
+    
+    const maxDistance = 200;
+    const influence = Math.max(0, 1 - distance / maxDistance);
+    const moveDistance = influence * 15;
+    
+    const angle = Math.atan2(mousePosition.y - cardCenterY, mousePosition.x - cardCenterX);
+    const repelX = -Math.cos(angle) * moveDistance;
+    const repelY = -Math.sin(angle) * moveDistance;
+    
+    setCardPosition({ x: repelX, y: repelY });
+  }, [mousePosition]);
+
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        type: 'spring',
-        stiffness: 100,
+      ref={cardRef}
+      className="cursor-pointer"
+      animate={{
+        x: cardPosition.x,
+        y: cardPosition.y,
       }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       whileHover={{
-        scale: 1.05,
-        rotate: [0, -1, 1, 0],
-        transition: { duration: 0.3 },
+        scale: 1.15,
+        transition: { duration: 0.2 },
       }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.9 }}
     >
-      <Tooltip delayDuration={300}>
+      <Tooltip delayDuration={200}>
         <TooltipTrigger>
           <div
-            className={`group relative size-20 cursor-pointer rounded-xl border border-zinc-700/50 bg-gradient-to-br ${color} p-[1px] transition-all duration-300 hover:border-zinc-600 hover:shadow-lg hover:shadow-zinc-800/50`}
+            className={cn(
+              'group relative size-14 rounded-2xl border border-zinc-700/30 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600/50 ring-1 ring-primary-500/20 sm:size-16',
+              `bg-gradient-to-br ${gradient}`
+            )}
           >
-            <div className="flex size-full items-center justify-center rounded-xl bg-zinc-900/90 backdrop-blur-sm transition-all duration-300 group-hover:bg-zinc-800/90">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-zinc-900/80 to-zinc-800/60" />
+            
+            <div className="relative flex size-full items-center justify-center">
               {React.cloneElement(icon, {
-                className:
-                  'size-8 transition-all duration-300 ease-out group-hover:size-9 group-hover:drop-shadow-sm',
+                className: 'size-6 transition-all duration-300 ease-out group-hover:drop-shadow-lg sm:size-7',
               })}
             </div>
+            
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary-500/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </div>
         </TooltipTrigger>
         <TooltipContent
           side="top"
-          className="border-zinc-700 bg-zinc-800 text-zinc-100"
+          className="border-zinc-700 bg-zinc-800/90 text-zinc-100 backdrop-blur-sm"
         >
           <p className="text-sm font-medium">{label}</p>
         </TooltipContent>
@@ -127,67 +189,120 @@ const SkillBlock = (props: SkillItem & { index: number }) => {
   );
 };
 
-const SkillCategory = ({
-  title,
-  skills,
-  direction,
-}: {
-  title: string;
-  skills: SkillItem[];
-  direction: 'left' | 'right';
-}) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+const SkillConstellation = () => {
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    setMousePosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: direction === 'left' ? -60 : 60 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="space-y-8"
+    <div 
+      ref={containerRef}
+      className="relative mx-auto h-[400px] w-full max-w-5xl overflow-hidden rounded-3xl border border-zinc-700/30 bg-gradient-to-br from-zinc-900/50 via-zinc-800/30 to-zinc-900/50 backdrop-blur-sm sm:h-[500px] lg:h-[600px]"
+      onMouseMove={handleMouseMove}
     >
-      <div className="flex items-center gap-4">
-        <motion.div
-          className={`h-px flex-1 bg-gradient-to-r ${direction === 'left' ? 'from-transparent to-zinc-700' : 'from-zinc-700 to-transparent'}`}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
-        <motion.h3
-          className="bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-sm font-semibold uppercase tracking-wider text-transparent"
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          {title}
-        </motion.h3>
-        <motion.div
-          className={`h-px flex-1 bg-gradient-to-r ${direction === 'left' ? 'from-zinc-700 to-transparent' : 'from-transparent to-zinc-700'}`}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
+      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 via-transparent to-zinc-900/10" />
+      
+      <div className="absolute inset-4">
+        {SKILL_CONSTELLATION.map((skill, index) => (
+          <motion.div
+            key={skill.label}
+            initial={{ 
+              opacity: 0, 
+              scale: 0.3,
+              x: '50%',
+              y: '50%',
+            }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1,
+              x: 0,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.15,
+              type: 'spring',
+              stiffness: 120,
+              damping: 20,
+            }}
+            style={{
+              position: 'absolute',
+              left: `${skill.x}%`,
+              top: `${skill.y}%`,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <FloatingSkillCard
+              {...skill}
+              mousePosition={mousePosition}
+            />
+          </motion.div>
+        ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
-        {skills.map((skill, index) => (
-          <SkillBlock
-            key={skill.label}
-            label={skill.label}
-            icon={skill.icon}
-            color={skill.color}
-            index={index}
+      <div className="pointer-events-none absolute inset-0">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute h-1 w-1 rounded-full bg-primary-400/30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              opacity: [0.3, 0.7, 0.3],
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
           />
         ))}
       </div>
-    </motion.div>
+
+      <motion.div
+        className="absolute -bottom-20 -left-20 size-40 rounded-full bg-primary-500/10 blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+      
+      <motion.div
+        className="absolute -right-20 -top-20 size-40 rounded-full bg-blue-500/10 blur-3xl"
+        animate={{
+          scale: [1.3, 1, 1.3],
+          opacity: [0.4, 0.2, 0.4],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 2.5,
+        }}
+      />
+    </div>
   );
 };
 
 export const SkillsSection = () => {
   const titleRef = React.useRef(null);
   const titleIsInView = useInView(titleRef, { once: true });
+  const constellationRef = React.useRef(null);
+  const constellationIsInView = useInView(constellationRef, { once: true, amount: 0.1 });
 
   return (
     <div className="relative">
@@ -201,44 +316,15 @@ export const SkillsSection = () => {
         <SectionHeading title="Technical Skills" />
       </motion.div>
 
-      <div className="space-y-20">
-        <SkillCategory
-          title="Frontend Development"
-          skills={SKILLS_FRONTEND}
-          direction="left"
-        />
+      <motion.div
+        ref={constellationRef}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={constellationIsInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 1, ease: 'easeOut' }}
+      >
+        <SkillConstellation />
+      </motion.div>
 
-        <SkillCategory
-          title="Backend Development"
-          skills={SKILLS_BACKEND}
-          direction="right"
-        />
-      </div>
-      <motion.div
-        className="absolute -top-20 left-1/4 size-40 rounded-full bg-blue-500/5 blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute -bottom-20 right-1/4 size-40 rounded-full bg-purple-500/5 blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.5, 0.3, 0.5],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 2,
-        }}
-      />
     </div>
   );
 };
