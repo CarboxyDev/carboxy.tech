@@ -7,9 +7,13 @@ import { TooltipProvider } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import './globals.css';
-const textFont = Inter({ subsets: ['latin'] });
+
+const textFont = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'CarboxyDev',
