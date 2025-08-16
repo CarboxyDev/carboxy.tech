@@ -1,7 +1,7 @@
 import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
 import { SocialButton } from '@/components/SocialButton';
 import { LINKS } from '@/lib/config/links';
-import { PenTool } from 'lucide-react';
+import { NotebookPen } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -17,7 +17,7 @@ export const Footer = () => {
           <MailIcon className="size-[18px] text-zinc-400" />
         </SocialButton>
         <SocialButton site="Blog" url={LINKS.blog}>
-          <PenTool className="size-[18px] text-zinc-400" />
+          <NotebookPen className="size-[18px] text-zinc-400" />
         </SocialButton>
       </div>
       <div className="mt-8 font-light text-zinc-300">
