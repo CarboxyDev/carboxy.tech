@@ -19,75 +19,32 @@ export const SectionHeading = (props: Props) => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="relative flex flex-col items-center mb-16">
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{
-          duration: 0.8,
-          type: 'spring',
-          stiffness: 80,
-          damping: 20,
+          duration: 0.6,
+          ease: 'easeOut',
         }}
-        className="relative"
+        className="relative text-center"
       >
-        <div className="flex items-center gap-6">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-px w-16 bg-gradient-to-r from-transparent to-primary-500/40 sm:w-24 lg:w-32"
-          />
-
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute inset-0 rounded-xl bg-primary-500/5 blur-xl"
-            />
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative overflow-hidden rounded-xl border border-zinc-800/50 bg-zinc-900/50 backdrop-blur-sm"
-            >
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-500/20 via-transparent to-primary-500/20 p-[1px]">
-                <div className="size-full rounded-xl bg-zinc-900/90" />
-              </div>
-
-              <div className="relative px-6 py-4 md:px-10 md:py-6">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className={cn(
-                    'bg-gradient-to-r from-zinc-100 via-primary-300 to-zinc-100 bg-clip-text text-2xl font-semibold tracking-wide text-transparent md:text-4xl',
-                    headingFont.className
-                  )}
-                >
-                  {props.title}
-                </motion.h2>
-
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={isInView ? { scaleX: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="mt-2 h-px w-full bg-gradient-to-r from-transparent via-primary-500/40 to-transparent"
-                />
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-px w-16 bg-gradient-to-l from-transparent to-primary-500/40 sm:w-24 lg:w-32"
-          />
-        </div>
+        <h2
+          className={cn(
+            'text-3xl font-semibold tracking-tight text-zinc-100 md:text-5xl',
+            headingFont.className
+          )}
+        >
+          {props.title}
+        </h2>
+        
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mx-auto mt-4 h-px w-20 bg-gradient-to-r from-transparent via-primary-400 to-transparent"
+        />
       </motion.div>
     </div>
   );
