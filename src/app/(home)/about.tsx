@@ -1,17 +1,33 @@
+'use client';
+
 import { SectionHeading } from '@/components/home/section-heading';
 import { cn } from '@/lib/utils';
 import { Code2, Gamepad2, MapPin, TrendingUp, Users } from 'lucide-react';
+import { useState } from 'react';
 
 export const AboutSection = () => {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   return (
-    <section className={cn('pb-32 pt-20 lg:pb-40 lg:pt-32')} data-section="about">
+    <section
+      className={cn('pb-32 pt-20 lg:pb-40 lg:pt-32')}
+      data-section="about"
+    >
       <div className="space-y-16">
         <SectionHeading title="About Me" />
 
         <div className="mx-auto max-w-4xl">
           <div className="space-y-12">
             <div className="grid gap-6 md:auto-rows-min md:grid-cols-2 md:grid-rows-[auto_auto_auto] lg:gap-8">
-              <div className="group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5">
+              <div
+                className={cn(
+                  'group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5',
+                  hoveredCard && hoveredCard !== 'what-i-do'
+                    ? 'opacity-50'
+                    : 'opacity-100'
+                )}
+                onMouseEnter={() => setHoveredCard('what-i-do')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mb-6">
                   <h3 className="flex items-center gap-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-primary-200">
                     <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2 transition-all duration-300 group-hover:border-primary-400/50 group-hover:from-primary-400/30 group-hover:to-primary-500/20">
@@ -88,7 +104,16 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5 md:row-span-2">
+              <div
+                className={cn(
+                  'group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5 md:row-span-2',
+                  hoveredCard && hoveredCard !== 'my-journey'
+                    ? 'opacity-50'
+                    : 'opacity-100'
+                )}
+                onMouseEnter={() => setHoveredCard('my-journey')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mb-6">
                   <h3 className="flex items-center gap-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-primary-200">
                     <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2 transition-all duration-300 group-hover:border-primary-400/50 group-hover:from-primary-400/30 group-hover:to-primary-500/20">
@@ -190,7 +215,16 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5">
+              <div
+                className={cn(
+                  'group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5',
+                  hoveredCard && hoveredCard !== 'work-style'
+                    ? 'opacity-50'
+                    : 'opacity-100'
+                )}
+                onMouseEnter={() => setHoveredCard('work-style')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mb-6">
                   <h3 className="flex items-center gap-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-primary-200">
                     <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2 transition-all duration-300 group-hover:border-primary-400/50 group-hover:from-primary-400/30 group-hover:to-primary-500/20">
@@ -209,7 +243,16 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5">
+              <div
+                className={cn(
+                  'group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5',
+                  hoveredCard && hoveredCard !== 'learning-growth'
+                    ? 'opacity-50'
+                    : 'opacity-100'
+                )}
+                onMouseEnter={() => setHoveredCard('learning-growth')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mb-6">
                   <h3 className="flex items-center gap-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-primary-200">
                     <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2 transition-all duration-300 group-hover:border-primary-400/50 group-hover:from-primary-400/30 group-hover:to-primary-500/20">
@@ -228,7 +271,16 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5">
+              <div
+                className={cn(
+                  'group rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 hover:shadow-xl hover:shadow-primary-400/5',
+                  hoveredCard && hoveredCard !== 'beyond-code'
+                    ? 'opacity-50'
+                    : 'opacity-100'
+                )}
+                onMouseEnter={() => setHoveredCard('beyond-code')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mb-6">
                   <h3 className="flex items-center gap-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-primary-200">
                     <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2 transition-all duration-300 group-hover:border-primary-400/50 group-hover:from-primary-400/30 group-hover:to-primary-500/20">

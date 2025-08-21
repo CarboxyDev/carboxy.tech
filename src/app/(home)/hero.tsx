@@ -32,7 +32,10 @@ export const HeroSection = () => {
         <h1 className="mb-4 text-zinc-100">
           Transforming Ideas into Digital Reality.
         </h1>
-        <div className="animate-fade-in-up bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent md:text-4xl lg:text-5xl">
+        <div
+          className="animate-fade-in-up bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent opacity-0 md:text-4xl lg:text-5xl"
+          style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+        >
           Converting Coffee into Code
         </div>
       </div>
