@@ -22,6 +22,7 @@ import {
 import { cn } from '@/lib/utils';
 import { animated, useSpring } from '@react-spring/web';
 import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { ChevronDownIcon } from 'lucide-react';
 import React from 'react';
 
 type SkillCategory = 'frontend' | 'backend' | 'tools' | 'design';
@@ -128,14 +129,40 @@ const MINOR_SKILLS: MinorSkill[] = [
   { label: 'PostCSS', categories: ['frontend'] },
   { label: 'Nivo', categories: ['frontend'] },
   { label: 'Recharts', categories: ['frontend'] },
+  { label: 'NextAuth', categories: ['frontend'] },
   { label: 'Framer Motion', categories: ['frontend'] },
+  { label: 'React Hook Form', categories: ['frontend'] },
+  { label: 'TanStack Table', categories: ['frontend'] },
   { label: 'Zod', categories: ['frontend', 'backend'] },
   { label: 'Prisma', categories: ['backend'] },
+  { label: 'OpenRouter', categories: ['backend'] },
+  { label: 'Google AI SDK', categories: ['backend'] },
+  { label: 'Socket.io', categories: ['backend'] },
   { label: 'Vercel', categories: ['tools'] },
+  { label: 'GCP', categories: ['tools'] },
   { label: 'GitHub Actions', categories: ['tools'] },
+  { label: 'Supabase CLI', categories: ['tools'] },
+  { label: 'React DevTools', categories: ['tools'] },
+  { label: 'Postman', categories: ['tools'] },
   { label: 'Cursor', categories: ['tools'] },
   { label: 'Bash/Zsh', categories: ['tools'] },
+  { label: 'v0', categories: ['design'] },
+  { label: 'Canva', categories: ['design'] },
 ];
+
+const CATEGORY_COLORS = {
+  frontend: 'hover:border-blue-500/40 hover:shadow-blue-500/10',
+  backend: 'hover:border-green-500/40 hover:shadow-green-500/10',
+  tools: 'hover:border-orange-500/40 hover:shadow-orange-500/10',
+  design: 'hover:border-purple-500/40 hover:shadow-purple-500/10',
+};
+
+const OVERLAY_COLORS = {
+  frontend: 'bg-blue-500/5',
+  backend: 'bg-green-500/5',
+  tools: 'bg-orange-500/5',
+  design: 'bg-purple-500/5',
+};
 
 const SkillCard = ({
   skill,
@@ -228,7 +255,7 @@ const SkillGrid = () => {
 
   React.useEffect(() => {
     if (showMinorSkills && minorSkillsRef.current) {
-      // Use a slight delay to ensure content is fully rendered
+      // Slight delay to ensure content is fully rendered
       setTimeout(() => {
         if (minorSkillsRef.current) {
           const height = minorSkillsRef.current.scrollHeight;
@@ -409,21 +436,7 @@ const SkillGrid = () => {
             transition={{ duration: 0.3 }}
             className="text-zinc-500"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 9l6 6 6-6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <ChevronDownIcon className="size-4" />
           </motion.div>
         </motion.button>
 
@@ -470,6 +483,16 @@ const SkillGrid = () => {
                       !activeFilter ||
                       skill.categories.includes(activeFilter as SkillCategory);
 
+                    const primaryCategory = skill.categories.includes(
+                      'frontend'
+                    )
+                      ? 'frontend'
+                      : skill.categories.includes('backend')
+                        ? 'backend'
+                        : skill.categories.includes('tools')
+                          ? 'tools'
+                          : 'design';
+
                     return (
                       <motion.div
                         key={skill.label}
@@ -480,75 +503,42 @@ const SkillGrid = () => {
                           y: 0,
                         }}
                         exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                        whileHover={
+                          isVisible
+                            ? {
+                                scale: 1.05,
+                                y: -2,
+                                transition: { duration: 0.2, ease: 'easeOut' },
+                              }
+                            : {}
+                        }
+                        whileTap={
+                          isVisible
+                            ? {
+                                scale: 0.98,
+                                transition: { duration: 0.1 },
+                              }
+                            : {}
+                        }
                         transition={{
                           delay: index * 0.02,
                           duration: 0.4,
                           ease: [0.25, 0.46, 0.45, 0.94],
                         }}
                         className={cn(
-                          'group relative overflow-hidden rounded-lg border border-zinc-700/40 bg-zinc-800/50 px-3 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600/60 hover:bg-zinc-700/50 hover:text-zinc-200',
-                          !isVisible && 'grayscale',
-                          isVisible &&
-                            skill.categories.includes('frontend') &&
-                            'hover:border-blue-500/30',
-                          isVisible &&
-                            skill.categories.includes('backend') &&
-                            !skill.categories.includes('frontend') &&
-                            'hover:border-green-500/30',
-                          isVisible &&
-                            skill.categories.includes('tools') &&
-                            !skill.categories.includes('frontend') &&
-                            !skill.categories.includes('backend') &&
-                            'hover:border-orange-500/30',
-                          isVisible &&
-                            skill.categories.includes('design') &&
-                            !skill.categories.includes('frontend') &&
-                            !skill.categories.includes('backend') &&
-                            !skill.categories.includes('tools') &&
-                            'hover:border-purple-500/30'
+                          'group relative cursor-pointer overflow-hidden rounded-lg border border-zinc-700/40 bg-zinc-800/50 px-3 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600/60 hover:bg-zinc-700/50 hover:text-zinc-200 hover:shadow-lg',
+                          !isVisible && 'cursor-default grayscale',
+                          isVisible && CATEGORY_COLORS[primaryCategory]
                         )}
                       >
                         <div
                           className={cn(
                             'absolute inset-0 opacity-0 transition-opacity duration-300',
                             isVisible && 'group-hover:opacity-100',
-                            skill.categories.includes('frontend') &&
-                              'bg-blue-500/5',
-                            skill.categories.includes('backend') &&
-                              !skill.categories.includes('frontend') &&
-                              'bg-green-500/5',
-                            skill.categories.includes('tools') &&
-                              !skill.categories.includes('frontend') &&
-                              !skill.categories.includes('backend') &&
-                              'bg-orange-500/5',
-                            skill.categories.includes('design') &&
-                              !skill.categories.includes('frontend') &&
-                              !skill.categories.includes('backend') &&
-                              !skill.categories.includes('tools') &&
-                              'bg-purple-500/5'
+                            OVERLAY_COLORS[primaryCategory]
                           )}
                         />
                         <span className="relative z-10">{skill.label}</span>
-                        <div
-                          className={cn(
-                            'absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300',
-                            isVisible && 'group-hover:w-full',
-                            skill.categories.includes('frontend') &&
-                              'bg-blue-500',
-                            skill.categories.includes('backend') &&
-                              !skill.categories.includes('frontend') &&
-                              'bg-green-500',
-                            skill.categories.includes('tools') &&
-                              !skill.categories.includes('frontend') &&
-                              !skill.categories.includes('backend') &&
-                              'bg-orange-500',
-                            skill.categories.includes('design') &&
-                              !skill.categories.includes('frontend') &&
-                              !skill.categories.includes('backend') &&
-                              !skill.categories.includes('tools') &&
-                              'bg-purple-500'
-                          )}
-                        />
                       </motion.div>
                     );
                   })}
