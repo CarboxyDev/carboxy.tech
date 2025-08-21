@@ -1,13 +1,14 @@
 'use client';
 
 import {
+  DockerLogo,
   ExpressjsLogo,
   FigmaLogo,
   GitLogo,
   NextjsLogo,
   NodejsLogo,
+  PostgreSQLLogo,
   ReactLogo,
-  SQLLogo,
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/Icons';
@@ -28,6 +29,7 @@ interface Skill {
   label: string;
   icon: React.ReactElement;
   gradient: string;
+  hoverColor: string;
   categories: SkillCategory[];
 }
 
@@ -36,54 +38,70 @@ const SKILLS: Skill[] = [
     label: 'React.js',
     icon: <ReactLogo />,
     gradient: 'from-blue-400/20 to-cyan-400/20',
+    hoverColor: 'from-blue-500/30 to-cyan-500/30',
     categories: ['frontend'],
   },
   {
     label: 'Next.js',
     icon: <NextjsLogo />,
     gradient: 'from-gray-600/20 to-gray-400/20',
+    hoverColor: 'from-gray-600/30 to-gray-400/30',
+    categories: ['frontend'],
+  },
+  {
+    label: 'TailwindCSS',
+    icon: <TailwindLogo />,
+    gradient: 'from-cyan-400/20 to-teal-400/20',
+    hoverColor: 'from-cyan-400/30 to-teal-400/30',
     categories: ['frontend'],
   },
   {
     label: 'TypeScript',
     icon: <TypescriptLogo />,
     gradient: 'from-blue-600/20 to-blue-400/20',
+    hoverColor: 'from-blue-600/30 to-blue-400/30',
     categories: ['frontend', 'backend'],
-  },
-  {
-    label: 'TailwindCSS',
-    icon: <TailwindLogo />,
-    gradient: 'from-cyan-400/20 to-teal-400/20',
-    categories: ['frontend'],
   },
   {
     label: 'Node.js',
     icon: <NodejsLogo />,
     gradient: 'from-green-500/20 to-green-400/20',
+    hoverColor: 'from-green-500/30 to-green-400/30',
     categories: ['backend'],
   },
   {
     label: 'Express.js',
     icon: <ExpressjsLogo />,
     gradient: 'from-gray-700/20 to-gray-500/20',
+    hoverColor: 'from-gray-700/30 to-gray-500/30',
     categories: ['backend'],
   },
   {
-    label: 'SQL',
-    icon: <SQLLogo />,
-    gradient: 'from-yellow-700/20 to-yellow-500/20',
+    label: 'PostgreSQL',
+    icon: <PostgreSQLLogo />,
+    gradient: 'from-blue-600/20 to-blue-500/20',
+    hoverColor: 'from-blue-600/30 to-blue-500/30',
     categories: ['backend'],
   },
   {
     label: 'Git',
     icon: <GitLogo />,
     gradient: 'from-orange-500/20 to-red-500/20',
+    hoverColor: 'from-orange-500/30 to-red-500/30',
+    categories: ['tools'],
+  },
+  {
+    label: 'Docker',
+    icon: <DockerLogo />,
+    gradient: 'from-sky-500/20 to-blue-400/20',
+    hoverColor: 'from-sky-500/30 to-blue-400/30',
     categories: ['tools'],
   },
   {
     label: 'Figma',
     icon: <FigmaLogo />,
     gradient: 'from-purple-500/20 to-pink-500/20',
+    hoverColor: 'from-purple-500/30 to-pink-500/30',
     categories: ['design'],
   },
 ];
@@ -126,7 +144,7 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
       
       <div className={cn(
         'absolute inset-0 rounded-2xl bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300',
-        `${CATEGORY_COLORS[skill.categories[0]]} from-transparent`,
+        `${skill.hoverColor} from-transparent`,
         isVisible && 'group-hover:opacity-100'
       )} />
     </motion.div>
