@@ -1,6 +1,5 @@
 import { AboutSection } from '@/app/(home)/about';
 import { Footer } from '@/app/(home)/footer';
-import { Header } from '@/app/(home)/header';
 import { HeroSection } from '@/app/(home)/hero';
 import { Projects } from '@/app/(home)/projects';
 import { Skills } from '@/app/(home)/skills';
@@ -13,11 +12,8 @@ export default function HomePage() {
         'mx-auto flex max-w-screen-2xl flex-col px-6 py-16 sm:px-24 md:px-32 lg:px-52 xl:px-36'
       )}
     >
-      <div className="animate-fade-in-up">
-        <Header />
-      </div>
       <div
-        className="animate-fade-in-up mt-16 min-h-[80vh] lg:mt-36"
+        className="animate-fade-in-up min-h-[80vh] pt-8 lg:pt-16 2xl:pt-28"
         style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
       >
         <HeroSection />

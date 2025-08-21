@@ -2,7 +2,15 @@
 
 import { AboutMeButton, LearnMoreButton } from '@/components/home/cta-buttons';
 import { FloatingParticles } from '@/components/home/floating-particles';
+import {
+  GithubIcon,
+  MailIcon,
+  TwitterIcon,
+} from '@/components/icons/social-icons';
+import { SocialButton } from '@/components/social-button';
+import { LINKS } from '@/lib/config/links';
 import { cn } from '@/lib/utils';
+import { NotebookPen } from 'lucide-react';
 import { Outfit } from 'next/font/google';
 
 const headingFont = Outfit({
@@ -37,6 +45,48 @@ export const HeroSection = () => {
       <div className="relative z-10 mt-10 flex flex-col gap-4 sm:flex-row sm:gap-6">
         <LearnMoreButton />
         <AboutMeButton />
+      </div>
+
+      <div className="relative z-10 mt-24 flex flex-col items-center gap-12">
+        <div className="flex items-center gap-4">
+          <div
+            className="animate-slide-in-left h-px w-16 bg-gradient-to-r from-transparent via-zinc-600/50 to-zinc-600/50 opacity-0"
+            style={{ animationDelay: '1.2s', animationFillMode: 'both' }}
+          ></div>
+          <div className="flex items-center gap-2">
+            <div
+              className="animate-divider-glow-once h-1.5 w-1.5 rounded-full bg-zinc-400"
+              style={{ animationDelay: '1.8s', color: '#a1a1aa' }}
+            ></div>
+            <div
+              className="animate-divider-glow-once h-1.5 w-1.5 rounded-full bg-zinc-300"
+              style={{ animationDelay: '2.0s', color: '#d4d4d8' }}
+            ></div>
+            <div
+              className="animate-divider-glow-once h-1.5 w-1.5 rounded-full bg-zinc-400"
+              style={{ animationDelay: '2.2s', color: '#a1a1aa' }}
+            ></div>
+          </div>
+          <div
+            className="animate-slide-in-right h-px w-16 bg-gradient-to-l from-transparent via-zinc-600/50 to-zinc-600/50 opacity-0"
+            style={{ animationDelay: '1.4s', animationFillMode: 'both' }}
+          ></div>
+        </div>
+
+        <div className="flex justify-center gap-6">
+          <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
+            <TwitterIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
+          </SocialButton>
+          <SocialButton site="Github" url={LINKS.github}>
+            <GithubIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
+          </SocialButton>
+          <SocialButton site="Email" url={LINKS.email}>
+            <MailIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
+          </SocialButton>
+          <SocialButton site="Blog" url={LINKS.blog}>
+            <NotebookPen className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
+          </SocialButton>
+        </div>
       </div>
       <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-violet-500/20 blur-sm" />
       <div
