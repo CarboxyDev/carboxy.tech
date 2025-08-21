@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
     id: 'adden-ai',
     title: 'AddenAI',
     description:
-      'A codeless AI solution platform for optimizing ad campaigns and boosting your growth marketing performance.',
+      'A codeless AI solution platform for optimizing ad accounts and campaigns for boosting growth and marketing performance.',
     longDescription:
       'AddenAI revolutionizes digital marketing with AI-powered campaign optimization. Built for marketing teams who want to maximize ROI without technical complexity, it provides intelligent insights and automated optimizations.',
     href: 'https://adden.ai/sign-in',
@@ -36,12 +36,12 @@ export const PROJECTS: Project[] = [
     id: 'quizfoundry',
     title: 'QuizFoundry',
     description:
-      'A platform for quickly creating and sharing quizzes with the power of AI.',
+      'A webapp where you can create quizzes quickly and easily with the power of AI. You can also share them with others or attempt public quizzes.',
     longDescription:
       'QuizFoundry is a platform for quickly creating and sharing quizzes with the power of AI.',
     href: 'https://quizfoundry.carboxy.xyz',
     images: ['quizfoundry1.png'],
-    tags: ['Frontend', 'AI SDK', 'Education'],
+    tags: ['Frontend', 'Backend', 'UI/UX', 'AI/ML'],
     techStack: [
       'React',
       'TypeScript',
@@ -59,12 +59,12 @@ export const PROJECTS: Project[] = [
     id: 'effichron',
     title: 'Effichron',
     description:
-      'A minimalist time tracking tool with features like cloud sync, always-on timer, sessions history meant for seamlessly tracking your productivity.',
+      'A minimalist time tracking tool with features like cloud sync, always-on timer, sessions history meant for seamlessly tracking your productivity. This is an old project that does not reflect my current skillset.',
     longDescription:
       'Effichron is a beautifully designed productivity tool that helps you track time effortlessly. With real-time sync across devices and intuitive session management, it makes time tracking feel natural and unobtrusive.',
     images: ['effichron1.png', 'effichron2.png', 'effichron3.png'],
     href: 'https://effichron.carboxy.xyz',
-    tags: ['Frontend', 'Backend', 'UI/UX', 'Productivity'],
+    tags: ['Frontend', 'Backend', 'UI/UX', 'Old Project'],
     techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
     status: 'Live',
     year: '2023',
