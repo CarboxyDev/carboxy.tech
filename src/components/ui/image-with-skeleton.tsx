@@ -45,7 +45,12 @@ export const ImageWithSkeleton = ({
       )}
       
       {hasError ? (
-        <div className="hover:shadow-3xl group relative overflow-hidden rounded-xl border-4 border-zinc-700/80 bg-zinc-900/50 shadow-2xl transition-all duration-300">
+        <div 
+          className="hover:shadow-3xl group relative overflow-hidden rounded-xl border-4 border-zinc-700/80 bg-zinc-900/50 shadow-2xl hover:scale-105 hover:border-zinc-600/80"
+          style={{
+            transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease'
+          }}
+        >
           <div className="flex h-full items-center justify-center" style={{ height }}>
             <div className="flex flex-col items-center gap-2 opacity-60">
               <div className="h-12 w-12 rounded-full bg-zinc-700/50 flex items-center justify-center">
@@ -59,11 +64,16 @@ export const ImageWithSkeleton = ({
           <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
         </div>
       ) : (
-        <div className={cn(
-          'hover:shadow-3xl group relative overflow-hidden rounded-xl border-4 border-zinc-700/80 bg-zinc-900/50 shadow-2xl transition-all duration-300 hover:scale-105 hover:border-zinc-600/80',
-          isLoading && 'opacity-0',
-          !isLoading && 'opacity-100 transition-opacity duration-300'
-        )}>
+        <div 
+          className={cn(
+            'hover:shadow-3xl group relative overflow-hidden rounded-xl border-4 border-zinc-700/80 bg-zinc-900/50 shadow-2xl hover:scale-105 hover:border-zinc-600/80',
+            isLoading && 'opacity-0',
+            !isLoading && 'opacity-100 transition-opacity duration-300'
+          )}
+          style={{
+            transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease'
+          }}
+        >
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-zinc-900/20 to-transparent" />
           <Image
             src={src}
