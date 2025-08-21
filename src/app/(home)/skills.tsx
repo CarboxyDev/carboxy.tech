@@ -106,12 +106,6 @@ const SKILLS: Skill[] = [
   },
 ];
 
-const CATEGORY_COLORS = {
-  frontend: 'from-blue-500/30 to-cyan-500/30',
-  backend: 'from-green-500/30 to-emerald-500/30',
-  tools: 'from-orange-500/30 to-red-500/30',
-  design: 'from-purple-500/30 to-pink-500/30',
-};
 
 const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) => {
   const cardSpring = useSpring({
@@ -134,7 +128,7 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-zinc-900/90 to-zinc-800/70" />
       
       <div className="relative flex size-full items-center justify-center">
-        {React.cloneElement(skill.icon, {
+        {React.cloneElement(skill.icon as React.ReactElement<any>, {
           className: cn(
             'size-8 transition-all duration-300 ease-out',
             isVisible && 'group-hover:drop-shadow-lg'
@@ -167,7 +161,7 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
                 `bg-gradient-to-br ${skill.gradient}`
               )}>
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-zinc-900/60 to-zinc-800/40" />
-                {React.cloneElement(skill.icon, {
+                {React.cloneElement(skill.icon as React.ReactElement<any>, {
                   className: 'relative size-4 text-white',
                 })}
               </div>
