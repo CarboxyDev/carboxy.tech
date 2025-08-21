@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "@/components/Text"
-import { Code2, Zap, MapPin, TrendingUp, Users, Gamepad2, Sparkles } from "lucide-react"
+import { Code2, MapPin, TrendingUp, Users, Gamepad2 } from "lucide-react"
 
 export const AboutSection = () => {
   return (
@@ -10,20 +10,16 @@ export const AboutSection = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="space-y-12">
-            <div className="text-center space-y-6">
-              <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                I'm a full-stack developer passionate about building impactful digital products. 
-                With expertise spanning modern web technologies, I create web applications that 
-                deliver exceptional user experiences.
-              </p>
-            </div>
-            
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8 md:grid-rows-[auto_auto_auto] md:auto-rows-min">
-              <div className="p-6 rounded-xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
-                  <Code2 className="w-5 h-5 text-primary-400" />
-                  What I Do
-                </h3>
+              <div className="group p-6 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary-400/5 transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30">
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-3 group-hover:from-white group-hover:to-primary-200 transition-all duration-300">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary-400/20 to-primary-500/10 border border-primary-400/30 group-hover:from-primary-400/30 group-hover:to-primary-500/20 group-hover:border-primary-400/50 transition-all duration-300">
+                      <Code2 className="w-5 h-5 text-primary-400" />
+                    </div>
+                    What I Do
+                  </h3>
+                </div>
                 <div className="space-y-3">
                   <div className="space-y-1">
                     <div className="flex items-center gap-3 text-gray-300">
@@ -70,11 +66,15 @@ export const AboutSection = () => {
                 </div>
               </div>
               
-              <div className="p-6 rounded-xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm md:row-span-2">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-primary-400" />
-                  My Journey
-                </h3>
+              <div className="group p-6 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary-400/5 transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30 md:row-span-2">
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-3 group-hover:from-white group-hover:to-primary-200 transition-all duration-300">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary-400/20 to-primary-500/10 border border-primary-400/30 group-hover:from-primary-400/30 group-hover:to-primary-500/20 group-hover:border-primary-400/50 transition-all duration-300">
+                      <MapPin className="w-5 h-5 text-primary-400" />
+                    </div>
+                    My Journey
+                  </h3>
+                </div>
                 <div className="relative">
                   <div className="absolute left-[7px] top-1 w-0.5 bg-primary-400/30" style={{height: 'calc(100% - 80px)'}}></div>
                   
@@ -83,7 +83,7 @@ export const AboutSection = () => {
                       <div className="relative z-10 w-4 h-4 bg-primary-400 rounded-full border-2 border-[#141416] flex-shrink-0 mt-0.5"></div>
                       <div className="flex-1">
                         <div className="text-sm text-primary-400 font-medium">2015 - The Beginning</div>
-                        <p className="text-gray-300 text-sm mt-1">Started programming to create a website for my Minecraft server - the spark that ignited my passion for development.</p>
+                        <p className="text-gray-300 text-sm mt-1">Started programming to create a website for my Minecraft server - it was a very basic HTML page with simple design.</p>
                       </div>
                     </div>
                     
@@ -114,7 +114,7 @@ export const AboutSection = () => {
                     <div className="relative flex items-start gap-4">
                       <div className="relative z-10 w-4 h-4 bg-primary-400 rounded-full border-2 border-[#141416] flex-shrink-0 mt-0.5"></div>
                       <div className="flex-1">
-                        <div className="text-sm text-primary-400 font-medium">2024 - Full-Stack Mastery</div>
+                        <div className="text-sm text-primary-400 font-medium">2024 - Product Mastery</div>
                         <p className="text-gray-300 text-sm mt-1">Achieved confidence in building complete products from concept to deployment across the entire development lifecycle.</p>
                       </div>
                     </div>
@@ -130,11 +130,15 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
-                  <Users className="w-5 h-5 text-primary-400" />
-                  Work Style
-                </h3>
+              <div className="group p-6 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary-400/5 transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30">
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-3 group-hover:from-white group-hover:to-primary-200 transition-all duration-300">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary-400/20 to-primary-500/10 border border-primary-400/30 group-hover:from-primary-400/30 group-hover:to-primary-500/20 group-hover:border-primary-400/50 transition-all duration-300">
+                      <Users className="w-5 h-5 text-primary-400" />
+                    </div>
+                    Work Style
+                  </h3>
+                </div>
                 <div className="space-y-3">
                   <p className="text-gray-300 leading-relaxed">
                     I thrive in environments where I can learn and grow while solving real-world problems. I believe in rapid iteration, continuous learning, and leveraging AI to amplify productivity.
@@ -145,11 +149,15 @@ export const AboutSection = () => {
               
 
               
-              <div className="p-6 rounded-xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
-                  <TrendingUp className="w-5 h-5 text-primary-400" />
-                  Learning & Growth
-                </h3>
+              <div className="group p-6 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary-400/5 transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30">
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-3 group-hover:from-white group-hover:to-primary-200 transition-all duration-300">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary-400/20 to-primary-500/10 border border-primary-400/30 group-hover:from-primary-400/30 group-hover:to-primary-500/20 group-hover:border-primary-400/50 transition-all duration-300">
+                      <TrendingUp className="w-5 h-5 text-primary-400" />
+                    </div>
+                    Learning & Growth
+                  </h3>
+                </div>
                 <div className="space-y-3">
                   <p className="text-gray-300 leading-relaxed">
                     I'm constantly exploring emerging technologies and experimenting with cutting-edge tools. Currently diving deep into AI/ML technologies, exploring innovative ways to create value and boost development efficiency.
@@ -157,11 +165,15 @@ export const AboutSection = () => {
                 </div>
               </div>
               
-              <div className="p-6 rounded-xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm">
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
-                  <Gamepad2 className="w-5 h-5 text-primary-400" />
-                  Beyond Code
-                </h3>
+              <div className="group p-6 rounded-xl border border-zinc-800/60 bg-gradient-to-br from-zinc-900/40 to-zinc-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary-400/5 transition-all duration-300 hover:border-zinc-700/80 hover:bg-gradient-to-br hover:from-zinc-900/50 hover:to-zinc-900/30">
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent flex items-center gap-3 group-hover:from-white group-hover:to-primary-200 transition-all duration-300">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary-400/20 to-primary-500/10 border border-primary-400/30 group-hover:from-primary-400/30 group-hover:to-primary-500/20 group-hover:border-primary-400/50 transition-all duration-300">
+                      <Gamepad2 className="w-5 h-5 text-primary-400" />
+                    </div>
+                    Beyond Code
+                  </h3>
+                </div>
                 <p className="text-gray-300 leading-relaxed">
                   When I'm not coding, I enjoy playing video games, browsing Reddit & X, listening to music, and hitting the gym.
                 </p>
