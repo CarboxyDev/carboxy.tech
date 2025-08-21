@@ -11,7 +11,7 @@ import {
   ReactLogo,
   TailwindLogo,
   TypescriptLogo,
-} from '@/components/Icons';
+} from '@/components/icons/brand-icons';
 import { SectionHeading } from '@/components/Text';
 import {
   Tooltip,
@@ -19,8 +19,8 @@ import {
   TooltipTrigger,
 } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useSpring, animated } from '@react-spring/web';
+import { animated, useSpring } from '@react-spring/web';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 import React from 'react';
 
 type SkillCategory = 'frontend' | 'backend' | 'tools' | 'design';
@@ -106,8 +106,13 @@ const SKILLS: Skill[] = [
   },
 ];
 
-
-const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) => {
+const SkillCard = ({
+  skill,
+  isVisible,
+}: {
+  skill: Skill;
+  isVisible: boolean;
+}) => {
   const cardSpring = useSpring({
     opacity: isVisible ? 1 : 0.3,
     transform: isVisible ? 'scale(1)' : 'scale(0.95)',
@@ -122,11 +127,11 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
         'group relative size-20 rounded-2xl border border-zinc-700/40 backdrop-blur-sm transition-all duration-300',
         `bg-gradient-to-br ${skill.gradient}`,
         !isVisible && 'grayscale',
-        isVisible ? 'hover:border-zinc-600/60 cursor-pointer' : 'cursor-default'
+        isVisible ? 'cursor-pointer hover:border-zinc-600/60' : 'cursor-default'
       )}
     >
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-zinc-900/90 to-zinc-800/70" />
-      
+
       <div className="relative flex size-full items-center justify-center">
         {React.cloneElement(skill.icon as React.ReactElement<any>, {
           className: cn(
@@ -135,12 +140,14 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
           ),
         })}
       </div>
-      
-      <div className={cn(
-        'absolute inset-0 rounded-2xl bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300',
-        `${skill.hoverColor} from-transparent`,
-        isVisible && 'group-hover:opacity-100'
-      )} />
+
+      <div
+        className={cn(
+          'absolute inset-0 rounded-2xl bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300',
+          `${skill.hoverColor} from-transparent`,
+          isVisible && 'group-hover:opacity-100'
+        )}
+      />
     </motion.div>
   );
 
@@ -148,25 +155,27 @@ const SkillCard = ({ skill, isVisible }: { skill: Skill; isVisible: boolean }) =
     <animated.div style={cardSpring}>
       {isVisible ? (
         <Tooltip delayDuration={200}>
-          <TooltipTrigger>
-            {cardContent}
-          </TooltipTrigger>
+          <TooltipTrigger>{cardContent}</TooltipTrigger>
           <TooltipContent
             side="top"
-            className="border-zinc-600/50 bg-gradient-to-br from-zinc-800/95 to-zinc-900/95 text-zinc-100 backdrop-blur-sm shadow-xl"
+            className="border-zinc-600/50 bg-gradient-to-br from-zinc-800/95 to-zinc-900/95 text-zinc-100 shadow-xl backdrop-blur-sm"
           >
             <div className="flex items-center gap-3 px-1 py-0.5">
-              <div className={cn(
-                'flex size-8 items-center justify-center rounded-lg',
-                `bg-gradient-to-br ${skill.gradient}`
-              )}>
+              <div
+                className={cn(
+                  'flex size-8 items-center justify-center rounded-lg',
+                  `bg-gradient-to-br ${skill.gradient}`
+                )}
+              >
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-zinc-900/60 to-zinc-800/40" />
                 {React.cloneElement(skill.icon as React.ReactElement<any>, {
                   className: 'relative size-4 text-white',
                 })}
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">{skill.label}</p>
+                <p className="text-sm font-semibold text-white">
+                  {skill.label}
+                </p>
               </div>
             </div>
           </TooltipContent>
@@ -188,19 +197,21 @@ const SkillGrid = () => {
       tools: [],
       design: [],
     };
-    
-    SKILLS.forEach(skill => {
-      skill.categories.forEach(category => {
+
+    SKILLS.forEach((skill) => {
+      skill.categories.forEach((category) => {
         groups[category].push(skill);
       });
     });
-    
+
     return groups;
   }, []);
 
   const filteredSkills = React.useMemo(() => {
     if (!activeFilter) return SKILLS;
-    return SKILLS.filter(skill => skill.categories.includes(activeFilter as SkillCategory));
+    return SKILLS.filter((skill) =>
+      skill.categories.includes(activeFilter as SkillCategory)
+    );
   }, [activeFilter]);
 
   return (
@@ -220,13 +231,15 @@ const SkillGrid = () => {
           All Skills
           <span className="text-xs text-zinc-500">({SKILLS.length})</span>
         </motion.button>
-        
+
         {Object.entries(categoryGroups).map(([category, skills]) => (
           <motion.button
             key={category}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setActiveFilter(activeFilter === category ? null : category)}
+            onClick={() =>
+              setActiveFilter(activeFilter === category ? null : category)
+            }
             className={cn(
               'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300',
               activeFilter === category
@@ -234,13 +247,15 @@ const SkillGrid = () => {
                 : 'border-zinc-700/40 bg-zinc-800/50 text-zinc-300 hover:border-zinc-600/60 hover:bg-zinc-700/50'
             )}
           >
-            <div className={cn(
-              'size-2 rounded-full',
-              category === 'frontend' && 'bg-blue-500',
-              category === 'backend' && 'bg-green-500',
-              category === 'tools' && 'bg-orange-500',
-              category === 'design' && 'bg-purple-500'
-            )} />
+            <div
+              className={cn(
+                'size-2 rounded-full',
+                category === 'frontend' && 'bg-blue-500',
+                category === 'backend' && 'bg-green-500',
+                category === 'tools' && 'bg-orange-500',
+                category === 'design' && 'bg-purple-500'
+              )}
+            />
             <span className="capitalize">{category}</span>
             <span className="text-xs text-zinc-500">({skills.length})</span>
           </motion.button>
@@ -248,53 +263,72 @@ const SkillGrid = () => {
       </div>
 
       <div className="relative py-12">
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-          <div 
-            className="w-full h-full"
+        <div className="pointer-events-none absolute inset-0 opacity-[0.02]">
+          <div
+            className="h-full w-full"
             style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, rgb(255,255,255) 1px, transparent 0)`,
               backgroundSize: '24px 24px',
             }}
           />
         </div>
-        
-        <div className="absolute inset-0 opacity-[0.015] pointer-events-none overflow-hidden">
-          <svg className="w-full h-full" viewBox="0 0 400 300">
+
+        <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.015]">
+          <svg className="h-full w-full" viewBox="0 0 400 300">
             <defs>
-              <pattern id="hexagons" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-                <polygon points="30,2 50,17 50,35 30,50 10,35 10,17" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+              <pattern
+                id="hexagons"
+                x="0"
+                y="0"
+                width="60"
+                height="52"
+                patternUnits="userSpaceOnUse"
+              >
+                <polygon
+                  points="30,2 50,17 50,35 30,50 10,35 10,17"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#hexagons)" className="text-zinc-400" />
+            <rect
+              width="100%"
+              height="100%"
+              fill="url(#hexagons)"
+              className="text-zinc-400"
+            />
           </svg>
         </div>
 
-        <motion.div 
+        <motion.div
           layout
-          className="relative grid grid-cols-3 gap-8 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 justify-items-center max-w-4xl mx-auto"
+          className="relative mx-auto grid max-w-4xl grid-cols-3 justify-items-center gap-8 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8"
         >
           <AnimatePresence mode="popLayout">
             {SKILLS.map((skill, index) => {
               const isVisible = filteredSkills.includes(skill);
               const visibleIndex = filteredSkills.indexOf(skill);
-              const staggerDelay = isVisible ? visibleIndex * 0.05 : index * 0.02;
-              
+              const staggerDelay = isVisible
+                ? visibleIndex * 0.05
+                : index * 0.02;
+
               return (
                 <motion.div
                   key={skill.label}
                   layout
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                  animate={{ 
+                  animate={{
                     opacity: isVisible ? 1 : 0.3,
                     scale: isVisible ? 1 : 0.9,
                     y: 0,
                   }}
                   exit={{ opacity: 0, scale: 0.8, y: -10 }}
-                  transition={{ 
+                  transition={{
                     duration: 0.4,
                     delay: staggerDelay,
-                    ease: "easeOut",
-                    layout: { duration: 0.3 }
+                    ease: 'easeOut',
+                    layout: { duration: 0.3 },
                   }}
                 >
                   <SkillCard skill={skill} isVisible={isVisible} />
@@ -304,12 +338,11 @@ const SkillGrid = () => {
           </AnimatePresence>
         </motion.div>
       </div>
-
     </div>
   );
 };
 
-export const SkillsSection = () => {
+export const Skills = () => {
   const titleRef = React.useRef(null);
   const titleIsInView = useInView(titleRef, { once: true });
   const gridRef = React.useRef(null);

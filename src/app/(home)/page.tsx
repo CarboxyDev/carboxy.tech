@@ -1,9 +1,9 @@
+import { AboutSection } from '@/app/(home)/about';
+import { Footer } from '@/app/(home)/footer';
 import { Header } from '@/app/(home)/header';
 import { HeroSection } from '@/app/(home)/hero';
-import { AboutSection } from '@/app/(home)/about';
-import { ProjectSection } from '@/app/(home)/projects';
-import { SkillsSection } from '@/app/(home)/skills';
-import { Footer } from '@/components/Footer';
+import { Projects } from '@/app/(home)/projects';
+import { Skills } from '@/app/(home)/skills';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -17,7 +17,7 @@ export default function HomePage() {
         <Header />
       </div>
       <div
-        className="animate-fade-in-up mt-16 lg:mt-36 min-h-[80vh]"
+        className="animate-fade-in-up mt-16 min-h-[80vh] lg:mt-36"
         style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
       >
         <HeroSection />
@@ -32,13 +32,13 @@ export default function HomePage() {
         className="animate-fade-in-up"
         style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
       >
-        <ProjectSection />
+        <Projects />
       </div>
       <div
         className="animate-fade-in-up mt-20"
         style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
       >
-        <SkillsSection />
+        <Skills />
       </div>
       <div
         className="animate-fade-in-up mt-20 lg:mt-40"

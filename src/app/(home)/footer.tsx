@@ -1,5 +1,5 @@
-import { GithubIcon, MailIcon, TwitterIcon } from '@/components/Icons';
-import { SocialButton } from '@/components/SocialButton';
+import { GithubIcon, MailIcon, TwitterIcon } from '@/components/icons/social-icons';
+import { SocialButton } from '@/components/social-button';
 import { LINKS } from '@/lib/config/links';
 import { NotebookPen } from 'lucide-react';
 

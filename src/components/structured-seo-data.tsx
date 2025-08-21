@@ -10,8 +10,7 @@ export const StructuredSEOData = () => {
     url: 'https://carboxy.xyz',
     jobTitle: 'Full-Stack Developer',
     sameAs: ['https://github.com/carboxydev', 'https://x.com/carboxydev'],
-    description:
-      'Full-stack developer with strong UI/UX skills. Currently available for work.',
+    description: 'Full-stack AI developer with strong UI/UX skills',
   };
 
   return (
