@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
     status: 'Live',
     year: '2023',
-    featured: true,
+    featured: false,
     github: LINKS.github + '/effichron',
   },
 ];

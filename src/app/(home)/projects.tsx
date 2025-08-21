@@ -1,7 +1,7 @@
 'use client';
 
 import { SectionHeading } from '@/components/home/section-heading';
-import { PROJECTS } from '@/lib/config/projects';
+import { getFeaturedProjects } from '@/lib/config/projects';
 import { motion } from 'framer-motion';
 
 const ENABLE_CAROUSEL = false;
@@ -151,7 +151,7 @@ export const Projects = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <div className="flex flex-col gap-y-24 sm:gap-y-32 lg:gap-y-40">
-          {PROJECTS.map((project, index) => (
+          {getFeaturedProjects().map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
