@@ -34,7 +34,16 @@ html {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Quiz specific animations */
+/* Loading and animation effects */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 @keyframes shimmerGlow {
   0% {
     background-position: -200% 0;

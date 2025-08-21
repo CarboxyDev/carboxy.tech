@@ -216,13 +216,20 @@ const SkillGrid = () => {
 
   return (
     <div className="relative w-full">
-      <div className="mb-12 flex flex-wrap justify-center gap-3">
+      <div
+        className="mb-12 flex flex-wrap justify-center gap-3"
+        role="group"
+        aria-label="Filter skills by category"
+      >
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setActiveFilter(null)}
+          aria-label="Show all skills"
+          aria-pressed={activeFilter === null}
+          role="button"
           className={cn(
-            'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300',
+            'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900',
             activeFilter === null
               ? 'border-primary-500/50 bg-primary-500/10 text-primary-300'
               : 'border-zinc-700/40 bg-zinc-800/50 text-zinc-300 hover:border-zinc-600/60 hover:bg-zinc-700/50'
@@ -240,8 +247,11 @@ const SkillGrid = () => {
             onClick={() =>
               setActiveFilter(activeFilter === category ? null : category)
             }
+            aria-label={`Filter skills by ${category}`}
+            aria-pressed={activeFilter === category}
+            role="button"
             className={cn(
-              'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300',
+              'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900',
               activeFilter === category
                 ? 'border-primary-500/50 bg-primary-500/10 text-primary-300'
                 : 'border-zinc-700/40 bg-zinc-800/50 text-zinc-300 hover:border-zinc-600/60 hover:bg-zinc-700/50'
