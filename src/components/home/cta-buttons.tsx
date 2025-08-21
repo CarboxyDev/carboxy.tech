@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/vendor/button';
+import { animate } from 'framer-motion';
 import { ArrowBigDownDash, ArrowRight } from 'lucide-react';
 
 export const LearnMoreButton = () => {
@@ -8,7 +9,17 @@ export const LearnMoreButton = () => {
     <Button
       onClick={() => {
         const elem = document.getElementById('projects');
-        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+        if (elem) {
+          animate(
+            window.scrollY,
+            elem.getBoundingClientRect().top + window.scrollY,
+            {
+              duration: 0.1,
+              ease: 'easeInOut',
+              onUpdate: (value) => window.scrollTo(0, value),
+            }
+          );
+        }
       }}
       className="group relative h-15 select-none gap-x-3 overflow-hidden border border-primary-500/20 bg-primary-500/10 px-7 py-4 text-primary-500 backdrop-blur-sm transition-all duration-300 ease-out hover:scale-[1.02] hover:border-primary-400/40 hover:bg-primary-500/15 hover:shadow-xl hover:shadow-primary-500/20 active:scale-[0.98]"
     >
@@ -31,7 +42,17 @@ export const AboutMeButton = () => {
         const elem =
           document.querySelector('[data-section="about"]') ||
           document.querySelector('section:nth-child(3)');
-        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+        if (elem) {
+          animate(
+            window.scrollY,
+            elem.getBoundingClientRect().top + window.scrollY,
+            {
+              duration: 0.1,
+              ease: 'easeInOut',
+              onUpdate: (value) => window.scrollTo(0, value),
+            }
+          );
+        }
       }}
       className="group relative h-15 select-none overflow-hidden rounded-lg border border-zinc-600/50 bg-gradient-to-r from-zinc-800/40 to-zinc-800/20 px-7 py-4 text-zinc-200 backdrop-blur-sm transition-all duration-300 ease-out hover:scale-[1.02] hover:border-zinc-500/70 hover:from-zinc-700/50 hover:to-zinc-700/30 hover:text-white hover:shadow-xl hover:shadow-zinc-900/30 active:scale-[0.98]"
     >
