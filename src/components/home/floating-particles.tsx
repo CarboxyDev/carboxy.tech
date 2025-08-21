@@ -1,12 +1,30 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+interface Particle {
+  id: number;
+  size: number;
+  x: number;
+  y: number;
+  duration: number;
+  delay: number;
+}
+
 const FloatingParticles = () => {
-  const particles = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 3 + 2,
-    delay: Math.random() * 2,
-  }));
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    const generatedParticles = Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 4 + 2,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 2,
+    }));
+    setParticles(generatedParticles);
+  }, []);
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">

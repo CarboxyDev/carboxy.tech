@@ -4,7 +4,7 @@ import { Code2, Gamepad2, MapPin, TrendingUp, Users } from 'lucide-react';
 
 export const AboutSection = () => {
   return (
-    <section className={cn('pb-32 pt-20 lg:pb-40 lg:pt-32')}>
+    <section className={cn('pb-32 pt-20 lg:pb-40 lg:pt-32')} data-section="about">
       <div className="space-y-16">
         <SectionHeading title="About Me" />
 
