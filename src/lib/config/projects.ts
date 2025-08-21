@@ -1,3 +1,5 @@
+import { LINKS } from '@/lib/config/links';
+
 export interface Project {
   id: string;
   title: string;
@@ -10,6 +12,7 @@ export interface Project {
   status: 'Live' | 'In Development' | 'Completed';
   year: string;
   featured?: boolean;
+  github: string | null;
 }
 
 export const PROJECTS: Project[] = [
@@ -27,8 +30,9 @@ export const PROJECTS: Project[] = [
     status: 'Live',
     year: '2024',
     featured: true,
+    github: null,
   },
-    {
+  {
     id: 'quizfoundry',
     title: 'QuizFoundry',
     description:
@@ -38,10 +42,18 @@ export const PROJECTS: Project[] = [
     href: 'https://quizfoundry.carboxy.xyz',
     images: ['quizfoundry1.png'],
     tags: ['Frontend', 'AI SDK', 'Education'],
-    techStack: ['React', 'TypeScript', 'Next.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
+    techStack: [
+      'React',
+      'TypeScript',
+      'Next.js',
+      'Express',
+      'PostgreSQL',
+      'TailwindCSS',
+    ],
     status: 'In Development',
     year: '2025',
     featured: true,
+    github: LINKS.github + '/quizfoundry',
   },
   {
     id: 'effichron',
@@ -57,6 +69,7 @@ export const PROJECTS: Project[] = [
     status: 'Live',
     year: '2023',
     featured: true,
+    github: LINKS.github + '/effichron',
   },
 ];
 
