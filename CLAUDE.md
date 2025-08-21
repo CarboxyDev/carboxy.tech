@@ -63,7 +63,6 @@ import { motion } from "framer-motion"
 - shadcn/ui components
 - Framer Motion
 - Lucide React
-- MDX processing: gray-matter, next-mdx-remote, rehype-highlight, rehype-pretty-code
 
 ### Development Commands
 ```bash
