@@ -1,8 +1,11 @@
-
-import { MailIcon, TwitterIcon } from '@/components/icons/social-icons';
+import {
+  GithubIcon,
+  MailIcon,
+  TwitterIcon,
+} from '@/components/icons/social-icons';
 import { SocialButton } from '@/components/social-button';
 import { LINKS } from '@/lib/config/links';
-import { GithubIcon, NotebookPen } from 'lucide-react';
+import { NotebookPen } from 'lucide-react';
 import Image from 'next/image';
 
 export const Header = () => {

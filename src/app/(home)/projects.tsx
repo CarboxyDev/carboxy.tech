@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionHeading } from '@/components/Text';
+import { SectionHeading } from '@/components/home/section-heading';
 import { PROJECTS } from '@/lib/config/projects';
 import { motion } from 'framer-motion';
 

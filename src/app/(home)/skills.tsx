@@ -1,5 +1,6 @@
 'use client';
 
+import { SectionHeading } from '@/components/home/section-heading';
 import {
   DockerLogo,
   ExpressjsLogo,
@@ -12,7 +13,6 @@ import {
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/icons/brand-icons';
-import { SectionHeading } from '@/components/Text';
 import {
   Tooltip,
   TooltipContent,

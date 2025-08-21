@@ -1,28 +1,21 @@
-import { GithubIcon, MailIcon, TwitterIcon } from '@/components/icons/social-icons';
-import { SocialButton } from '@/components/social-button';
-import { LINKS } from '@/lib/config/links';
-import { NotebookPen } from 'lucide-react';
+'use client';
+
+import { ChevronUp } from 'lucide-react';
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer>
-      <div className="ml-auto flex gap-x-3">
-        <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
-          <TwitterIcon className="size-4 text-zinc-400" />
-        </SocialButton>
-        <SocialButton site="Github" url={LINKS.github}>
-          <GithubIcon className="size-[18px] text-zinc-400" />
-        </SocialButton>
-        <SocialButton site="Email" url={LINKS.email}>
-          <MailIcon className="size-[18px] text-zinc-400" />
-        </SocialButton>
-        <SocialButton site="Blog" url={LINKS.blog}>
-          <NotebookPen className="size-[18px] text-zinc-400" />
-        </SocialButton>
-      </div>
-      <div className="mt-8 font-light text-zinc-300">
-        © 2025 CarboxyDev. All rights reserved.
-      </div>
+    <footer className="flex justify-center py-8">
+      <button
+        onClick={scrollToTop}
+        className="group rounded-full border border-zinc-700/50 bg-zinc-800/50 p-3 transition-all duration-300 hover:scale-110 hover:bg-zinc-700/50"
+        aria-label="Back to top"
+      >
+        <ChevronUp className="size-5 text-zinc-400 transition-colors group-hover:text-zinc-300" />
+      </button>
     </footer>
   );
 };
