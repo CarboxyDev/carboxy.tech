@@ -106,6 +106,22 @@ const SKILLS: Skill[] = [
   },
 ];
 
+const MINOR_SKILLS = [
+  { label: 'Framer Motion', category: 'frontend' },
+  { label: 'React Query', category: 'frontend' },
+  { label: 'Zustand', category: 'frontend' },
+  { label: 'Framer Motion', category: 'frontend' },
+  { label: 'Shadcn/ui', category: 'frontend' },
+  { label: 'PostCSS', category: 'frontend' },
+  { label: 'Prisma', category: 'backend' },
+  { label: 'MongoDB', category: 'backend' },
+  { label: 'Supabase', category: 'backend' },
+  { label: 'Vercel', category: 'tools' },
+  { label: 'GitHub Actions', category: 'tools' },
+  { label: 'Cursor', category: 'tools' },
+  { label: 'Bash/Zsh', category: 'tools' },
+];
+
 const SkillCard = ({
   skill,
   isVisible,
@@ -189,6 +205,23 @@ const SkillCard = ({
 
 const SkillGrid = () => {
   const [activeFilter, setActiveFilter] = React.useState<string | null>(null);
+  const [showMinorSkills, setShowMinorSkills] = React.useState(false);
+  const minorSkillsRef = React.useRef<HTMLDivElement>(null);
+  const [minorSkillsHeight, setMinorSkillsHeight] = React.useState<
+    number | null
+  >(null);
+
+  React.useEffect(() => {
+    if (showMinorSkills && minorSkillsRef.current) {
+      // Use a slight delay to ensure content is fully rendered
+      setTimeout(() => {
+        if (minorSkillsRef.current) {
+          const height = minorSkillsRef.current.scrollHeight;
+          setMinorSkillsHeight(height);
+        }
+      }, 50);
+    }
+  }, [showMinorSkills]);
 
   const categoryGroups = React.useMemo(() => {
     const groups: Record<SkillCategory, Skill[]> = {
@@ -267,7 +300,6 @@ const SkillGrid = () => {
               )}
             />
             <span className="capitalize">{category}</span>
-            <span className="text-xs text-zinc-500">({skills.length})</span>
           </motion.button>
         ))}
       </div>
@@ -347,6 +379,142 @@ const SkillGrid = () => {
             })}
           </AnimatePresence>
         </motion.div>
+      </div>
+
+      <div className="mt-16 flex flex-col items-center">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => setShowMinorSkills(!showMinorSkills)}
+          className="group flex items-center gap-2 rounded-full border border-zinc-700/40 bg-zinc-800/50 px-6 py-3 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600/60 hover:bg-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-primary-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+        >
+          <span>{showMinorSkills ? 'Hide' : 'Show'} Additional Skills</span>
+          <motion.div
+            animate={{ rotate: showMinorSkills ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-zinc-500"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 9l6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </motion.button>
+
+        <div
+          className="relative overflow-hidden"
+          style={{
+            height: showMinorSkills
+              ? 'auto'
+              : minorSkillsHeight
+                ? `${minorSkillsHeight + 32}px`
+                : 'auto',
+            transition: showMinorSkills
+              ? 'none'
+              : 'height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) 0.1s',
+          }}
+        >
+          <AnimatePresence>
+            {showMinorSkills && (
+              <motion.div
+                ref={minorSkillsRef}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.98 }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  opacity: { duration: 0.3 },
+                  scale: { duration: 0.4 },
+                }}
+                className="mt-8 w-full max-w-4xl"
+              >
+                <div className="mb-6 text-center">
+                  <h3 className="text-lg font-semibold text-zinc-200">
+                    Additional Technologies & Tools
+                  </h3>
+                  <p className="mt-2 text-sm text-zinc-400">
+                    Libraries, frameworks and tools I work with regularly
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-3">
+                  {MINOR_SKILLS.map((skill, index) => {
+                    const isVisible =
+                      !activeFilter || skill.category === activeFilter;
+
+                    return (
+                      <motion.div
+                        key={skill.label}
+                        initial={{ opacity: 0, scale: 0.8, y: 15 }}
+                        animate={{
+                          opacity: isVisible ? 1 : 0.3,
+                          scale: isVisible ? 1 : 0.95,
+                          y: 0,
+                        }}
+                        exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                        transition={{
+                          delay: index * 0.02,
+                          duration: 0.4,
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                        }}
+                        className={cn(
+                          'group relative overflow-hidden rounded-lg border border-zinc-700/40 bg-zinc-800/50 px-3 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600/60 hover:bg-zinc-700/50 hover:text-zinc-200',
+                          !isVisible && 'grayscale',
+                          isVisible &&
+                            skill.category === 'frontend' &&
+                            'hover:border-blue-500/30',
+                          isVisible &&
+                            skill.category === 'backend' &&
+                            'hover:border-green-500/30',
+                          isVisible &&
+                            skill.category === 'tools' &&
+                            'hover:border-orange-500/30',
+                          isVisible &&
+                            skill.category === 'design' &&
+                            'hover:border-purple-500/30'
+                        )}
+                      >
+                        <div
+                          className={cn(
+                            'absolute inset-0 opacity-0 transition-opacity duration-300',
+                            isVisible && 'group-hover:opacity-100',
+                            skill.category === 'frontend' && 'bg-blue-500/5',
+                            skill.category === 'backend' && 'bg-green-500/5',
+                            skill.category === 'tools' && 'bg-orange-500/5',
+                            skill.category === 'design' && 'bg-purple-500/5'
+                          )}
+                        />
+                        <span className="relative z-10">{skill.label}</span>
+                        <div
+                          className={cn(
+                            'absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300',
+                            isVisible && 'group-hover:w-full',
+                            skill.category === 'frontend' && 'bg-blue-500',
+                            skill.category === 'backend' && 'bg-green-500',
+                            skill.category === 'tools' && 'bg-orange-500',
+                            skill.category === 'design' && 'bg-purple-500'
+                          )}
+                        />
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
