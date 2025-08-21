@@ -10,6 +10,7 @@ import {
   NodejsLogo,
   PostgreSQLLogo,
   ReactLogo,
+  SupabaseLogo,
   TailwindLogo,
   TypescriptLogo,
 } from '@/components/icons/brand-icons';
@@ -84,6 +85,13 @@ const SKILLS: Skill[] = [
     categories: ['backend'],
   },
   {
+    label: 'Supabase',
+    icon: <SupabaseLogo />,
+    gradient: 'from-green-600/20 to-emerald-500/20',
+    hoverColor: 'from-green-600/30 to-emerald-500/30',
+    categories: ['backend'],
+  },
+  {
     label: 'Git',
     icon: <GitLogo />,
     gradient: 'from-orange-500/20 to-red-500/20',
@@ -106,20 +114,27 @@ const SKILLS: Skill[] = [
   },
 ];
 
-const MINOR_SKILLS = [
-  { label: 'Framer Motion', category: 'frontend' },
-  { label: 'React Query', category: 'frontend' },
-  { label: 'Zustand', category: 'frontend' },
-  { label: 'Framer Motion', category: 'frontend' },
-  { label: 'Shadcn/ui', category: 'frontend' },
-  { label: 'PostCSS', category: 'frontend' },
-  { label: 'Prisma', category: 'backend' },
-  { label: 'MongoDB', category: 'backend' },
-  { label: 'Supabase', category: 'backend' },
-  { label: 'Vercel', category: 'tools' },
-  { label: 'GitHub Actions', category: 'tools' },
-  { label: 'Cursor', category: 'tools' },
-  { label: 'Bash/Zsh', category: 'tools' },
+interface MinorSkill {
+  label: string;
+  categories: SkillCategory[];
+}
+
+const MINOR_SKILLS: MinorSkill[] = [
+  { label: 'React Query', categories: ['frontend'] },
+  { label: 'Axios', categories: ['frontend'] },
+  { label: 'Zustand', categories: ['frontend'] },
+  { label: 'Radix UI', categories: ['frontend'] },
+  { label: 'Shadcn/ui', categories: ['frontend'] },
+  { label: 'PostCSS', categories: ['frontend'] },
+  { label: 'Nivo', categories: ['frontend'] },
+  { label: 'Recharts', categories: ['frontend'] },
+  { label: 'Framer Motion', categories: ['frontend'] },
+  { label: 'Zod', categories: ['frontend', 'backend'] },
+  { label: 'Prisma', categories: ['backend'] },
+  { label: 'Vercel', categories: ['tools'] },
+  { label: 'GitHub Actions', categories: ['tools'] },
+  { label: 'Cursor', categories: ['tools'] },
+  { label: 'Bash/Zsh', categories: ['tools'] },
 ];
 
 const SkillCard = ({
@@ -272,7 +287,7 @@ const SkillGrid = () => {
           <span className="text-xs text-zinc-500">({SKILLS.length})</span>
         </motion.button>
 
-        {Object.entries(categoryGroups).map(([category, skills]) => (
+        {Object.entries(categoryGroups).map(([category, _skills]) => (
           <motion.button
             key={category}
             whileHover={{ scale: 1.05 }}
@@ -452,7 +467,8 @@ const SkillGrid = () => {
                 <div className="flex flex-wrap justify-center gap-3">
                   {MINOR_SKILLS.map((skill, index) => {
                     const isVisible =
-                      !activeFilter || skill.category === activeFilter;
+                      !activeFilter ||
+                      skill.categories.includes(activeFilter as SkillCategory);
 
                     return (
                       <motion.div
@@ -473,16 +489,22 @@ const SkillGrid = () => {
                           'group relative overflow-hidden rounded-lg border border-zinc-700/40 bg-zinc-800/50 px-3 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600/60 hover:bg-zinc-700/50 hover:text-zinc-200',
                           !isVisible && 'grayscale',
                           isVisible &&
-                            skill.category === 'frontend' &&
+                            skill.categories.includes('frontend') &&
                             'hover:border-blue-500/30',
                           isVisible &&
-                            skill.category === 'backend' &&
+                            skill.categories.includes('backend') &&
+                            !skill.categories.includes('frontend') &&
                             'hover:border-green-500/30',
                           isVisible &&
-                            skill.category === 'tools' &&
+                            skill.categories.includes('tools') &&
+                            !skill.categories.includes('frontend') &&
+                            !skill.categories.includes('backend') &&
                             'hover:border-orange-500/30',
                           isVisible &&
-                            skill.category === 'design' &&
+                            skill.categories.includes('design') &&
+                            !skill.categories.includes('frontend') &&
+                            !skill.categories.includes('backend') &&
+                            !skill.categories.includes('tools') &&
                             'hover:border-purple-500/30'
                         )}
                       >
@@ -490,10 +512,20 @@ const SkillGrid = () => {
                           className={cn(
                             'absolute inset-0 opacity-0 transition-opacity duration-300',
                             isVisible && 'group-hover:opacity-100',
-                            skill.category === 'frontend' && 'bg-blue-500/5',
-                            skill.category === 'backend' && 'bg-green-500/5',
-                            skill.category === 'tools' && 'bg-orange-500/5',
-                            skill.category === 'design' && 'bg-purple-500/5'
+                            skill.categories.includes('frontend') &&
+                              'bg-blue-500/5',
+                            skill.categories.includes('backend') &&
+                              !skill.categories.includes('frontend') &&
+                              'bg-green-500/5',
+                            skill.categories.includes('tools') &&
+                              !skill.categories.includes('frontend') &&
+                              !skill.categories.includes('backend') &&
+                              'bg-orange-500/5',
+                            skill.categories.includes('design') &&
+                              !skill.categories.includes('frontend') &&
+                              !skill.categories.includes('backend') &&
+                              !skill.categories.includes('tools') &&
+                              'bg-purple-500/5'
                           )}
                         />
                         <span className="relative z-10">{skill.label}</span>
@@ -501,10 +533,20 @@ const SkillGrid = () => {
                           className={cn(
                             'absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300',
                             isVisible && 'group-hover:w-full',
-                            skill.category === 'frontend' && 'bg-blue-500',
-                            skill.category === 'backend' && 'bg-green-500',
-                            skill.category === 'tools' && 'bg-orange-500',
-                            skill.category === 'design' && 'bg-purple-500'
+                            skill.categories.includes('frontend') &&
+                              'bg-blue-500',
+                            skill.categories.includes('backend') &&
+                              !skill.categories.includes('frontend') &&
+                              'bg-green-500',
+                            skill.categories.includes('tools') &&
+                              !skill.categories.includes('frontend') &&
+                              !skill.categories.includes('backend') &&
+                              'bg-orange-500',
+                            skill.categories.includes('design') &&
+                              !skill.categories.includes('frontend') &&
+                              !skill.categories.includes('backend') &&
+                              !skill.categories.includes('tools') &&
+                              'bg-purple-500'
                           )}
                         />
                       </motion.div>
