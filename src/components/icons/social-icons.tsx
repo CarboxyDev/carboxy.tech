@@ -1,6 +1,5 @@
-import type { IconProps } from "@/components/icons/types";
-import { cn } from "@/lib/utils";
-
+import type { IconProps } from '@/components/icons/types';
+import { cn } from '@/lib/utils';
 
 export const MailIcon = (props: IconProps) => {
   const { className } = props;
@@ -41,26 +40,25 @@ export const TwitterIcon = (props: IconProps) => {
 
   return (
     <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      width={14}
+      height={14}
+      viewBox="0 0 14 14"
       className={cn('fill-current', className)}
     >
-      <g clipPath="url(#clip0_2050_712)">
-        <g mask="url(#mask0_2050_712)">
+      <g fill="none">
+        <g clipPath="url(#SVGG1Ot4cAD)">
           <path
-            d="M12.6 0.749725H15.0537L9.69372 6.89144L16 15.2503H11.0629L7.19314 10.1817L2.77029 15.2503H0.314286L6.04686 8.67887L0 0.750868H5.06286L8.55543 5.38287L12.6 0.749725ZM11.7371 13.7783H13.0971L4.32 2.14515H2.86171L11.7371 13.7783Z"
             fill="currentColor"
-          />
+            d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z"
+          ></path>
         </g>
+        <defs>
+          <clipPath id="SVGG1Ot4cAD">
+            <path fill="#fff" d="M0 0h14v14H0z"></path>
+          </clipPath>
+        </defs>
       </g>
-      <defs>
-        <clipPath id="clip0_2050_712">
-          <rect width="16" height="16" fill="white" />
-        </clipPath>
-      </defs>
     </svg>
   );
 };

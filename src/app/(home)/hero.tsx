@@ -25,7 +25,7 @@ export const HeroSection = () => {
 
       <div
         className={cn(
-          'relative z-10 text-4xl font-semibold md:text-5xl lg:text-6xl',
+          'relative z-10 text-balance text-4xl font-semibold md:text-5xl lg:text-6xl',
           headingFont.className
         )}
       >
@@ -37,7 +37,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-12 max-w-2xl text-lg leading-relaxed text-zinc-200 sm:text-xl">
+      <div className="relative z-10 mt-6 max-w-2xl text-lg leading-relaxed text-zinc-200 sm:text-xl 2xl:mt-12">
         Full-stack developer with powerful design skills. Proficient in creating
         beautiful, cohesive interfaces that work end-to-end.
       </div>
@@ -74,22 +74,34 @@ export const HeroSection = () => {
         </div>
 
         <div className="flex justify-center gap-4">
-          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.4s', animationFillMode: 'both' }}>
+          <div
+            className="animate-fade-in-up opacity-0"
+            style={{ animationDelay: '2.4s', animationFillMode: 'both' }}
+          >
             <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
               <TwitterIcon className="size-5 text-zinc-300" />
             </SocialButton>
           </div>
-          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.6s', animationFillMode: 'both' }}>
+          <div
+            className="animate-fade-in-up opacity-0"
+            style={{ animationDelay: '2.6s', animationFillMode: 'both' }}
+          >
             <SocialButton site="Github" url={LINKS.github}>
               <GithubIcon className="size-5 text-zinc-300" />
             </SocialButton>
           </div>
-          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.8s', animationFillMode: 'both' }}>
+          <div
+            className="animate-fade-in-up opacity-0"
+            style={{ animationDelay: '2.8s', animationFillMode: 'both' }}
+          >
             <SocialButton site="Email" url={LINKS.email}>
               <MailIcon className="size-5 text-zinc-300" />
             </SocialButton>
           </div>
-          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '3.0s', animationFillMode: 'both' }}>
+          <div
+            className="animate-fade-in-up opacity-0"
+            style={{ animationDelay: '3.0s', animationFillMode: 'both' }}
+          >
             <SocialButton site="Blog" url={LINKS.blog}>
               <NotebookPen className="size-5 text-zinc-300" />
             </SocialButton>
