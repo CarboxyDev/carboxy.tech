@@ -20,9 +20,29 @@ export const SocialButton = (props: Props) => {
           target="_blank"
           about={props.site + ' social link'}
           title={props.site}
-          className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-700/50 bg-zinc-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-zinc-700/50 hover:scale-110 hover:border-zinc-600/70"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-700/40 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 hover:border-zinc-600/60 hover:from-zinc-700/60 hover:to-zinc-800/60 hover:shadow-xl hover:shadow-zinc-900/50 active:scale-95"
         >
-          {props.children}
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          
+          <div className={`absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-10 ${
+            props.site === 'X (Formerly Twitter)' ? 'bg-gradient-to-br from-sky-400 to-sky-600' :
+            props.site === 'Github' ? 'bg-gradient-to-br from-gray-600 to-gray-800' :
+            props.site === 'Email' ? 'bg-gradient-to-br from-blue-500 to-blue-700' :
+            props.site === 'Blog' ? 'bg-gradient-to-br from-orange-500 to-orange-700' :
+            'bg-gradient-to-br from-zinc-600 to-zinc-800'
+          }`} />
+          
+          <div className="relative z-10">
+            {React.cloneElement(props.children as React.ReactElement<any>, {
+              className: `${(props.children as React.ReactElement<any>).props.className} transition-all duration-300 group-hover:scale-110 ${
+                props.site === 'X (Formerly Twitter)' ? 'group-hover:text-sky-300' :
+                props.site === 'Github' ? 'group-hover:text-gray-100' :
+                props.site === 'Email' ? 'group-hover:text-blue-300' :
+                props.site === 'Blog' ? 'group-hover:text-orange-300' :
+                'group-hover:text-zinc-100'
+              }`,
+            })}
+          </div>
         </a>
       </TooltipTrigger>
       <TooltipContent 

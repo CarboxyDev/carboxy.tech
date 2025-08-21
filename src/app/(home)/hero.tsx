@@ -73,19 +73,27 @@ export const HeroSection = () => {
           ></div>
         </div>
 
-        <div className="flex justify-center gap-6">
-          <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
-            <TwitterIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
-          </SocialButton>
-          <SocialButton site="Github" url={LINKS.github}>
-            <GithubIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
-          </SocialButton>
-          <SocialButton site="Email" url={LINKS.email}>
-            <MailIcon className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
-          </SocialButton>
-          <SocialButton site="Blog" url={LINKS.blog}>
-            <NotebookPen className="size-6 text-zinc-300 transition-colors duration-300 hover:text-zinc-100" />
-          </SocialButton>
+        <div className="flex justify-center gap-4">
+          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.4s', animationFillMode: 'both' }}>
+            <SocialButton site="X (Formerly Twitter)" url={LINKS.twitter}>
+              <TwitterIcon className="size-5 text-zinc-300" />
+            </SocialButton>
+          </div>
+          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.6s', animationFillMode: 'both' }}>
+            <SocialButton site="Github" url={LINKS.github}>
+              <GithubIcon className="size-5 text-zinc-300" />
+            </SocialButton>
+          </div>
+          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '2.8s', animationFillMode: 'both' }}>
+            <SocialButton site="Email" url={LINKS.email}>
+              <MailIcon className="size-5 text-zinc-300" />
+            </SocialButton>
+          </div>
+          <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '3.0s', animationFillMode: 'both' }}>
+            <SocialButton site="Blog" url={LINKS.blog}>
+              <NotebookPen className="size-5 text-zinc-300" />
+            </SocialButton>
+          </div>
         </div>
       </div>
       <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-violet-500/20 blur-sm" />
