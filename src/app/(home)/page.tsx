@@ -1,4 +1,5 @@
 import { AboutSection } from '@/app/(home)/about';
+import { Contact } from '@/app/(home)/contact';
 import { Footer } from '@/app/(home)/footer';
 import { HeroSection } from '@/app/(home)/hero';
 import { Projects } from '@/app/(home)/projects';
@@ -37,8 +38,14 @@ export default function HomePage() {
         <Skills />
       </div>
       <div
-        className="animate-fade-in-up mt-20 lg:mt-40"
+        className="animate-fade-in-up mt-20"
         style={{ animationDelay: '1.0s', animationFillMode: 'both' }}
+      >
+        <Contact />
+      </div>
+      <div
+        className="animate-fade-in-up mt-20 lg:mt-40"
+        style={{ animationDelay: '1.2s', animationFillMode: 'both' }}
       >
         <Footer />
       </div>

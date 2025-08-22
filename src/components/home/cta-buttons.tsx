@@ -27,7 +27,7 @@ export const LearnMoreButton = () => {
 
       <ArrowBigDownDash className="relative z-10 h-5 w-5 transition-all duration-300 ease-in-out group-hover:translate-y-0.5 group-hover:text-primary-400" />
       <span className="relative z-10 text-[16px] font-medium transition-all duration-300 group-hover:text-primary-400">
-        Explore my work
+        View my work
       </span>
 
       <div className="absolute -inset-px rounded-lg bg-gradient-to-r from-transparent via-primary-400/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
