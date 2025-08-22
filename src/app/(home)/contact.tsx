@@ -94,11 +94,9 @@ export const Contact = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <a href={LINKS.email} className="group/button block w-full">
+                  <a href={LINKS.email} target="_blank" rel="noopener noreferrer" className="group/button block w-full">
                     <Button className="group/button h-14 w-full gap-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-primary-700 hover:to-primary-800 hover:shadow-xl hover:shadow-primary-500/20 active:scale-[0.98]">
-                      <span className="font-semibold">
-                        Let's discuss your project
-                      </span>
+                      <span className="font-semibold">Let's connect</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
                     </Button>
                   </a>
