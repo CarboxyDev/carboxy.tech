@@ -1,11 +1,11 @@
 'use client';
 
 import { SectionHeading } from '@/components/home/section-heading';
-import { TwitterIcon } from '@/components/icons/social-icons';
+import { MailIcon, TwitterIcon } from '@/components/icons/social-icons';
 import { Button } from '@/components/vendor/button';
 import { LINKS } from '@/lib/config/links';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Clock, MessageCircle } from 'lucide-react';
+import { ArrowRight, Calendar, MessageCircle } from 'lucide-react';
 
 export const Contact = () => {
   return (
@@ -30,21 +30,19 @@ export const Contact = () => {
                   I'm always interested in collaborating on exciting projects
                   and exploring partnership opportunities. Whether you're
                   building the next big thing, need a technical engineer, or
-                  want to work together on greatproducts, I'd love to hear about
-                  your vision and how I can help.
+                  want to work together on great products, I'd love to hear
+                  about your vision and how I can help.
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="rounded-lg border border-primary-400/30 bg-gradient-to-br from-primary-400/20 to-primary-500/10 p-2">
-                    <Clock className="h-5 w-5 text-primary-400" />
+                    <MailIcon className="h-5 w-5 text-primary-400" />
                   </div>
                   <div>
-                    <p className="font-medium text-white">Quick Response</p>
-                    <p className="text-sm text-zinc-400">
-                      I typically reply within 24 hours
-                    </p>
+                    <p className="font-medium text-white">Contact Me</p>
+                    <p className="text-sm text-zinc-400">carboxy17@gmail.com</p>
                   </div>
                 </div>
 
@@ -94,7 +92,7 @@ export const Contact = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <a href={LINKS.email} target="_blank" rel="noopener noreferrer" className="group/button block w-full">
+                  <a href={LINKS.email} className="group/button block w-full">
                     <Button className="group/button h-14 w-full gap-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-primary-700 hover:to-primary-800 hover:shadow-xl hover:shadow-primary-500/20 active:scale-[0.98]">
                       <span className="font-semibold">Let's connect</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
