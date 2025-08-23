@@ -21,15 +21,8 @@ export const SocialButton = (props: Props) => {
       <TooltipTrigger asChild>
         <a
           href={props.url}
-          target={isMail ? undefined : '_blank'}
+          target="_blank"
           rel={isHttp ? 'noopener noreferrer' : undefined}
-          // Fallback: some browsers ignore mailto with target; force same-tab nav
-          onClick={(e) => {
-            if (isMail) {
-              e.preventDefault();
-              window.location.href = props.url;
-            }
-          }}
           about={props.site + ' social link'}
           title={props.site}
           className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-700/40 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-zinc-600/60 hover:from-zinc-700/60 hover:to-zinc-800/60 hover:shadow-xl hover:shadow-zinc-900/50 active:scale-95"

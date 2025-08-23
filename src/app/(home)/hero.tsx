@@ -33,10 +33,10 @@ export const HeroSection = () => {
           Transforming Ideas into Digital Reality.
         </h1>
         <div
-          className="animate-fade-in-up bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent opacity-0 md:text-4xl lg:text-5xl"
+          className="animate-fade-in-up bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent opacity-0 transition-all duration-300 hover:scale-[1.03] hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] md:text-4xl lg:text-5xl"
           style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
         >
-          Converting Coffee into Code
+          Turning visions into products.
         </div>
       </div>
 
