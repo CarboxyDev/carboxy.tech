@@ -6,6 +6,7 @@ import {
   ExpressjsLogo,
   FigmaLogo,
   GitLogo,
+  GoLogo,
   NextjsLogo,
   NodejsLogo,
   PostgreSQLLogo,
@@ -79,10 +80,10 @@ const SKILLS: Skill[] = [
     categories: ['backend'],
   },
   {
-    label: 'PostgreSQL',
-    icon: <PostgreSQLLogo />,
-    gradient: 'from-blue-600/20 to-blue-500/20',
-    hoverColor: 'from-blue-600/30 to-blue-500/30',
+    label: 'Go',
+    icon: <GoLogo />,
+    gradient: 'from-cyan-500/20 to-blue-400/20',
+    hoverColor: 'from-cyan-500/30 to-blue-400/30',
     categories: ['backend'],
   },
   {
@@ -92,6 +93,14 @@ const SKILLS: Skill[] = [
     hoverColor: 'from-green-600/30 to-emerald-500/30',
     categories: ['backend'],
   },
+  {
+    label: 'PostgreSQL',
+    icon: <PostgreSQLLogo />,
+    gradient: 'from-blue-600/20 to-blue-500/20',
+    hoverColor: 'from-blue-600/30 to-blue-500/30',
+    categories: ['backend'],
+  },
+
   {
     label: 'Git',
     icon: <GitLogo />,
