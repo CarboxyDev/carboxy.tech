@@ -25,13 +25,13 @@ interface Props {
   description: string;
   href: string;
   github?: string;
-  tags: string[];
+  techStack: string[];
   images: string[];
   align: 'left' | 'right';
 }
 
 const ProjectCard = (props: Props) => {
-  const { href, title, description, tags, images, align, github } = props;
+  const { href, title, description, techStack, images, align, github } = props;
 
   return (
     <section
@@ -62,8 +62,8 @@ const ProjectCard = (props: Props) => {
         <p className="max-w-lg leading-relaxed text-zinc-300">{description}</p>
 
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <ProjectTag key={index} label={tag} />
+          {techStack.map((tech, index) => (
+            <ProjectTag key={index} label={tech} />
           ))}
         </div>
 
@@ -166,7 +166,7 @@ export const Projects = () => {
                 title={project.title}
                 description={project.description}
                 href={project.href}
-                tags={project.tags}
+                techStack={project.techStack}
                 images={project.images}
                 align={index % 2 === 0 ? 'left' : 'right'}
                 github={project.github ?? undefined}
