@@ -8,6 +8,7 @@ const ENABLE_CAROUSEL = false;
 
 import { GithubIcon } from '@/components/icons/social-icons';
 import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
+import { PrimaryButton } from '@/components/ui/primary-button';
 import { Button } from '@/components/vendor/button';
 import {
   Carousel,
@@ -68,12 +69,10 @@ const ProjectCard = (props: Props) => {
         </div>
 
         <div className="flex gap-3 pt-4">
-          <a href={href} target="_blank">
-            <Button className="group h-12 gap-2 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 px-6 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-primary-500 hover:via-primary-400 hover:to-primary-500 hover:shadow-xl active:scale-95">
-              <ExternalLink className="h-4 w-4" />
-              <span>View Project</span>
-            </Button>
-          </a>
+          <PrimaryButton href={href} target="_blank">
+            <ExternalLink className="h-4 w-4" />
+            <span>View Project</span>
+          </PrimaryButton>
           {github && (
             <a href={github} target="_blank">
               <Button
