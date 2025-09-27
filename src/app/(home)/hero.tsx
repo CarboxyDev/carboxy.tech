@@ -33,7 +33,7 @@ export const HeroSection = () => {
           Transforming Ideas into Digital Reality.
         </h1>
         <div
-          className="animate-fade-in-up bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent opacity-0 transition-all duration-300 hover:scale-[1.03] hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] md:text-4xl lg:text-5xl"
+          className="animate-fade-in-up bg-gradient-to-r from-sky-400 via-indigo-400 to-blue-400 bg-clip-text pb-2 text-3xl font-semibold text-transparent opacity-0 transition-all duration-300 hover:scale-[1.03] hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] md:text-4xl lg:text-5xl"
           style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
         >
           Turning visions into products.
@@ -111,7 +111,7 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-violet-500/20 blur-sm" />
+      <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-primary-500/20 blur-sm" />
       <div
         className="absolute -right-4 top-8 h-2 w-2 animate-pulse-slow rounded-full bg-cyan-500/20 blur-sm"
         style={{ animationDelay: '1s' }}

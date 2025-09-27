@@ -31,7 +31,7 @@ const FloatingParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="animate-float-magical absolute rounded-full bg-gradient-to-r from-violet-400/20 to-purple-400/20 blur-sm"
+          className="animate-float-magical absolute rounded-full bg-gradient-to-r from-sky-400/20 to-primary-400/20 blur-sm"
           style={{
             width: `${particle.size}px`,
             height: `${particle.size}px`,

@@ -1,7 +1,4 @@
-import {
-  BackgroundEffects,
-  ParticleEffect,
-} from '@/components/home/background-effects';
+import { ParticleEffect } from '@/components/home/background-effects';
 import { StructuredSEOData } from '@/components/structured-seo-data';
 import { TooltipProvider } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
@@ -76,11 +73,10 @@ export default function RootLayout({
         className={cn(
           textFont.className,
           process.env.NODE_ENV == 'development' && 'debug-screens',
-          'bg-[#141416] text-white antialiased'
+          'text-white antialiased'
         )}
       >
         <StructuredSEOData />
-        <BackgroundEffects />
         <ParticleEffect />
         <TooltipProvider>{children}</TooltipProvider>
         <Analytics />

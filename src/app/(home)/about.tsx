@@ -81,7 +81,7 @@ export const AboutSection = () => {
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-3 text-gray-300">
-                      <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-violet-400" />
+                      <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
                       <span className="font-medium">AI/ML Integration</span>
                     </div>
                     <p className="ml-5 text-sm text-gray-400">
