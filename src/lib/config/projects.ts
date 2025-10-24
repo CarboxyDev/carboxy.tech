@@ -1,18 +1,15 @@
-export interface Project {
+interface Project {
   id: string;
   title: string;
   description: string;
   href: string;
   images: string[];
-  tags: string[];
   techStack: string[];
-  status: 'Live' | 'In Development' | 'Completed';
-  year: number;
-  featured?: boolean;
-  github: string | null;
+  github?: string;
+  isFeatured: boolean;
 }
 
-export const PROJECTS: Project[] = [
+const PROJECTS: Project[] = [
   {
     id: 'adden-ai',
     title: 'AddenAI',
@@ -20,12 +17,8 @@ export const PROJECTS: Project[] = [
       'A codeless AI solution platform for optimizing ad accounts and campaigns for boosting growth and marketing performance.',
     href: 'https://adden.ai/sign-in',
     images: ['adden1.png', 'adden2.png'],
-    tags: ['Frontend Lead', 'Work', 'AI/ML'],
     techStack: ['TypeScript', 'React', 'Next.js', 'TailwindCSS', 'FastAPI'],
-    status: 'Live',
-    year: 2024,
-    featured: true,
-    github: null,
+    isFeatured: true,
   },
   {
     id: 'arawn',
@@ -34,12 +27,9 @@ export const PROJECTS: Project[] = [
       'Arawn is a production-ready full-stack TypeScript monorepo template with Next.js, NestJS, Turborepo and other modern technologies.',
     href: 'https://arawn.carboxy.xyz',
     images: ['arawn1.png'],
-    tags: ['Template', 'Frontend', 'Backend'],
     techStack: ['TypeScript', 'Next.js', 'NestJS', 'TailwindCSS', 'Turborepo'],
-    status: 'In Development',
-    year: 2025,
-    featured: true,
     github: 'https://github.com/CarboxyDev/arawn',
+    isFeatured: true,
   },
   {
     id: 'quizfoundry',
@@ -48,28 +38,26 @@ export const PROJECTS: Project[] = [
       'QuizFoundry is a platform for quickly creating and sharing quizzes with the power of AI.',
     href: 'https://quizfoundry.carboxy.xyz',
     images: ['quizfoundry1.png'],
-    tags: ['Frontend', 'Backend', 'UI/UX', 'AI/ML'],
     techStack: ['TypeScript', 'React', 'Next.js', 'Express', 'TailwindCSS'],
-    status: 'In Development',
-    year: 2025,
-    featured: true,
     github: 'https://github.com/CarboxyDev/quizfoundry',
+    isFeatured: true,
   },
   {
     id: 'buy-or-bye',
     title: 'Buy or Bye',
     description:
       'Make smarter purchase decisions. BuyOrBye is a website that helps you make smarter purchase decisions by analyzing your needs and preferences and providing you with a smart AI-powered verdict.',
-    images: ['buyorbye1.png'],
     href: 'https://buyorbye.carboxy.xyz/',
-    tags: ['Frontend', 'Backend', 'UI/UX'],
+    images: ['buyorbye1.png'],
     techStack: ['TypeScript', 'React', 'Next.js', 'TailwindCSS', 'Gemini SDK'],
-    status: 'Live',
-    year: 2025,
-    featured: true,
     github: 'https://github.com/CarboxyDev/buyorbye',
+    isFeatured: true,
   },
 ];
 
+export type { Project };
+
+export { PROJECTS };
+
 export const getFeaturedProjects = () =>
-  PROJECTS.filter((project) => project.featured);
+  PROJECTS.filter((project) => project.isFeatured);

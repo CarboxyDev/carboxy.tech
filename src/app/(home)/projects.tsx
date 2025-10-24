@@ -168,7 +168,7 @@ export const Projects = () => {
                 techStack={project.techStack}
                 images={project.images}
                 align={index % 2 === 0 ? 'left' : 'right'}
-                github={project.github ?? undefined}
+                github={project.github}
               />
             </motion.div>
           ))}
