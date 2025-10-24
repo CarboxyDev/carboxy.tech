@@ -135,10 +135,10 @@ const ProjectTag = (props: { label: string }) => {
 
 export const Projects = () => {
   return (
-    <section id="projects" className="flex flex-col sm:mb-44">
+    <section id="projects" className="flex flex-col pt-20 sm:mb-44 lg:pt-32">
       <SectionHeading title="Featured Projects" />
       <motion.div
-        className="mt-50"
+        className="mt-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}

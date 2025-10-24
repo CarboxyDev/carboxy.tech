@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import { Code2, Gamepad2, MapPin, TrendingUp, Users } from 'lucide-react';
 import { useState } from 'react';
 
-export const AboutSection = () => {
+export const About = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
