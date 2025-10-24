@@ -28,6 +28,20 @@ export const PROJECTS: Project[] = [
     github: null,
   },
   {
+    id: 'arawn',
+    title: 'Arawn',
+    description:
+      'Arawn is a production-ready full-stack TypeScript monorepo template with Next.js, NestJS, Turborepo and other modern technologies.',
+    href: 'https://arawn.carboxy.xyz',
+    images: ['arawn1.png'],
+    tags: ['Template', 'Frontend', 'Backend'],
+    techStack: ['TypeScript', 'Next.js', 'NestJS', 'TailwindCSS', 'Turborepo'],
+    status: 'In Development',
+    year: 2025,
+    featured: true,
+    github: 'https://github.com/CarboxyDev/arawn',
+  },
+  {
     id: 'quizfoundry',
     title: 'QuizFoundry',
     description:
