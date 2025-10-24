@@ -1,9 +1,12 @@
+'use client';
+
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/components/vendor/tooltip';
 import React from 'react';
+import { toast } from 'sonner';
 
 interface Props {
   site: string;
@@ -16,13 +19,36 @@ export const SocialButton = (props: Props) => {
   const isHttp =
     props.url.startsWith('http://') || props.url.startsWith('https://');
 
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = props.url.replace('mailto:', '');
+
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.success('Email copied to clipboard!', {
+        description: email,
+      });
+    } catch (error) {
+      toast.error('Failed to copy email', {
+        description: 'Please try again',
+      });
+    }
+  };
+
+  const ButtonWrapper = isMail ? 'button' : 'a';
+  const buttonProps = isMail
+    ? { onClick: handleEmailClick, type: 'button' as const }
+    : {
+        href: props.url,
+        target: '_blank' as const,
+        rel: isHttp ? ('noopener noreferrer' as const) : undefined,
+      };
+
   return (
     <Tooltip delayDuration={300}>
       <TooltipTrigger asChild>
-        <a
-          href={props.url}
-          target="_blank"
-          rel={isHttp ? 'noopener noreferrer' : undefined}
+        <ButtonWrapper
+          {...buttonProps}
           about={props.site + ' social link'}
           title={props.site}
           className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-700/40 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-zinc-600/60 hover:from-zinc-700/60 hover:to-zinc-800/60 hover:shadow-xl hover:shadow-zinc-900/50 active:scale-95"
@@ -57,7 +83,7 @@ export const SocialButton = (props: Props) => {
               }`,
             })}
           </div>
-        </a>
+        </ButtonWrapper>
       </TooltipTrigger>
       <TooltipContent
         side="top"

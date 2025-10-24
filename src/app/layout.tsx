@@ -1,5 +1,6 @@
 import { ParticleEffect } from '@/components/home/background-effects';
 import { StructuredSEOData } from '@/components/structured-seo-data';
+import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/vendor/tooltip';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
@@ -76,6 +77,7 @@ export default function RootLayout({
           'text-white antialiased'
         )}
       >
+        <Toaster position="top-right" />
         <StructuredSEOData />
         <ParticleEffect />
         <TooltipProvider>{children}</TooltipProvider>

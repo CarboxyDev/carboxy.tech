@@ -7,8 +7,25 @@ import { Button } from '@/components/vendor/button';
 import { LINKS } from '@/lib/config/links';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { toast } from 'sonner';
 
 export const Contact = () => {
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = LINKS.email.replace('mailto:', '');
+
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.success('Email copied to clipboard!', {
+        description: email,
+      });
+    } catch (error) {
+      toast.error('Failed to copy email', {
+        description: 'Please try again',
+      });
+    }
+  };
+
   return (
     <section className="pb-32 pt-20 lg:pb-40 lg:pt-32" data-section="contact">
       <div className="space-y-16">
@@ -60,7 +77,7 @@ export const Contact = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <PrimaryButton
-                    href={LINKS.email}
+                    onClick={handleEmailClick}
                     className="w-full px-8 sm:w-auto"
                   >
                     <MailIcon className="h-4 w-4" />
