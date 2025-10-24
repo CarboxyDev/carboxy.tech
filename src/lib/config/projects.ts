@@ -14,7 +14,7 @@ const PROJECTS: Project[] = [
     id: 'adden-ai',
     title: 'AddenAI',
     description:
-      'A codeless AI solution platform for optimizing ad accounts and campaigns for boosting growth and marketing performance.',
+      'An AI webapp for optimizing ad accounts and campaigns where you can chat with all your marketing data from various ad platforms.',
     href: 'https://adden.ai/sign-in',
     images: ['adden3.png'],
     techStack: ['TypeScript', 'React', 'Next.js', 'TailwindCSS', 'FastAPI'],

@@ -2,6 +2,7 @@
 
 import { SectionHeading } from '@/components/home/section-heading';
 import { GithubIcon } from '@/components/icons/social-icons';
+import { ImageLightbox } from '@/components/image-lightbox';
 import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import { PrimaryButton } from '@/components/ui/primary-button';
 import { Button } from '@/components/vendor/button';
@@ -106,13 +107,7 @@ const ProjectCard = (props: ProjectCardProps) => {
             <CarouselNext />
           </Carousel>
         ) : (
-          <ImageWithSkeleton
-            src={'/' + images[0]}
-            alt={`${title} preview`}
-            height={400}
-            width={640}
-            priority
-          />
+          <ImageLightbox images={images} alt={`${title} preview`} />
         )}
       </div>
     </section>
