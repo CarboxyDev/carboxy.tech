@@ -1,11 +1,6 @@
 'use client';
 
 import { SectionHeading } from '@/components/home/section-heading';
-import { getFeaturedProjects } from '@/lib/config/projects';
-import { motion } from 'framer-motion';
-
-const ENABLE_CAROUSEL = false;
-
 import { GithubIcon } from '@/components/icons/social-icons';
 import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import { PrimaryButton } from '@/components/ui/primary-button';
@@ -17,11 +12,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/vendor/carousel';
+import { getFeaturedProjects } from '@/lib/config/projects';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { DM_Mono } from 'next/font/google';
 
-interface Props {
+const ENABLE_CAROUSEL = false;
+
+interface ProjectCardProps {
   title: string;
   description: string;
   href: string;
@@ -31,7 +30,7 @@ interface Props {
   align: 'left' | 'right';
 }
 
-const ProjectCard = (props: Props) => {
+const ProjectCard = (props: ProjectCardProps) => {
   const { href, title, description, techStack, images, align, github } = props;
 
   return (

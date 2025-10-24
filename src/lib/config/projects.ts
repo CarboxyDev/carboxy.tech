@@ -16,7 +16,7 @@ const PROJECTS: Project[] = [
     description:
       'A codeless AI solution platform for optimizing ad accounts and campaigns for boosting growth and marketing performance.',
     href: 'https://adden.ai/sign-in',
-    images: ['adden1.png', 'adden2.png'],
+    images: ['adden3.png'],
     techStack: ['TypeScript', 'React', 'Next.js', 'TailwindCSS', 'FastAPI'],
     isFeatured: true,
   },
