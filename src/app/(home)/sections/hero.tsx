@@ -6,6 +6,7 @@ import {
   MailIcon,
   TwitterIcon,
 } from '@/components/icons/social-icons';
+import { RadialSpotlight } from '@/components/radial-spotlight';
 import { SocialButton } from '@/components/social-button';
 import { LINKS } from '@/lib/config/links';
 import { cn } from '@/lib/utils';
@@ -20,6 +21,7 @@ const headingFont = Outfit({
 export const Hero = () => {
   return (
     <section className="relative flex flex-col items-center text-center">
+      <RadialSpotlight className="-top-40" />
       <div
         className={cn(
           'relative z-10 text-balance text-4xl font-semibold md:text-5xl lg:text-6xl',
