@@ -1,4 +1,3 @@
-import { ParticleEffect } from '@/components/home/background-effects';
 import { StructuredSEOData } from '@/components/structured-seo-data';
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/vendor/tooltip';
@@ -79,7 +78,6 @@ export default function RootLayout({
       >
         <Toaster position="top-right" />
         <StructuredSEOData />
-        <ParticleEffect />
         <TooltipProvider>{children}</TooltipProvider>
         <Analytics />
       </body>

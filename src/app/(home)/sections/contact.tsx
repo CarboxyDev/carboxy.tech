@@ -37,19 +37,16 @@ export const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-2xl border border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 via-zinc-900/30 to-zinc-900/50 p-12 backdrop-blur-sm lg:p-16"
+            className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/80 p-12 lg:p-16"
           >
-            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary-500/10 blur-3xl" />
-            <div className="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl" />
-
-            <div className="relative space-y-10">
+            <div className="space-y-10">
               <div className="space-y-4 text-center">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 backdrop-blur-sm"
+                  className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/50 px-3.5 py-1.5"
                 >
                   <div className="relative flex items-center">
                     <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -63,13 +60,13 @@ export const Contact = () => {
                 <h3 className="text-2xl font-bold text-white lg:text-3xl">
                   Have a project in mind?
                 </h3>
-                <p className="mx-auto max-w-xl text-base leading-relaxed text-zinc-300 lg:text-lg">
+                <p className="mx-auto max-w-xl text-base leading-relaxed text-zinc-400 lg:text-lg">
                   I work with teams and founders to build products that matter.
                   If you have something interesting, let's talk.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +97,7 @@ export const Contact = () => {
                   >
                     <Button
                       variant="outline"
-                      className="h-12 w-full gap-2.5 border border-zinc-700/60 bg-zinc-800/40 px-8 font-medium text-zinc-300 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600 hover:bg-zinc-800/60 hover:text-white sm:w-auto"
+                      className="h-12 w-full gap-2.5 border border-zinc-700 bg-zinc-800/50 px-8 font-medium text-zinc-300 transition-all duration-300 hover:border-zinc-600 hover:bg-zinc-800 hover:text-white sm:w-auto"
                     >
                       <TwitterIcon className="h-4 w-4" />
                       <span>DM on X</span>

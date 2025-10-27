@@ -1,7 +1,6 @@
 'use client';
 
 import { AboutMeButton, LearnMoreButton } from '@/components/home/cta-buttons';
-import { FloatingParticles } from '@/components/home/floating-particles';
 import {
   GithubIcon,
   MailIcon,
@@ -21,8 +20,6 @@ const headingFont = Outfit({
 export const Hero = () => {
   return (
     <section className="relative flex flex-col items-center text-center">
-      <FloatingParticles />
-
       <div
         className={cn(
           'relative z-10 text-balance text-4xl font-semibold md:text-5xl lg:text-6xl',
@@ -111,11 +108,6 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute -left-2 -top-2 h-4 w-4 animate-pulse-slow rounded-full bg-primary-500/20 blur-sm" />
-      <div
-        className="absolute -right-4 top-8 h-2 w-2 animate-pulse-slow rounded-full bg-cyan-500/20 blur-sm"
-        style={{ animationDelay: '1s' }}
-      />
     </section>
   );
 };
