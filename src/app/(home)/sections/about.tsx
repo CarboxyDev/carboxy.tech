@@ -40,7 +40,7 @@ export const About = () => {
                 onHover={setHoveredCard}
                 className="md:row-span-2"
               >
-                <JourneyTimeline />
+                <JourneyTimeline isPaused={hoveredCard === 'my-journey'} />
               </AboutCard>
             </div>
           </div>
