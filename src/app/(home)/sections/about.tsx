@@ -6,7 +6,7 @@ import { JourneyTimeline } from '@/components/journey-timeline';
 import { SkillsList } from '@/components/skills-list';
 import { journeyEvents, skills } from '@/lib/config/about';
 import { cn } from '@/lib/utils';
-import { Code2, Gamepad2, MapPin, TrendingUp, Users } from 'lucide-react';
+import { Code2, MapPin, Users } from 'lucide-react';
 import { useState } from 'react';
 
 export const About = () => {
@@ -32,7 +32,6 @@ export const About = () => {
               >
                 <SkillsList skills={skills} />
               </AboutCard>
-
               <AboutCard
                 id="my-journey"
                 title="My Journey"
@@ -43,7 +42,6 @@ export const About = () => {
               >
                 <JourneyTimeline events={journeyEvents} />
               </AboutCard>
-
               <AboutCard
                 id="work-style"
                 title="Work Style"
@@ -56,34 +54,6 @@ export const About = () => {
                   solving real-world problems. I believe in rapid iteration,
                   continuous learning, and leveraging AI to amplify
                   productivity.
-                </p>
-              </AboutCard>
-
-              <AboutCard
-                id="learning-growth"
-                title="Learning & Growth"
-                icon={TrendingUp}
-                hoveredCard={hoveredCard}
-                onHover={setHoveredCard}
-              >
-                <p className="text-sm leading-relaxed text-zinc-300">
-                  I'm constantly exploring emerging technologies and
-                  experimenting with cutting-edge tools. Currently diving deep
-                  into AI/ML technologies, exploring innovative ways to create
-                  value and boost development efficiency.
-                </p>
-              </AboutCard>
-
-              <AboutCard
-                id="beyond-code"
-                title="Beyond Code"
-                icon={Gamepad2}
-                hoveredCard={hoveredCard}
-                onHover={setHoveredCard}
-              >
-                <p className="text-sm leading-relaxed text-zinc-300">
-                  When I'm not coding, I enjoy playing video games, browsing
-                  Reddit & X, listening to music, and hitting the gym.
                 </p>
               </AboutCard>
             </div>
