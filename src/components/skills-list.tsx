@@ -52,6 +52,6 @@ export const SKILLS: Skill[] = [
   {
     title: 'Developer Tooling & CLI',
     description:
-      'Building command-line tools and development utilities that are useful',
+      'Building command-line tools, templates and development utilities that are useful',
   },
 ];

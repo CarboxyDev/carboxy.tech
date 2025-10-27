@@ -1,9 +1,35 @@
+import { motion } from 'framer-motion';
+
 export const JourneyTimeline = () => {
   return (
     <div className="relative">
       <div
         className="absolute left-[7px] top-1 w-0.5 bg-primary-400/30"
         style={{ height: 'calc(100% - 80px)' }}
+      />
+      <motion.div
+        className="absolute left-[7px] top-1 w-0.5"
+        style={{ height: 'calc(100% - 80px)' }}
+        animate={{
+          background: [
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 0%, rgba(167, 139, 250, 0.6) 3%, rgba(167, 139, 250, 0) 8%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 10%, rgba(167, 139, 250, 0.6) 13%, rgba(167, 139, 250, 0) 18%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 20%, rgba(167, 139, 250, 0.6) 23%, rgba(167, 139, 250, 0) 28%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 30%, rgba(167, 139, 250, 0.6) 33%, rgba(167, 139, 250, 0) 38%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 40%, rgba(167, 139, 250, 0.6) 43%, rgba(167, 139, 250, 0) 48%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 50%, rgba(167, 139, 250, 0.6) 53%, rgba(167, 139, 250, 0) 58%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 60%, rgba(167, 139, 250, 0.6) 63%, rgba(167, 139, 250, 0) 68%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 70%, rgba(167, 139, 250, 0.6) 73%, rgba(167, 139, 250, 0) 78%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 80%, rgba(167, 139, 250, 0.6) 83%, rgba(167, 139, 250, 0) 88%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 90%, rgba(167, 139, 250, 0.6) 93%, rgba(167, 139, 250, 0) 98%)',
+            'linear-gradient(to bottom, rgba(167, 139, 250, 0) 100%, rgba(167, 139, 250, 0.6) 103%, rgba(167, 139, 250, 0) 108%)',
+          ],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
       />
       <div className="space-y-8">
         {JOURNEY_EVENTS.map((event, index) => (
