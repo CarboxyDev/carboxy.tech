@@ -4,9 +4,8 @@ import { AboutCard } from '@/components/about-card';
 import { SectionHeading } from '@/components/home/section-heading';
 import { JourneyTimeline } from '@/components/journey-timeline';
 import { SkillsList } from '@/components/skills-list';
-import { journeyEvents, skills } from '@/lib/config/about';
 import { cn } from '@/lib/utils';
-import { Code2, MapPin, Users } from 'lucide-react';
+import { Code2, MapPin } from 'lucide-react';
 import { useState } from 'react';
 
 export const About = () => {
@@ -29,8 +28,9 @@ export const About = () => {
                 icon={Code2}
                 hoveredCard={hoveredCard}
                 onHover={setHoveredCard}
+                className="md:row-span-2"
               >
-                <SkillsList skills={skills} />
+                <SkillsList />
               </AboutCard>
               <AboutCard
                 id="my-journey"
@@ -40,21 +40,7 @@ export const About = () => {
                 onHover={setHoveredCard}
                 className="md:row-span-2"
               >
-                <JourneyTimeline events={journeyEvents} />
-              </AboutCard>
-              <AboutCard
-                id="work-style"
-                title="Work Style"
-                icon={Users}
-                hoveredCard={hoveredCard}
-                onHover={setHoveredCard}
-              >
-                <p className="text-sm leading-relaxed text-zinc-300">
-                  I thrive in environments where I can learn and grow while
-                  solving real-world problems. I believe in rapid iteration,
-                  continuous learning, and leveraging AI to amplify
-                  productivity.
-                </p>
+                <JourneyTimeline />
               </AboutCard>
             </div>
           </div>
